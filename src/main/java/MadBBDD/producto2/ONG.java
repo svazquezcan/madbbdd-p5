@@ -145,118 +145,116 @@ public class ONG {
         String nuevoApellido; 
         String nuevoUsuario; 
         String nuevaContraseña; 
-        int numeroProyecto; 
         
-        try {
-            /**Solicitud por consola del tipo de personal y lectura por teclado de tipoDePersonalDelNuevo*/
-           System.out.print("Introduce el tipo de personal del nuevo miembro del personal: ");
+        
+        /**Solicitud por consola del tipo de personal y lectura por teclado de tipoDePersonalDelNuevo*/
+       System.out.print("Introduce el tipo de personal del nuevo miembro del personal: ");
+       tipoDePersonalDelNuevo = leerDatos.nextLine();
+
+       /**Comprobacion para que campo nombre no esté vacío*/
+        while (tipoDePersonalDelNuevo.isEmpty()){
+
+           System.out.print("El tipo de personal del nuevo miembro no puede ser un campo vacío. Introduce el tipo de personal del nuevo miembro del personal: ");
            tipoDePersonalDelNuevo = leerDatos.nextLine();
 
-           /**Comprobacion para que campo nombre no esté vacío*/
-            while (tipoDePersonalDelNuevo.isEmpty()){
+       }
 
-               System.out.print("El tipo de personal del nuevo miembro no puede ser un campo vacío. Introduce el tipo de personal del nuevo miembro del personal: ");
-               tipoDePersonalDelNuevo = leerDatos.nextLine();
+       /**Solicitud por consola del nombre de personal y lectura por teclado del nuevoNombre*/
+       System.out.print("Introduce nombre del nuevo miembro del personal: ");
+       nuevoNombre = leerDatos.nextLine();
 
-           }
+       /**Comprobacion para que campo nombre no esté vacío*/
+        while (nuevoNombre.isEmpty()){
 
-           /**Solicitud por consola del nombre de personal y lectura por teclado del nuevoNombre*/
-           System.out.print("Introduce nombre del nuevo miembro del personal: ");
+           System.out.print("El nombre del nuevo miembro del personal no puede ser un campo vacío. Introduce el nombre del nuevo miembro del personal: ");
            nuevoNombre = leerDatos.nextLine();
 
-           /**Comprobacion para que campo nombre no esté vacío*/
-            while (nuevoNombre.isEmpty()){
+       }
 
-               System.out.print("El nombre del nuevo miembro del personal no puede ser un campo vacío. Introduce el nombre del nuevo miembro del personal: ");
-               nuevoNombre = leerDatos.nextLine();
+        /**Solicitud por consola del apellido de personal y lectura por teclado del nuevoApellido*/
+       System.out.print("Introduce apellido del nuevo miembro del personal: ");
+       nuevoApellido = leerDatos.nextLine();
 
-           }
+       /**Comprobacion para que campo apellido no esté vacío*/
+        while (nuevoApellido.isEmpty()){
 
-            /**Solicitud por consola del apellido de personal y lectura por teclado del nuevoApellido*/
-           System.out.print("Introduce apellido del nuevo miembro del personal: ");
+           System.out.print("El apellido del nuevo miembro del personal no puede ser un campo vacío. Introduce el apellido del nuevo miembro del personal: ");
            nuevoApellido = leerDatos.nextLine();
 
-           /**Comprobacion para que campo apellido no esté vacío*/
-            while (nuevoApellido.isEmpty()){
+       }
 
-               System.out.print("El apellido del nuevo miembro del personal no puede ser un campo vacío. Introduce el apellido del nuevo miembro del personal: ");
-               nuevoApellido = leerDatos.nextLine();
+       /**Solicitud por consola del nuevo usuario de personal y lectura por teclado del nuevoUsuario*/
+       System.out.print("Introduce usuario del nuevo miembro del personal: ");
+       nuevoUsuario = leerDatos.nextLine();
 
-           }
+       /**Comprobacion para que campo usuario no esté vacío*/
+        while (nuevoUsuario.isEmpty()){
 
-           /**Solicitud por consola del nuevo usuario de personal y lectura por teclado del nuevoUsuario*/
-           System.out.print("Introduce usuario del nuevo miembro del personal: ");
+           System.out.print("El usuario del nuevo miembro del personal no puede ser un campo vacío. Introduce el usuario del nuevo miembro del personal: ");
            nuevoUsuario = leerDatos.nextLine();
 
-           /**Comprobacion para que campo usuario no esté vacío*/
-            while (nuevoUsuario.isEmpty()){
+       }  
 
-               System.out.print("El usuario del nuevo miembro del personal no puede ser un campo vacío. Introduce el usuario del nuevo miembro del personal: ");
-               nuevoUsuario = leerDatos.nextLine();
+       ArrayList<Personal> nuevaListaPersonal = this.getListaPersonal();/*usamos el getter de la clase ONG para conseguir listado de personal y almacenarlo en variable nuevaListaPersonal*/
+       boolean newUser = true;
 
-           }  
+       for (int i = 0; i < nuevaListaPersonal.size(); i++){ /**hacemos un loop para recorrer los objetos personal del arraylist listado de personal de la ONG*/
+          if (nuevaListaPersonal.get(i).getUsuario().equals(nuevoUsuario)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
 
-           ArrayList<Personal> nuevaListaPersonal = this.getListaPersonal();/*usamos el getter de la clase ONG para conseguir listado de personal y almacenarlo en variable nuevaListaPersonal*/
-           boolean newUser = true;
-
-           for (int i = 0; i < nuevaListaPersonal.size(); i++){ /**hacemos un loop para recorrer los objetos personal del arraylist listado de personal de la ONG*/
-              if (nuevaListaPersonal.get(i).getUsuario().equals(nuevoUsuario)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
-
-                  System.out.println("El usuario ya existe. No se puede crear un usuario con el mismo nombre. Por favor, vuelve a iniciar el registro de nuevo miembro de personal ");
-                  newUser = false;
-
-               }
+              System.out.println("El usuario ya existe. No se puede crear un usuario con el mismo nombre. Por favor, vuelve a iniciar el registro de nuevo miembro de personal ");
+              newUser = false;
 
            }
 
-           if (newUser){  
+       }
 
-               System.out.print("Introduce la contraseña del usuario del nuevo miembro del personal: ");/*como el usuario es nuevo, ahora pedimos que guarde contraseña*/
-               nuevaContraseña = leerDatos.nextLine();
-               ArrayList<Proyecto> proyectosSinAsignar = this.proyectosLibres();
-               ArrayList<Proyecto> totalProyectos = this.getProyectos(); 
+       if (newUser){  
+
+           System.out.print("Introduce la contraseña del usuario del nuevo miembro del personal: ");/*como el usuario es nuevo, ahora pedimos que guarde contraseña*/
+           nuevaContraseña = leerDatos.nextLine();
+           ArrayList<Proyecto> proyectosSinAsignar = this.proyectosLibres();
+           ArrayList<Proyecto> totalProyectos = this.getProyectos(); 
 
 
-               Proyecto proyectoAsignado;
-               Personal nuevoPersonal = new Personal (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña);            
+           Proyecto proyectoAsignado;
+           Personal nuevoPersonal = new Personal (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña);            
 
-               if (proyectosSinAsignar.isEmpty()){
+           if (totalProyectos.isEmpty()){
 
-                   proyectoAsignado = totalProyectos.get(0);/*para asignación aleatoria, cojo el primer proyecto de entre todos los proyectos, ya que todos tienen miembros*/
-                   proyectosSinAsignar.add(proyectoAsignado);
-                   System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+                System.out.println("La ONG tiene todos sus proyectos cerrados. No se puede asignar un proyecto a ningún miembro del personal en este momento. ");
 
-               }
+           }
 
-               else {
-                   proyectoAsignado = proyectosSinAsignar.get(0);
-                   proyectosSinAsignar.add(proyectoAsignado);
-                   System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+           else if (proyectosSinAsignar.isEmpty()){
 
-               }
-
-                nuevoPersonal.setNombre(nuevoNombre);
-                nuevoPersonal.setApellido(nuevoApellido);
-                nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
-                nuevoPersonal.setListadoProyectos(proyectosSinAsignar);
-                nuevoPersonal.setUsuario(nuevoUsuario);
-                nuevoPersonal.setContraseña(nuevaContraseña);
+               proyectoAsignado = totalProyectos.get(0);/*para asignación aleatoria, cojo el primer proyecto de entre todos los proyectos, ya que todos tienen miembros*/
+               proyectosSinAsignar.add(proyectoAsignado);
+               System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto  " + proyectoAsignado.getCodigoDeProyecto());
 
            }
 
            else {
-
-               System.out.print("No se puede crear el usuario porque ya existe. Volver a empezar registro de nuevo miembro de personal. "); 
-
+               proyectoAsignado = proyectosSinAsignar.get(0);
+               proyectosSinAsignar.add(proyectoAsignado);
+               System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto  " + proyectoAsignado.getCodigoDeProyecto());
 
            }
-        }   
-    
-        catch (IndexOutOfBoundsException e){
 
-            System.out.println("La ONG tiene todos sus proyectos cerrados. No se puede asignar un proyecto a ningún miembro del personal en este momento. ");
-            
-        }
-        
+            nuevoPersonal.setNombre(nuevoNombre);
+            nuevoPersonal.setApellido(nuevoApellido);
+            nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
+            nuevoPersonal.setListadoProyectos(proyectosSinAsignar);
+            nuevoPersonal.setUsuario(nuevoUsuario);
+            nuevoPersonal.setContraseña(nuevaContraseña);
+
+       }
+
+       else {
+
+           System.out.print("No se puede crear el usuario porque ya existe. Volver a empezar registro de nuevo miembro de personal. "); 
+
+
+       }
+
     }
 }
