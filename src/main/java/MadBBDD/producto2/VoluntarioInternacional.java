@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MadBBDD.producto2;
+package MadBBDD.producto2;      
+
+import java.util.ArrayList;
 
 /**
  *
@@ -13,8 +15,8 @@ public class VoluntarioInternacional extends Personal {
     private String NIE; 
     private int codigoDeVoluntario; 
 
-    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, Proyecto personalProyecto, String usuario, String contraseña, String NIE, int codigoDeVoluntario) {
-        super(tipoDePersonal, nombre, apellido, personalProyecto, usuario, contraseña);
+    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String NIE, int codigoDeVoluntario) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña);
         this.NIE = NIE; 
         this.codigoDeVoluntario = codigoDeVoluntario;        
     }

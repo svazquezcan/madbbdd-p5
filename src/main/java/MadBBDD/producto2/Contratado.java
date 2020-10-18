@@ -5,6 +5,8 @@
  */
 package MadBBDD.producto2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Sandra
@@ -20,7 +22,7 @@ public class Contratado extends Personal {
      * @param tipoDePersonal
      * @param nombre
      * @param apellido
-     * @param personalProyecto
+     * @param listadoProyectos
      * @param usuario
      * @param contraseña
      * @param DNI
@@ -28,8 +30,8 @@ public class Contratado extends Personal {
      * @param costeSalario
      * @param funcion*/
     
-    public Contratado(String tipoDePersonal, String nombre, String apellido, Proyecto personalProyecto, String usuario, String contraseña, String DNI, int nºContrato, float costeSalario, String funcion) {
-        super(tipoDePersonal, nombre, apellido, personalProyecto, usuario, contraseña);
+    public Contratado(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String DNI, int nºContrato, float costeSalario, String funcion) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña);
         this.DNI = DNI;
         this.nºContrato = nºContrato; 
         this.costeSalario = costeSalario; 

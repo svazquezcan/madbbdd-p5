@@ -5,6 +5,8 @@
  */
 package MadBBDD.producto2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Sandra
@@ -14,8 +16,8 @@ public class Voluntario extends Personal {
     private String DNI; 
     private int codigoDeVoluntario; 
 
-    public Voluntario(String tipoDePersonal, String nombre, String apellido, Proyecto personalProyecto, String usuario, String contraseña, String DNI, int codigoDeVoluntario) {
-        super(tipoDePersonal, nombre, apellido, personalProyecto, usuario, contraseña);
+    public Voluntario(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String DNI, int codigoDeVoluntario) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña);
         this.DNI = DNI; 
         this.codigoDeVoluntario = codigoDeVoluntario; 
     }

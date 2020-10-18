@@ -6,6 +6,7 @@
 package MadBBDD.producto2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,7 +26,7 @@ public class Proyecto {
     private float costeProyecto;
     private int codigoDeProyecto; 
     private String accionesARealizar; 
-    private String personalAsignado; 
+    private ArrayList<Personal> personalAsignado; 
     
     /**Constructor
      * @param pais
@@ -43,7 +44,7 @@ public class Proyecto {
      * @param costeProyecto
      */
     
-    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar, String personalAsignado){
+    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar,  ArrayList<Personal> personalAsignado){
         this.pais = pais; 
         this.localizacion = localizacion; 
         this.lineaDeAccion = lineaDeAccion; 
@@ -132,8 +133,31 @@ public class Proyecto {
     
         /**Getter
      * @return personalAsignado*/
-    public String getPersonalAsignado(){
+    public  ArrayList<Personal> getPersonalAsignado(){
         return this.personalAsignado;
     }
+    
+    
+    /**Funcion para comprobar proyectos sin asignar
+     * @return boolean*/
+    
+    public boolean isAssigned(){
+        
+        boolean isAssigned = true; 
+        ArrayList<Personal> busyProjects = new ArrayList<Personal>(); 
+        busyProjects = this.getPersonalAsignado();
+        
+        for (Personal p: busyProjects){
+            if (busyProjects.isEmpty()){
+            isAssigned = false; 
+            }      
+        }
+          
+        return isAssigned;
+            
+    }    
+        
+  
+    
     
 }
