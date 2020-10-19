@@ -7,6 +7,7 @@ package MadBBDD.producto2;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -205,27 +206,27 @@ public class ONG {
               newUser = false;
 
            }
-
+          
        }
+       
+       ArrayList<Proyecto> totalProyectos = this.getProyectos(); 
 
-       if (newUser){  
+       if (totalProyectos.isEmpty()){
+
+            System.out.println("No hay proyectos activos en la ONG en este momento, asi que no es posible registrar nuevo personal. ");
+        }
+       
+       else if (newUser){  
 
            System.out.print("Introduce la contraseña del usuario del nuevo miembro del personal: ");/*como el usuario es nuevo, ahora pedimos que guarde contraseña*/
            nuevaContraseña = leerDatos.nextLine();
            ArrayList<Proyecto> proyectosSinAsignar = this.proyectosLibres();
-           ArrayList<Proyecto> totalProyectos = this.getProyectos(); 
-
 
            Proyecto proyectoAsignado;
            Personal nuevoPersonal = new Personal (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña);            
 
-           if (totalProyectos.isEmpty()){
-
-                System.out.println("Todos los proyectos tienen sus miembros al completo. El nuevo miembro de personal será un miembro de apoyo. ");
-           }
-
-           else if (proyectosSinAsignar.isEmpty()){
-
+           if (proyectosSinAsignar.isEmpty()){
+               Collections.shuffle(totalProyectos);
                proyectoAsignado = totalProyectos.get(0);/*para asignación aleatoria, cojo el primer proyecto de entre todos los proyectos, ya que todos tienen miembros*/
                proyectosSinAsignar.add(proyectoAsignado);
                System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto  " + proyectoAsignado.getCodigoDeProyecto());
@@ -246,16 +247,6 @@ public class ONG {
             nuevoPersonal.setContraseña(nuevaContraseña);
             nuevaListaPersonal.add(nuevoPersonal);
             System.out.print("Nuevo miembro de personal guardado correctamente "); 
-
-
        }
-
-       else {
-
-           System.out.print("No se puede crear el usuario porque ya existe. Volver a empezar registro de nuevo miembro de personal. "); 
-
-
-       }
-
-    }
+    }  
 }
