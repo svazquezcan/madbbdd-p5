@@ -221,8 +221,7 @@ public class ONG {
 
            if (totalProyectos.isEmpty()){
 
-                System.out.println("La ONG tiene todos sus proyectos cerrados. No se puede asignar un proyecto a ningún miembro del personal en este momento. ");
-
+                System.out.println("Todos los proyectos tienen sus miembros al completo. El nuevo miembro de personal será un miembro de apoyo. ");
            }
 
            else if (proyectosSinAsignar.isEmpty()){
@@ -238,14 +237,16 @@ public class ONG {
                proyectosSinAsignar.add(proyectoAsignado);
                System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto  " + proyectoAsignado.getCodigoDeProyecto());
 
-           }
+           }  /*guardamos miembro de personal nuevo*/
 
             nuevoPersonal.setNombre(nuevoNombre);
             nuevoPersonal.setApellido(nuevoApellido);
             nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
-            nuevoPersonal.setListadoProyectos(proyectosSinAsignar);
             nuevoPersonal.setUsuario(nuevoUsuario);
             nuevoPersonal.setContraseña(nuevaContraseña);
+            nuevaListaPersonal.add(nuevoPersonal);
+            System.out.print("Nuevo miembro de personal guardado correctamente "); 
+
 
        }
 

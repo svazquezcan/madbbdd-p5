@@ -28,7 +28,7 @@ public class Proyecto {
     private String accionesARealizar; 
     private ArrayList<Personal> personalAsignado; 
     
-    /**Constructor
+    /**Constructor 1
      * @param pais
      * @param localizacion
      * @param lineaDeAccion
@@ -44,7 +44,7 @@ public class Proyecto {
      * @param costeProyecto
      */
     
-    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar,  ArrayList<Personal> personalAsignado){
+    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar){
         this.pais = pais; 
         this.localizacion = localizacion; 
         this.lineaDeAccion = lineaDeAccion; 
@@ -57,6 +57,13 @@ public class Proyecto {
         this.codigoDeProyecto = codigoDeProyecto; 
         this.accionesARealizar = accionesARealizar; 
         this.personalAsignado = personalAsignado; 
+    }
+    
+    /**Constructor 2
+     * @param lineaDeAccion
+      */
+    public Proyecto(String lineaDeAccion){
+        this.lineaDeAccion = lineaDeAccion;        
     }
     
     /**Getter
