@@ -28,7 +28,7 @@ public class Proyecto {
     private String accionesARealizar; 
     private ArrayList<Personal> personalAsignado; 
     
-    /**Constructor 1
+    /**Constructor
      * @param pais
      * @param localizacion
      * @param lineaDeAccion
@@ -40,11 +40,11 @@ public class Proyecto {
      * @param financiacionAportada
      * @param codigoDeProyecto
      * @param accionesARealizar
-     * @param personalAsignado
      * @param costeProyecto
+     * @param personalAsignado
      */
     
-    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar){
+    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar, ArrayList<Personal> personalAsignado){
         this.pais = pais; 
         this.localizacion = localizacion; 
         this.lineaDeAccion = lineaDeAccion; 
@@ -56,14 +56,11 @@ public class Proyecto {
         this.financiacionAportada = financiacionAportada; 
         this.codigoDeProyecto = codigoDeProyecto; 
         this.accionesARealizar = accionesARealizar; 
-        this.personalAsignado = personalAsignado; 
+        this.personalAsignado = new ArrayList<Personal>();
     }
     
-    /**Constructor 2
-     * @param lineaDeAccion
-      */
-    public Proyecto(String lineaDeAccion){
-        this.lineaDeAccion = lineaDeAccion;        
+    /*constructor vacío*/
+    public Proyecto(){ 
     }
     
     /**Getter
@@ -144,7 +141,6 @@ public class Proyecto {
         return this.personalAsignado;
     }
     
-    
     /**Funcion para comprobar proyectos sin asignar
      * @return boolean*/
     
@@ -153,17 +149,23 @@ public class Proyecto {
         boolean isAssigned = true; 
         ArrayList<Personal> busyProjects = new ArrayList<Personal>(); 
         busyProjects = this.getPersonalAsignado();
-        
-        for (Personal p: busyProjects){
-            if (busyProjects.isEmpty()){
+             
+         if (busyProjects == null){
             isAssigned = false; 
-            }      
-        }
+        }      
+         
+         else if (busyProjects.isEmpty()){
+            isAssigned = false; 
+         }
           
         return isAssigned;
             
     }    
-        
+    
+    public static Proyecto addProyecto(){
+            Proyecto proyecto1 = new Proyecto();
+            return(proyecto1);
+        }    
   
     
     

@@ -107,9 +107,7 @@ public class ONG {
     public void setListaPersonal(ArrayList<Personal> listaPersonal){
         this.listaPersonal = listaPersonal; 
     }
-
-
-    
+ 
      /**Funcion para crear un arraylist de proyectos libres
      * @return proyectosLibres (arrayList de proyectos libres*/
     
@@ -135,9 +133,8 @@ public class ONG {
         return listaProyectosLibres;
         
     }
-   
     
-    /**Funcion para la entrada de datos por consola de un nuevo miembro del personal*/
+    /**Funcion para la entrada de datos por consola de un nuevo miembro del persona*/
     
     public void entrarDatosPersonal(){
         /**Declaracion variables para guardar datos de personal nuevo*/
@@ -146,10 +143,11 @@ public class ONG {
         String nuevoApellido; 
         String nuevoUsuario; 
         String nuevaContraseña; 
+        String nuevaDelegacion;
         
         
         /**Solicitud por consola del tipo de personal y lectura por teclado de tipoDePersonalDelNuevo*/
-       System.out.print("Introduce el tipo de personal del nuevo miembro del personal: ");
+       System.out.print("Introduce el tipo de personal del nuevo miembro del personal: Voluntario, VoluntarioInternacional o Contratado: ");
        tipoDePersonalDelNuevo = leerDatos.nextLine();
 
        /**Comprobacion para que campo nombre no esté vacío*/
@@ -159,6 +157,14 @@ public class ONG {
            tipoDePersonalDelNuevo = leerDatos.nextLine();
 
        }
+        /**Comprobacion para que campo tipo de personal esté limitado a los tres tipos posibles y no se pueda introducir cualquier String*/
+
+        while (!"Voluntario".equals(tipoDePersonalDelNuevo) && !"VoluntarioInternacional".equals(tipoDePersonalDelNuevo) && !"Contratado".equals(tipoDePersonalDelNuevo)){ /*comprobacion de campo para que solo se puedan introducir los tipos de habs que existen*/
+
+            System.out.print("El tipo de personal indicado no es correcto. Por favor, vuelve a escribirlo:\n ");
+            tipoDePersonalDelNuevo = leerDatos.nextLine(); 
+
+        }
 
        /**Solicitud por consola del nombre de personal y lectura por teclado del nuevoNombre*/
        System.out.print("Introduce nombre del nuevo miembro del personal: ");
@@ -213,40 +219,72 @@ public class ONG {
 
        if (totalProyectos.isEmpty()){
 
-            System.out.println("No hay proyectos activos en la ONG en este momento, asi que no es posible registrar nuevo personal. ");
+            System.out.println("No hay proyectos activos en la ONG en este momento, asi que no es posible registrar nuevo personal ");
         }
        
-       else if (newUser){  
-
-           System.out.print("Introduce la contraseña del usuario del nuevo miembro del personal: ");/*como el usuario es nuevo, ahora pedimos que guarde contraseña*/
+       else if (newUser){  /*como el usuario es nuevo, ahora pedimos que se guarden el resto de los datos de miembro de personal*/
+           
+           /**Solicitud por consola de contraseña y lectura por teclado de contraseña*/
+           System.out.print("Introduce la contraseña del usuario del nuevo miembro del personal: ");
            nuevaContraseña = leerDatos.nextLine();
-           ArrayList<Proyecto> proyectosSinAsignar = this.proyectosLibres();
+           
+           /**Comprobacion para que campo contraseña no esté vacío*/
+            while (nuevaContraseña.isEmpty()){
 
-           Proyecto proyectoAsignado;
-           Personal nuevoPersonal = new Personal (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña);            
-
-           if (proyectosSinAsignar.isEmpty()){
-               Collections.shuffle(totalProyectos);
-               proyectoAsignado = totalProyectos.get(0);/*para asignación aleatoria, cojo el primer proyecto de entre todos los proyectos, ya que todos tienen miembros*/
-               proyectosSinAsignar.add(proyectoAsignado);
-               System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+               System.out.print("La contraseña del nuevo usuario no puede ser un campo vacio. Introduce la contraseña del nuevo miembro del personal y usuario: ");
+               nuevaContraseña = leerDatos.nextLine();
 
            }
+           
+            /**Solicitud por consola de la delegacion y lectura por teclado de la delegacion a la que pertenece el nuevo miembro*/
+            System.out.print("Introduce al delegación a la que pertenece el nuevo miembro del personal: 'Entreculturas España', 'Entreculturas Portugal' o 'Entreculturas Francia' ");
+            nuevaDelegacion = leerDatos.nextLine();
 
-           else {
-               proyectoAsignado = proyectosSinAsignar.get(0);
-               proyectosSinAsignar.add(proyectoAsignado);
-               System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+            /**Comprobacion para que campo delegación no esté vacío*/
+            while (tipoDePersonalDelNuevo.isEmpty()){
 
-           }  /*guardamos miembro de personal nuevo*/
+               System.out.print("La delegación del nuevo miembro no puede ser un campo vacío. Introduce la delegación del nuevo miembro del personal: ");
+               nuevaDelegacion = leerDatos.nextLine();
 
-            nuevoPersonal.setNombre(nuevoNombre);
-            nuevoPersonal.setApellido(nuevoApellido);
-            nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
-            nuevoPersonal.setUsuario(nuevoUsuario);
-            nuevoPersonal.setContraseña(nuevaContraseña);
-            nuevaListaPersonal.add(nuevoPersonal);
-            System.out.print("Nuevo miembro de personal guardado correctamente "); 
+           }
+            
+            /**Comprobacion para que campo tipo de personal esté limitado a los tres tipos posibles y no se pueda introducir cualquier String*/
+
+            while (!"Voluntario".equals(tipoDePersonalDelNuevo) && !"VoluntarioInternacional".equals(tipoDePersonalDelNuevo) && !"Contratado".equals(tipoDePersonalDelNuevo)){ /*comprobacion de campo para que solo se puedan introducir los tipos de habs que existen*/
+
+                System.out.print("El tipo de personal indicado no es correcto. Por favor, vuelve a escribirlo:\n ");
+                tipoDePersonalDelNuevo = leerDatos.nextLine(); 
+
+            }
+               ArrayList<Proyecto> proyectosSinAsignar = this.proyectosLibres(); /*ArrayList de proyectos libres*/
+               Proyecto proyectoAsignado; /*Proyecto que se asignará*/
+               ArrayList<Proyecto> proyectosDelNuevo = new ArrayList<Proyecto>(); /*ArrayList de proyectos del miembro del personal nuevo*/
+               Personal nuevoPersonal = new Personal (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion);            
+
+               if (proyectosSinAsignar.isEmpty()){
+                   Collections.shuffle(totalProyectos);
+                   proyectoAsignado = totalProyectos.get(0);/*para asignación aleatoria, cojo el primer proyecto de entre todos los proyectos, ya que todos tienen miembros*/
+                   proyectosDelNuevo.add(proyectoAsignado);
+                   System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+
+               }
+
+               else {
+                   proyectoAsignado = proyectosSinAsignar.get(0);
+                   proyectosDelNuevo.add(proyectoAsignado);
+                   System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+
+               }  /*guardamos miembro de personal nuevo*/
+
+                nuevoPersonal.setNombre(nuevoNombre);
+                nuevoPersonal.setApellido(nuevoApellido);
+                nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
+                nuevoPersonal.setUsuario(nuevoUsuario);
+                nuevoPersonal.setContraseña(nuevaContraseña);
+                nuevoPersonal.setDelegacion(nuevaDelegacion);
+                nuevoPersonal.setListadoProyectos(proyectosDelNuevo);
+                nuevaListaPersonal.add(nuevoPersonal);
+                System.out.print("Nuevo miembro de personal guardado correctamente "); 
        }
     }  
 }

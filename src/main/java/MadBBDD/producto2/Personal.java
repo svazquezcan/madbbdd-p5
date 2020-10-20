@@ -6,7 +6,6 @@
 package MadBBDD.producto2;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -19,6 +18,8 @@ public class Personal {
     private ArrayList<Proyecto> listadoProyectos;  
     private String usuario; 
     private String contraseña; 
+    private String delegacion;
+
     
     
     /**Constructor
@@ -27,15 +28,22 @@ public class Personal {
      * @param apellido
      * @param listadoProyectos
      * @param usuario
-     * @param contraseña*/
+     * @param contraseña
+     * @param delegacion*/
     
-    public Personal (String tipoDePersonal, String nombre, String apellido,  ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña){
+    public Personal (String tipoDePersonal, String nombre, String apellido,  ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion){
         this.tipoDePersonal = tipoDePersonal; 
         this.nombre = nombre; 
         this.apellido = apellido; 
         this.listadoProyectos = listadoProyectos;
         this.usuario = usuario; 
         this.contraseña = contraseña; 
+        this.delegacion = delegacion;
+    }
+    
+    /*constructor para testeo*/
+    public Personal (String usuario){
+        this.usuario = usuario;
     }
     
      /**Getter
@@ -82,8 +90,15 @@ public class Personal {
      * @return contraseña*/
     
     public String getContraseña(){
-        return this.tipoDePersonal;
-    }    
+        return this.contraseña;
+    }  
+    
+     /**Getter
+     * @return delegacion*/
+    
+    public String getDelegacion(){
+        return this.delegacion;
+    }  
 
       /**Setter
      * @param tipoDePersonal, para añadir/modificar el tipoDePersonal de Personal*/
@@ -121,32 +136,14 @@ public class Personal {
         this.contraseña = contraseña; 
     }  
     
-  /**Funcion para crear un arraylist de proyectos libres
-     * @return proyectosLibres (arrayList de proyectos libres*/
+       /**Setter
+     * @param delegacion, para añadir/modificar la delegacion de Personal*/
+    public void setDelegacion(String delegacion){
+        this.delegacion = delegacion; 
+    }  
     
-    public ArrayList<Proyecto> proyectosLibres(){
-        
-        ArrayList<Proyecto> nuevaListaProyectos = this.getListadoProyectos();
-        ArrayList<Proyecto> listaProyectosLibres = new ArrayList<Proyecto>();
-        boolean isAssigned = true;
-        
-        for (int i = 0; i < nuevaListaProyectos.size(); i++){
-            
-            isAssigned = nuevaListaProyectos.get(i).isAssigned(); /*comprobamos cada objeto proyecto según método isAssigned*/
-            
-            if (isAssigned){
-            }
-            
-            else {
-                 listaProyectosLibres.add(nuevaListaProyectos.get(i)); /*guardamos cada proyecto sin asignar en el arraylist de proyectos libres creado*/
-            }
-            
-        }
-        
-        return listaProyectosLibres;
-        
-    }
-        
-        
-
+    public static Personal addPersonal(){
+        Personal persona1 = new Personal("test");
+        return(persona1);
+     }    
 }

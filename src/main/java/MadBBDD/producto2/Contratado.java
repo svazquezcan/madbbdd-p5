@@ -28,10 +28,11 @@ public class Contratado extends Personal {
      * @param DNI
      * @param nºContrato
      * @param costeSalario
-     * @param funcion*/
+     * @param funcion
+     * @param delegacion*/
     
-    public Contratado(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String DNI, int nºContrato, float costeSalario, String funcion) {
-        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña);
+    public Contratado(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String DNI, int nºContrato, float costeSalario, String funcion, String delegacion) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.DNI = DNI;
         this.nºContrato = nºContrato; 
         this.costeSalario = costeSalario; 

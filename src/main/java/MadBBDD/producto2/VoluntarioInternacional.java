@@ -15,8 +15,8 @@ public class VoluntarioInternacional extends Personal {
     private String NIE; 
     private int codigoDeVoluntario; 
 
-    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String NIE, int codigoDeVoluntario) {
-        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña);
+    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String NIE, int codigoDeVoluntario, String delegacion) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.NIE = NIE; 
         this.codigoDeVoluntario = codigoDeVoluntario;        
     }

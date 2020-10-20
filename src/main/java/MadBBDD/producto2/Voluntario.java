@@ -16,8 +16,8 @@ public class Voluntario extends Personal {
     private String DNI; 
     private int codigoDeVoluntario; 
 
-    public Voluntario(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String DNI, int codigoDeVoluntario) {
-        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña);
+    public Voluntario(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String DNI, int codigoDeVoluntario, String delegacion) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.DNI = DNI; 
         this.codigoDeVoluntario = codigoDeVoluntario; 
     }
