@@ -295,7 +295,7 @@ public class ONG {
         String  newName_Delegacion; 
         String  newName_Direccion; 
         Integer newName_Telefono;
-        boolean newDelegacion;
+        Boolean newDelegacion;
    
        /**Solicitud por consola del nombre de la delegacion y lectura por teclado de newName_Delegacion**/
        System.out.print("Introduce la nueva delegación a registrar: ");
@@ -323,14 +323,12 @@ public class ONG {
 
        /**Solicitud por consola del Telefono y lectura por teclado del newName_Telefono**/
        System.out.print("Introduce un número de telefono para poder contactar con usted: ");
-       newName_Telefono = leerDatos.nextLine();
-
+       newName_Telefono = leerDatos.nextInt();
+  
        /**Comprobacion para que campo newName_Telefono no esté vacío*/
-        while (newName_Telefono.isEmpty()){
-
-	   system.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
-           newName_Telefono = leerDatos.nextLine();
-
+        while (newName_Telefono == null){
+	   System.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
+           newName_Telefono = leerDatos.nextInt();
        }
 
        /** INICIO - Bloqueo de código de la verificación de las delegaciones, 
@@ -339,22 +337,23 @@ public class ONG {
        ArrayList<Delegacion> nuevaListaDelegaciones = this.getDelegaciones();
 
        for (int i = 0; i < nuevaListaDelegaciones.size(); i++){ /**hacemos un loop para recorrer los objetos personal del arraylist listado de personal de la ONG*/
-          if (nuevaListaDelegaciones.get(i).getDelegaciones().equals(newName_Delegacion)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
+          if (nuevaListaDelegaciones.get(i).getNombre().equals(newName_Delegacion)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
 
               System.out.println("Esta Delegación ya existe. No se puede crear un con el mismo nombre. Por favor, vuelve formular la nueva Delegacion correctamente");
               newDelegacion = false;
               break;
 
-           }if else (newDelegacion = True) {
-               
+           }
+            else{
+       
                Delegacion nuevaDelegacion = new Delegacion (newName_Delegacion, newName_Direccion, newName_Telefono); 
-               nuevaDelegacion.nombre(newName_Delegacion);
-               nuevaDelegacion.direccion(newName_Direccion);
-               nuevaDelegacion.telefono(newName_Telefono);
+               nuevaDelegacion.setNombre(newName_Delegacion);
+               nuevaDelegacion.setDireccion(newName_Direccion);
+               nuevaDelegacion.setTelefono(newName_Telefono);
                nuevaListaDelegaciones.add(nuevaDelegacion);
                System.out.print("Nueva Delegacion guardada correctamente ");
                break;
-                   
+               
             }
        }
        /** FINAL - Bloqueo de código de la verificación de las delegaciones**/
