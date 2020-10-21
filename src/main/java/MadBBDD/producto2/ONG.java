@@ -34,6 +34,7 @@ public class ONG {
         this.proyectos = new ArrayList<Proyecto>();
         this.listaPersonal = new ArrayList <Personal>(); 
         
+        
     }
     
      /**Getter
@@ -286,5 +287,77 @@ public class ONG {
                 nuevaListaPersonal.add(nuevoPersonal);
                 System.out.print("Nuevo miembro de personal guardado correctamente "); 
        }
+       
     }  
+    
+     public void entrarDatosDelegacion(){
+        /**Declaracion variables**/
+        String  newName_Delegacion; 
+        String  newName_Direccion; 
+        Integer newName_Telefono;
+        boolean newDelegacion;
+   
+       /**Solicitud por consola del nombre de la delegacion y lectura por teclado de newName_Delegacion**/
+       System.out.print("Introduce la nueva delegación a registrar: ");
+       newName_Delegacion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo newName_Delegacion no esté vacío*/
+        while (newName_Delegacion.isEmpty()){
+
+           System.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
+           newName_Delegacion = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola de la Dirección y lectura por teclado denewName_Direccion**/
+       System.out.print("Introduce la dirección de la Delegación que desee registrar: ");
+       newName_Direccion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo newName_Direccion no esté vacío**/
+        while (newName_Direccion.isEmpty()){
+
+           System.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
+           newName_Direccion = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola del Telefono y lectura por teclado del newName_Telefono**/
+       System.out.print("Introduce un número de telefono para poder contactar con usted: ");
+       newName_Telefono = leerDatos.nextLine();
+
+       /**Comprobacion para que campo newName_Telefono no esté vacío*/
+        while (newName_Telefono.isEmpty()){
+
+	   system.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
+           newName_Telefono = leerDatos.nextLine();
+
+       }
+
+       /** INICIO - Bloqueo de código de la verificación de las delegaciones, 
+           en caso de que la Delegación sea existente, volverá a empezar de nuevo el formulario.
+           En caso contrario, se añadirá la Delegación y volverá al menú inicial**/
+       ArrayList<Delegacion> nuevaListaDelegaciones = this.getDelegaciones();
+
+       for (int i = 0; i < nuevaListaDelegaciones.size(); i++){ /**hacemos un loop para recorrer los objetos personal del arraylist listado de personal de la ONG*/
+          if (nuevaListaDelegaciones.get(i).getDelegaciones().equals(newName_Delegacion)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
+
+              System.out.println("Esta Delegación ya existe. No se puede crear un con el mismo nombre. Por favor, vuelve formular la nueva Delegacion correctamente");
+              newDelegacion = false;
+              break;
+
+           }if else (newDelegacion = True) {
+               
+               Delegacion nuevaDelegacion = new Delegacion (newName_Delegacion, newName_Direccion, newName_Telefono); 
+               nuevaDelegacion.nombre(newName_Delegacion);
+               nuevaDelegacion.direccion(newName_Direccion);
+               nuevaDelegacion.telefono(newName_Telefono);
+               nuevaListaDelegaciones.add(nuevaDelegacion);
+               System.out.print("Nueva Delegacion guardada correctamente ");
+               break;
+                   
+            }
+       }
+       /** FINAL - Bloqueo de código de la verificación de las delegaciones**/
+    }
+    
 }

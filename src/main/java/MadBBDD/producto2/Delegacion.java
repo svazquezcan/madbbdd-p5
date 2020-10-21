@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Delegacion {
    
-    private String Prueba;
+ 
     private String nombre; 
     private String direccion; 
     private int telefono; 
