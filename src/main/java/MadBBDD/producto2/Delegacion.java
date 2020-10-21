@@ -11,8 +11,7 @@ import java.util.ArrayList;
  *
  * @author Sandra
  */
-public class Delegacion {
-   
+public class Delegacion {   
  
     private String nombre; 
     private String direccion; 
@@ -46,5 +45,21 @@ public class Delegacion {
      * @return telefono*/
     public int getTelefono(){
         return this.telefono;
+    }
+    
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setListaDePersonal(ArrayList<Personal> listaDePersonal) {
+        this.listaDePersonal = listaDePersonal;
     }
 }
