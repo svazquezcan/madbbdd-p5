@@ -7,6 +7,7 @@ package MadBBDD.producto2;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Collections;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -227,7 +228,179 @@ public class ONG {
            }
           
        }
-       
+ 
+    public void entrarDatosProyecto(){
+        /**Declaracion variables para guardar datos de proyecto nuevo*/
+    private String nuevoPais; 
+    private String nuevaLocalizacion; 
+    private String nuevaLineaDeAccion; 
+    private String nuevaSublineaDeAccion; 
+    private LocalDate nuevaFechaDeInicio; 
+    private LocalDate nuevaFechaDeFinalizacion;
+    private String nuevoSocioLocal; 
+    private String nuevoFinanciador; 
+    private float nuevaFinanciacionAportada;
+    private float nuevoCosteProyecto;
+    private int nuevoCodigoDeProyecto; 
+    private String nuevasAccionesARealizar; 
+        
+        
+        /**Solicitud por consola del país de Proyecto y lectura por teclado de nuevoPais*/
+       System.out.print("Introduce el país del proyecto: ");
+       nuevoPais = leerDatos.nextLine();
+
+       /**Comprobacion para que campo país no esté vacío*/
+        while (nuevoPais.isEmpty()){
+
+           System.out.print("El campo país no puede quedar vacío, introduce el país del Proyecto: ");
+           nuevoPais = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola de la línea de localización y lectura por teclado de nuevaLocalizacion*/
+       System.out.print("Introduce nombre de la nueva localización: ");
+       nuevaLocalizacion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo localización no esté vacío*/
+        while (nuevaLocalizacion.isEmpty()){
+
+           System.out.print("El nombre de localización no puede quedar vacío. Introduce el nombre de la localización: ");
+           nuevaLocalizacion = leerDatos.nextLine();
+
+       }
+
+        /**Solicitud por consola de la línea de acción del proyecto y lectura por teclado de nuevaLineaDeAccion*/
+       System.out.print("Introduce la línea de acción: ");
+       nuevaLineaDeAccion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo apellido no esté vacío*/
+        while (nuevaLineaDeAccion.isEmpty()){
+
+           System.out.print("La línea de acción no puede ser un campo vacío. Introduce la línea de acción: ");
+           nuevaLineaDeAccion = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola la sublínea y lectura por teclado de nuevaSublineaDeAccion*/
+       System.out.print("Introduce la sublínea de acción: ");
+       nuevaSublineaDeAccion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo sublínea de acción no esté vacío*/
+        while (nuevaSublineaDeAccion.isEmpty()){
+
+           System.out.print("La sublínea de acción no puede quedar vacía. Introduce la sublínea de acción: ");
+           nuevaSublineaDeAccion = leerDatos.nextLine();
+
+       }  
+        
+        /**Solicitud por consola de la fecha de inicio y lectura por teclado de fechaDeInicio*/
+       System.out.print("Introduce la fecha de inicio del proyecto: ");
+       nuevaFechaDeInicio = leerDatos.nextLine();
+
+       /**Comprobacion para que campo fecha de inicio no esté vacío*/
+        while (nuevaFechaDeInicio.isEmpty()){
+
+           System.out.print("La fecha de inicio no puede quedar vacía, introduce la fecha de inicio del Proyecto: ");
+           nuevaFechaDeInicio = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola de la fecha de finalización y lectura por teclado de nuevaFechaDeFinalizacion*/
+       System.out.print("Introduce fecha de finalización: ");
+       nuevaFechaDeFinalizacion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo fecha de finalización no esté vacío*/
+        while (nuevaFechaDeFinalizacion.isEmpty()){
+
+           System.out.print("La fecha de finalización no puede quedar vacía. Introduce la fecha de finalización: ");
+           nuevaFechaDeFinalizacion = leerDatos.nextLine();
+
+       }
+
+        /**Solicitud por consola de socio local y lectura por teclado de nuevoSocioLocal*/
+       System.out.print("Introduce el socio local: ");
+       nuevoSocioLocal = leerDatos.nextLine();
+
+       /**Comprobacion para que campo socio local no esté vacío*/
+        while (nuevoSocioLocal.isEmpty()){
+
+           System.out.print("Socio local no puede ser un campo vacío. Introduce el socio local: ");
+           nuevoSocioLocal = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola del financiador y lectura por teclado de nuevoFinanciador*/
+       System.out.print("Introduce el financiador: ");
+       nuevoFinanciador = leerDatos.nextLine();
+
+       /**Comprobacion para que campo financiador no esté vacío*/
+        while (nuevoFinanciador.isEmpty()){
+
+           System.out.print("El financiador no puede quedar vacío. Introduce el financiador: ");
+           nuevoFinanciador = leerDatos.nextLine();
+
+       }
+        
+        /**Solicitud por consola de la financiación aportada y lectura por teclado de nuevaFinanciacionAportada*/
+       System.out.print("Introduce la financiación: ");
+       nuevaFinanciacionAportada = leerDatos.nextFloat();
+
+       /**Comprobacion para que campo financiación aportada no esté vacía*/
+        while (nuevaFinanciacionAportada.isEmpty()){
+
+           System.out.print("La financiación aportada no puede quedar vacía. Introduce un importe: ");
+           nuevaFinanciacionAportada = leerDatos.nextFloat();
+
+       }  
+        
+        /**Solicitud por consola del coste del proyecto y lectura por teclado de nuevoCosteProyecto*/
+       System.out.print("Introduce el coste del proyecto: ");
+       nuevoCosteProyecto = leerDatos.nextFloat();
+
+       /**Comprobacion para que campo coste del proyecto no esté vacío*/
+        while (nuevoCosteProyecto.isEmpty()){
+
+           System.out.print("El coste del proyecto no puede quedar vacío. Introduce un importe: ");
+           nuevoCosteProyecto = leerDatos.nextFloat();
+
+       }  
+        
+        /**Solicitud por consola del código del proyecto y lectura por teclado de nuevoCodigoDeProyecto*/
+       System.out.print("Introduce el código del proyecto: ");
+       nuevoCodigoDeProyecto = leerDatos.nextInt();
+
+       /**Comprobacion para que campo código de proyecto no esté vacío*/
+        while (nuevoCodigoDeProyecto.isEmpty()){
+
+           System.out.print("El código del proyecto no puede quedar vacío. Introduce un código: ");
+           nuevoCodigoDeProyecto = leerDatos.nextInt();
+
+       }  
+
+        /**Solicitud por consola de las acciones a realizar por el proyecto y lectura por teclado de nuevasAccionesARealizar*/
+       System.out.print("Introduce las acciones a realizar: ");
+       nuevasAccionesARealizar = leerDatos.nextLine();
+
+       /**Comprobacion para que campo acciones a realizar no esté vacío*/
+        while (nuevasAccionesARealizar.isEmpty()){
+
+           System.out.print("Debe especificar las acciones a realizar. Por favor, escríbalas: ");
+           nuevasAccionesARealizar = leerDatos.nextLine();
+
+       }
+        
+       ArrayList<Personal> nuevaListaPersonal = this.getListaPersonal();/*usamos el getter de la clase ONG para conseguir listado de personal y almacenarlo en variable nuevaListaPersonal*/
+       boolean newUser = true;
+
+       for (int i = 0; i < nuevaListaPersonal.size(); i++){ /**hacemos un loop para recorrer los objetos personal del arraylist listado de personal de la ONG*/
+          if (nuevaListaPersonal.get(i).getUsuario().equals(nuevoUsuario)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
+
+              System.out.println("El usuario ya existe. No se puede crear un usuario con el mismo nombre. Por favor, vuelve a iniciar el registro de nuevo miembro de personal ");
+              newUser = false;
+
+           }
+          
+       }      
        ArrayList<Proyecto> totalProyectos = this.getProyectos(); 
 
        if (totalProyectos.isEmpty()){
