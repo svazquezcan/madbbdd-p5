@@ -5,6 +5,7 @@
  */
 package MadBBDD.producto2;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -357,6 +358,322 @@ public class ONG {
           if (nuevaListaDelegaciones.get(i).getNombre().equals(newName_Delegacion)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
 
               System.out.println("Esta DelegaciÃ³n ya existe. No se puede crear un con el mismo nombre. Por favor, vuelve formular la nueva Delegacion correctamente");
+              newDelegacion = false;
+           }
+            else{
+              
+            }
+       }
+       
+       if (newDelegacion) {
+        Delegacion nuevaDelegacion = new Delegacion (newName_Delegacion, newName_Direccion, newName_Telefono); 
+        nuevaDelegacion.setNombre(newName_Delegacion);
+        nuevaDelegacion.setDireccion(newName_Direccion);
+        nuevaDelegacion.setTelefono(newName_Telefono);
+        nuevaListaDelegaciones.add(nuevaDelegacion);
+        System.out.print("Nueva Delegacion guardada correctamente ");   
+       }
+    public void entrarDatosProyecto(){
+        /**Declaracion variables para guardar datos de proyecto nuevo*/
+    private String nuevoPais; 
+    private String nuevaLocalizacion; 
+    private String nuevaLineaDeAccion; 
+    private String nuevaSublineaDeAccion; 
+    private LocalDate nuevaFechaDeInicio; 
+    private LocalDate nuevaFechaDeFinalizacion;
+    private String nuevoSocioLocal; 
+    private String nuevoFinanciador; 
+    private float nuevaFinanciacionAportada;
+    private float nuevoCosteProyecto;
+    private int nuevoCodigoDeProyecto; 
+    private String nuevasAccionesARealizar; 
+        
+        
+        /**Solicitud por consola del país de Proyecto y lectura por teclado de nuevoPais*/
+       System.out.print("Introduce el país del proyecto: ");
+       nuevoPais = leerDatos.nextLine();
+
+       /**Comprobacion para que campo país no esté vacío*/
+        while (nuevoPais.isEmpty()){
+
+           System.out.print("El campo país no puede quedar vacío, introduce el país del Proyecto: ");
+           nuevoPais = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola de la línea de localización y lectura por teclado de nuevaLocalizacion*/
+       System.out.print("Introduce nombre de la nueva localización: ");
+       nuevaLocalizacion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo localización no esté vacío*/
+        while (nuevaLocalizacion.isEmpty()){
+
+           System.out.print("El nombre de localización no puede quedar vacío. Introduce el nombre de la localización: ");
+           nuevaLocalizacion = leerDatos.nextLine();
+
+       }
+
+        /**Solicitud por consola de la línea de acción del proyecto y lectura por teclado de nuevaLineaDeAccion*/
+       System.out.print("Introduce la línea de acción: ");
+       nuevaLineaDeAccion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo apellido no esté vacío*/
+        while (nuevaLineaDeAccion.isEmpty()){
+
+           System.out.print("La línea de acción no puede ser un campo vacío. Introduce la línea de acción: ");
+           nuevaLineaDeAccion = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola la sublínea y lectura por teclado de nuevaSublineaDeAccion*/
+       System.out.print("Introduce la sublínea de acción: ");
+       nuevaSublineaDeAccion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo sublínea de acción no esté vacío*/
+        while (nuevaSublineaDeAccion.isEmpty()){
+
+           System.out.print("La sublínea de acción no puede quedar vacía. Introduce la sublínea de acción: ");
+           nuevaSublineaDeAccion = leerDatos.nextLine();
+
+       }  
+        
+        /**Solicitud por consola de la fecha de inicio y lectura por teclado de fechaDeInicio*/
+       System.out.print("Introduce la fecha de inicio del proyecto: ");
+       nuevaFechaDeInicio = leerDatos.nextLine();
+
+       /**Comprobacion para que campo fecha de inicio no esté vacío*/
+        while (nuevaFechaDeInicio.isEmpty()){
+
+           System.out.print("La fecha de inicio no puede quedar vacía, introduce la fecha de inicio del Proyecto: ");
+           nuevaFechaDeInicio = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola de la fecha de finalización y lectura por teclado de nuevaFechaDeFinalizacion*/
+       System.out.print("Introduce fecha de finalización: ");
+       nuevaFechaDeFinalizacion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo fecha de finalización no esté vacío*/
+        while (nuevaFechaDeFinalizacion.isEmpty()){
+
+           System.out.print("La fecha de finalización no puede quedar vacía. Introduce la fecha de finalización: ");
+           nuevaFechaDeFinalizacion = leerDatos.nextLine();
+
+       }
+
+        /**Solicitud por consola de socio local y lectura por teclado de nuevoSocioLocal*/
+       System.out.print("Introduce el socio local: ");
+       nuevoSocioLocal = leerDatos.nextLine();
+
+       /**Comprobacion para que campo socio local no esté vacío*/
+        while (nuevoSocioLocal.isEmpty()){
+
+           System.out.print("Socio local no puede ser un campo vacío. Introduce el socio local: ");
+           nuevoSocioLocal = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola del financiador y lectura por teclado de nuevoFinanciador*/
+       System.out.print("Introduce el financiador: ");
+       nuevoFinanciador = leerDatos.nextLine();
+
+       /**Comprobacion para que campo financiador no esté vacío*/
+        while (nuevoFinanciador.isEmpty()){
+
+           System.out.print("El financiador no puede quedar vacío. Introduce el financiador: ");
+           nuevoFinanciador = leerDatos.nextLine();
+
+       }
+        
+        /**Solicitud por consola de la financiación aportada y lectura por teclado de nuevaFinanciacionAportada*/
+       System.out.print("Introduce la financiación: ");
+       nuevaFinanciacionAportada = leerDatos.nextFloat();
+
+       /**Comprobacion para que campo financiación aportada no esté vacía*/
+        while (nuevaFinanciacionAportada.isEmpty()){
+
+           System.out.print("La financiación aportada no puede quedar vacía. Introduce un importe: ");
+           nuevaFinanciacionAportada = leerDatos.nextFloat();
+
+       }  
+        
+        /**Solicitud por consola del coste del proyecto y lectura por teclado de nuevoCosteProyecto*/
+       System.out.print("Introduce el coste del proyecto: ");
+       nuevoCosteProyecto = leerDatos.nextFloat();
+
+       /**Comprobacion para que campo coste del proyecto no esté vacío*/
+        while (nuevoCosteProyecto.isEmpty()){
+
+           System.out.print("El coste del proyecto no puede quedar vacío. Introduce un importe: ");
+           nuevoCosteProyecto = leerDatos.nextFloat();
+
+       }  
+        
+        /**Solicitud por consola del código del proyecto y lectura por teclado de nuevoCodigoDeProyecto*/
+       System.out.print("Introduce el código del proyecto: ");
+       nuevoCodigoDeProyecto = leerDatos.nextInt();
+
+       /**Comprobacion para que campo código de proyecto no esté vacío*/
+        while (nuevoCodigoDeProyecto.isEmpty()){
+
+           System.out.print("El código del proyecto no puede quedar vacío. Introduce un código: ");
+           nuevoCodigoDeProyecto = leerDatos.nextInt();
+
+       }  
+
+        /**Solicitud por consola de las acciones a realizar por el proyecto y lectura por teclado de nuevasAccionesARealizar*/
+       System.out.print("Introduce las acciones a realizar: ");
+       nuevasAccionesARealizar = leerDatos.nextLine();
+
+       /**Comprobacion para que campo acciones a realizar no esté vacío*/
+        while (nuevasAccionesARealizar.isEmpty()){
+
+           System.out.print("Debe especificar las acciones a realizar. Por favor, escríbalas: ");
+           nuevasAccionesARealizar = leerDatos.nextLine();
+
+       }
+        
+       ArrayList<Personal> nuevaListaPersonal = this.getListaPersonal();/*usamos el getter de la clase ONG para conseguir listado de personal y almacenarlo en variable nuevaListaPersonal*/
+       boolean newUser = true;
+
+       for (int i = 0; i < nuevaListaPersonal.size(); i++){ /**hacemos un loop para recorrer los objetos personal del arraylist listado de personal de la ONG*/
+          if (nuevaListaPersonal.get(i).getUsuario().equals(nuevoUsuario)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
+
+              System.out.println("El usuario ya existe. No se puede crear un usuario con el mismo nombre. Por favor, vuelve a iniciar el registro de nuevo miembro de personal ");
+              newUser = false;
+
+           }
+          
+       }      
+       ArrayList<Proyecto> totalProyectos = this.getProyectos(); 
+
+       if (totalProyectos.isEmpty()){
+
+            System.out.println("No hay proyectos activos en la ONG en este momento, asi que no es posible registrar nuevo personal ");
+        }
+       
+       else if (newUser){  /*como el usuario es nuevo, ahora pedimos que se guarden el resto de los datos de miembro de personal*/
+           
+           /**Solicitud por consola de contraseña y lectura por teclado de contraseña*/
+           System.out.print("Introduce la contraseña del usuario del nuevo miembro del personal: ");
+           nuevaContraseña = leerDatos.nextLine();
+           
+           /**Comprobacion para que campo contraseña no esté vacío*/
+            while (nuevaContraseña.isEmpty()){
+
+               System.out.print("La contraseña del nuevo usuario no puede ser un campo vacio. Introduce la contraseña del nuevo miembro del personal y usuario: ");
+               nuevaContraseña = leerDatos.nextLine();
+
+           }
+           
+            /**Solicitud por consola de la delegacion y lectura por teclado de la delegacion a la que pertenece el nuevo miembro*/
+            System.out.print("Introduce al delegación a la que pertenece el nuevo miembro del personal: 'Entreculturas España', 'Entreculturas Portugal' o 'Entreculturas Francia' ");
+            nuevaDelegacion = leerDatos.nextLine();
+
+            /**Comprobacion para que campo delegación no esté vacío*/
+            while (tipoDePersonalDelNuevo.isEmpty()){
+
+               System.out.print("La delegación del nuevo miembro no puede ser un campo vacío. Introduce la delegación del nuevo miembro del personal: ");
+               nuevaDelegacion = leerDatos.nextLine();
+
+           }
+            
+            /**Comprobacion para que campo tipo de personal esté limitado a los tres tipos posibles y no se pueda introducir cualquier String*/
+
+            while (!"Voluntario".equals(tipoDePersonalDelNuevo) && !"VoluntarioInternacional".equals(tipoDePersonalDelNuevo) && !"Contratado".equals(tipoDePersonalDelNuevo)){ /*comprobacion de campo para que solo se puedan introducir los tipos de habs que existen*/
+
+                System.out.print("El tipo de personal indicado no es correcto. Por favor, vuelve a escribirlo:\n ");
+                tipoDePersonalDelNuevo = leerDatos.nextLine(); 
+
+            }
+               ArrayList<Proyecto> proyectosSinAsignar = this.proyectosLibres(); /*ArrayList de proyectos libres*/
+               Proyecto proyectoAsignado; /*Proyecto que se asignará*/
+               ArrayList<Proyecto> proyectosDelNuevo = new ArrayList<Proyecto>(); /*ArrayList de proyectos del miembro del personal nuevo*/
+               Personal nuevoPersonal = new Personal (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion);            
+
+               if (proyectosSinAsignar.isEmpty()){
+                   Collections.shuffle(totalProyectos);
+                   proyectoAsignado = totalProyectos.get(0);/*para asignación aleatoria, cojo el primer proyecto de entre todos los proyectos, ya que todos tienen miembros*/
+                   proyectosDelNuevo.add(proyectoAsignado);
+                   System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto código " + proyectoAsignado.getCodigoDeProyecto());
+
+               }
+
+               else {
+                   proyectoAsignado = proyectosSinAsignar.get(0);
+                   proyectosDelNuevo.add(proyectoAsignado);
+                   System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto código " + proyectoAsignado.getCodigoDeProyecto());
+
+               }  /*guardamos miembro de personal nuevo*/
+
+                nuevoPersonal.setNombre(nuevoNombre);
+                nuevoPersonal.setApellido(nuevoApellido);
+                nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
+                nuevoPersonal.setUsuario(nuevoUsuario);
+                nuevoPersonal.setContraseña(nuevaContraseña);
+                nuevoPersonal.setDelegacion(nuevaDelegacion);
+                nuevoPersonal.setListadoProyectos(proyectosDelNuevo);
+                nuevaListaPersonal.add(nuevoPersonal);
+                System.out.print("Nuevo miembro de personal guardado correctamente "); 
+       }
+       
+    }  
+    
+    
+     public void entrarDatosDelegacion(){
+        /**Declaracion variables**/
+        String  newName_Delegacion; 
+        String  newName_Direccion; 
+        int newName_Telefono;
+        boolean newDelegacion = true;
+   
+       /**Solicitud por consola del nombre de la delegacion y lectura por teclado de newName_Delegacion**/
+       System.out.print("Introduce la nueva delegación a registrar: ");
+       newName_Delegacion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo newName_Delegacion no esté vacío*/
+        while (newName_Delegacion.isEmpty()){
+
+           System.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
+           newName_Delegacion = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola de la Dirección y lectura por teclado denewName_Direccion**/
+       System.out.print("Introduce la dirección de la Delegación que desee registrar: ");
+       newName_Direccion = leerDatos.nextLine();
+
+       /**Comprobacion para que campo newName_Direccion no esté vacío**/
+        while (newName_Direccion.isEmpty()){
+
+           System.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
+           newName_Direccion = leerDatos.nextLine();
+
+       }
+
+       /**Solicitud por consola del Telefono y lectura por teclado del newName_Telefono**/
+       System.out.print("Introduce un número de telefono para poder contactar con usted: ");
+       newName_Telefono = leerDatos.nextInt();
+       leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
+
+  
+       /**Comprobacion para que campo newName_Telefono no esté vacío
+       
+       while (newName_Telefono == "\n"){
+	   System.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
+           newName_Telefono = leerDatos.nextInt();
+       }
+       21.09.2020 - NO DETECTA NULL */
+
+       /** INICIO - Bloqueo de código de la verificación de las delegaciones, 
+           en caso de que la Delegación sea existente, volverá a empezar de nuevo el formulario.
+           En caso contrario, se añadirá la Delegación y volverá al menú inicial**/
+       ArrayList<Delegacion> nuevaListaDelegaciones = this.getDelegaciones();
+
+       for (int i = 0; i < nuevaListaDelegaciones.size(); i++){ /**hacemos un loop para recorrer los objetos personal del arraylist listado de personal de la ONG*/
+          if (nuevaListaDelegaciones.get(i).getNombre().equals(newName_Delegacion)){ /**comprobamos que el usuario no exista ya para no guardar un nuevo miembro de personal con el mismo user*/
+
+              System.out.println("Esta Delegación ya existe. No se puede crear un con el mismo nombre. Por favor, vuelve formular la nueva Delegacion correctamente");
               newDelegacion = false;
            }
             else{
