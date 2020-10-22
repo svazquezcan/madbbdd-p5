@@ -7,11 +7,19 @@ package MadBBDD.producto2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Sandra
  */
+@XmlRootElement(name="proyecto")
+@XmlAccessorType (XmlAccessType.FIELD)
+
 public class Proyecto {
     
     private String pais; 
@@ -41,10 +49,9 @@ public class Proyecto {
      * @param codigoDeProyecto
      * @param accionesARealizar
      * @param costeProyecto
-     * @param personalAsignado
      */
     
-    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar, ArrayList<Personal> personalAsignado){
+    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar){
         this.pais = pais; 
         this.localizacion = localizacion; 
         this.lineaDeAccion = lineaDeAccion; 
@@ -56,10 +63,9 @@ public class Proyecto {
         this.financiacionAportada = financiacionAportada; 
         this.codigoDeProyecto = codigoDeProyecto; 
         this.accionesARealizar = accionesARealizar; 
-        this.personalAsignado = new ArrayList<Personal>();
     }
     
-    /*constructor vacío*/
+    /*constructor sin argumentos*/
     public Proyecto(){ 
     }
     
@@ -161,9 +167,9 @@ public class Proyecto {
         return isAssigned;
             
     }    
-    
+    /*creo proyecto para testeo*/
     public static Proyecto addProyecto(){
-            Proyecto proyecto1 = new Proyecto();
+            Proyecto proyecto1 = new Proyecto("España", "Madrid", "Acceso al agua potable", "Fuentes", LocalDate.parse("2020-12-12"), LocalDate.parse("2021-12-12"), "Carrefour", "Carrefour", 1000000, 200000, 01, "Potabilización");
             return(proyecto1);
         }    
   

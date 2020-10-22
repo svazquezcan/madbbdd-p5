@@ -6,11 +6,20 @@
 package MadBBDD.producto2;
 
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Sandra
  */
+@XmlRootElement(name="personal")
+@XmlAccessorType (XmlAccessType.FIELD)
+
 public class Personal {
     private String tipoDePersonal;
     private String nombre; 
@@ -42,13 +51,21 @@ public class Personal {
     }
     
     /*constructor para testeo*/
-    public Personal (String usuario){
+    public Personal (String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion){
+        this.tipoDePersonal = tipoDePersonal; 
+        this.nombre = nombre; 
+        this.apellido = apellido; 
         this.usuario = usuario;
+        this.contraseña = contraseña; 
+        this.delegacion = delegacion; 
+    }
+    
+    /*constructor sin argumentos para JAXB*/
+    public Personal (){
     }
     
      /**Getter
      * @return tipoDePersonal*/
-    
     public String getTipoDePersonal(){
         return this.tipoDePersonal;
     }
@@ -56,7 +73,6 @@ public class Personal {
     
      /**Getter
      * @return nombre*/
-    
     public String getNombre(){
         return this.nombre;
     }
@@ -64,7 +80,6 @@ public class Personal {
     
      /**Getter
      * @return apellido*/
-    
     public String getApellido(){
         return this.apellido;
     }
@@ -72,7 +87,6 @@ public class Personal {
     
      /**Getter
      * @return proyecto*/
-   
     public ArrayList<Proyecto> getListadoProyectos(){
         return this.listadoProyectos;
     }
@@ -80,7 +94,6 @@ public class Personal {
     
      /**Getter
      * @return usuario*/
-    
     public String getUsuario(){
         return this.usuario;
     }
@@ -88,14 +101,12 @@ public class Personal {
     
      /**Getter
      * @return contraseña*/
-    
     public String getContraseña(){
         return this.contraseña;
     }  
     
      /**Getter
      * @return delegacion*/
-    
     public String getDelegacion(){
         return this.delegacion;
     }  
@@ -142,8 +153,9 @@ public class Personal {
         this.delegacion = delegacion; 
     }  
     
+    /*creo personal para testeo*/
     public static Personal addPersonal(){
-        Personal persona1 = new Personal("test");
+        Personal persona1 = new Personal("Voluntario", "Paco", "Pérez", "pacoPerez", "12345", "Entreculturas España");
         return(persona1);
      }    
 }

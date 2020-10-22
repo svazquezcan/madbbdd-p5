@@ -25,11 +25,12 @@ public class Menu {
     Scanner leerOpcion = new Scanner (System.in);
     System.out.print("Introduce el numero indicado para realizar una de las siguientes opciones:\n " +
     "Numero 1. Introducir nuevo miembro del personal de la ONG.\n " +
-    "Numero 2. Introducir nuevo proyecto.\n " +  
-    "Numero 3. Introducir nueva delegación.\n " +
-    "Numero 4. Sacar un listado de miembros del personal de la ONG.\n " +
-    "Numero 5. Sacar un listado de proyectos de la ONG.\n " +
-    "Numero 6. Sacar un listado de delegaciones.\n ");
+    "Numero 2. Introducir nueva delegación.\n " +  
+    "Numero 3. Introducir nuevo proyecto.\n " +
+    "Numero 4. XML de la clase ONG.\n " +
+    "Numero 5. XML de la clase Delegación.\n " +
+    "Numero 6. XML de la clase Proyecto.\n " +
+    "Numero 7. XML de la clase Personal.\n");
     try {
         
         opcionLeida = leerOpcion.nextInt();

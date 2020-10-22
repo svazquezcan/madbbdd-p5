@@ -6,11 +6,14 @@
 package MadBBDD.producto2;
 
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Sandra
  */
+@XmlRootElement(name="voluntario")
 public class Voluntario extends Personal {
     
     private String DNI; 
@@ -23,13 +26,15 @@ public class Voluntario extends Personal {
     }
     
    /**Getter
-     * @return DNI*/
+     * @return DNI*/   
+    @XmlAttribute(name="dni")
     public String getDNI(){
         return this.DNI;
     }
     
     /**Getter
      * @return codigoDeVoluntario*/
+    @XmlAttribute(name="codigodevoluntario")
     public int getcodigoDeVoluntario(){
         return this.codigoDeVoluntario;
     }

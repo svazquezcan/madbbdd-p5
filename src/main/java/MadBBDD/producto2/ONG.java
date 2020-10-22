@@ -8,11 +8,17 @@ package MadBBDD.producto2;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Sandra
  */
+@XmlRootElement(name="ONG")
+@XmlAccessorType (XmlAccessType.FIELD)
 public class ONG {
     private String CIF; 
     private String direccion; 
@@ -24,9 +30,12 @@ public class ONG {
     /**Creo objeto Scanner para poder leer input por teclado*/
     public static Scanner leerDatos = new Scanner(System.in);
 
-    /**Constructor*/
+    /**Constructo
+     * @param CIF
+     * @param direccion
+     * @param telefono*/
     
-    public ONG(){
+    public ONG(String CIF, String direccion, int telefono){
         this.CIF = CIF;
         this.direccion = direccion; 
         this.telefono = telefono;     
@@ -34,7 +43,10 @@ public class ONG {
         this.proyectos = new ArrayList<Proyecto>();
         this.listaPersonal = new ArrayList <Personal>(); 
         
-        
+    }
+    
+    /*Constructor sin argumentos para JABX*/
+    public ONG(){
     }
     
      /**Getter
@@ -266,14 +278,14 @@ public class ONG {
                    Collections.shuffle(totalProyectos);
                    proyectoAsignado = totalProyectos.get(0);/*para asignación aleatoria, cojo el primer proyecto de entre todos los proyectos, ya que todos tienen miembros*/
                    proyectosDelNuevo.add(proyectoAsignado);
-                   System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+                   System.out.print("No hay proyectos sin personal asignado. El nuevo miembro de personal colaborará con otros miembros en el proyecto código " + proyectoAsignado.getCodigoDeProyecto());
 
                }
 
                else {
                    proyectoAsignado = proyectosSinAsignar.get(0);
                    proyectosDelNuevo.add(proyectoAsignado);
-                   System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto  " + proyectoAsignado.getCodigoDeProyecto());
+                   System.out.print("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto código " + proyectoAsignado.getCodigoDeProyecto());
 
                }  /*guardamos miembro de personal nuevo*/
 
@@ -290,12 +302,13 @@ public class ONG {
        
     }  
     
+    
      public void entrarDatosDelegacion(){
         /**Declaracion variables**/
         String  newName_Delegacion; 
         String  newName_Direccion; 
-        Integer newName_Telefono;
-        Boolean newDelegacion;
+        int newName_Telefono;
+        boolean newDelegacion = true;
    
        /**Solicitud por consola del nombre de la delegacion y lectura por teclado de newName_Delegacion**/
        System.out.print("Introduce la nueva delegación a registrar: ");
@@ -324,12 +337,16 @@ public class ONG {
        /**Solicitud por consola del Telefono y lectura por teclado del newName_Telefono**/
        System.out.print("Introduce un número de telefono para poder contactar con usted: ");
        newName_Telefono = leerDatos.nextInt();
+       leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
+
   
-       /**Comprobacion para que campo newName_Telefono no esté vacío*/
-        while (newName_Telefono == null){
+       /**Comprobacion para que campo newName_Telefono no esté vacío
+       
+       while (newName_Telefono == "\n"){
 	   System.out.print("Para registrar una nueva delegación, este campo es totalmente obligatorio:");
            newName_Telefono = leerDatos.nextInt();
        }
+       21.09.2020 - NO DETECTA NULL */
 
        /** INICIO - Bloqueo de código de la verificación de las delegaciones, 
            en caso de que la Delegación sea existente, volverá a empezar de nuevo el formulario.
@@ -341,21 +358,21 @@ public class ONG {
 
               System.out.println("Esta Delegación ya existe. No se puede crear un con el mismo nombre. Por favor, vuelve formular la nueva Delegacion correctamente");
               newDelegacion = false;
-              break;
-
            }
             else{
-       
-               Delegacion nuevaDelegacion = new Delegacion (newName_Delegacion, newName_Direccion, newName_Telefono); 
-               nuevaDelegacion.setNombre(newName_Delegacion);
-               nuevaDelegacion.setDireccion(newName_Direccion);
-               nuevaDelegacion.setTelefono(newName_Telefono);
-               nuevaListaDelegaciones.add(nuevaDelegacion);
-               System.out.print("Nueva Delegacion guardada correctamente ");
-               break;
-               
+              
             }
        }
+       
+       if (newDelegacion) {
+        Delegacion nuevaDelegacion = new Delegacion (newName_Delegacion, newName_Direccion, newName_Telefono); 
+        nuevaDelegacion.setNombre(newName_Delegacion);
+        nuevaDelegacion.setDireccion(newName_Direccion);
+        nuevaDelegacion.setTelefono(newName_Telefono);
+        nuevaListaDelegaciones.add(nuevaDelegacion);
+        System.out.print("Nueva Delegacion guardada correctamente ");   
+       }
+
        /** FINAL - Bloqueo de código de la verificación de las delegaciones**/
     }
     
