@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<delegaciones>
+    <delegacion>
+        <nombre>Entreculturas España</nombre>
+        <nombre>Calle Ok</nombre>
+        <direccion>555555</direccion>
+    </delegacion>
+    <delegacion>
+        <nombre>Entreculturas Francia</nombre>
+        <nombre>Calle Calle</nombre>
+        <direccion>444444</direccion>
+    </delegacion>
+    <delegacion>
+        <nombre>Entreculturas Portugal</nombre>
+        <nombre>Calle Bien</nombre>
+        <direccion>777777</direccion>
+    </delegacion>
+    <delegacion>
+        <nombre>Mipolla</nombre>
+        <nombre>Fiosterra 40</nombre>
+        <direccion>6666666s</direccion>
+    </delegacion>
+</delegaciones>

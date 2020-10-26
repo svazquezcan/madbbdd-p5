@@ -6,8 +6,9 @@
 package MadBBDD.producto2;
 
 import java.util.ArrayList;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -15,11 +16,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Sandra
  */
 @XmlRootElement(name="delegacion")
+@XmlAccessorType (XmlAccessType.NONE)
 public class Delegacion {
    
+    @XmlElement(name="nombre")
     private String nombre; 
+    @XmlElement(name="direccion")
     private String direccion; 
-    private int telefono; 
+    @XmlElement(name="telefono")
+    private String telefono; 
     private ArrayList<Personal> listaDePersonal;
     
     /**Constructor
@@ -27,7 +32,8 @@ public class Delegacion {
      * @param direccion
      * @param telefono*/
     
-    public Delegacion(String nombre, String direccion, int telefono){
+    /*Recordar que si creamos delegaciones hay que modificar método EntrarDatosPersonal() en clase ONG para que permita entrar personal en la nueva delegación*/
+    public Delegacion(String nombre, String direccion, String telefono){
     this.nombre = nombre; 
     this.direccion = direccion; 
     this.telefono = telefono; 
@@ -38,28 +44,24 @@ public class Delegacion {
     
      /**Getter
      * @return nombre*/
-    @XmlAttribute(name="nombre")
     public String getNombre(){
         return this.nombre;
     }
     
      /**Getter
      * @return direccion*/
-    @XmlAttribute(name="direccion")
     public String getDireccion(){
         return this.direccion;
     }
     
      /**Getter
      * @return telefono*/
-    @XmlAttribute(name="telefono")
-    public int getTelefono(){
+    public String getTelefono(){
         return this.telefono;
     }
     
      /**Getter
      * @return listaDePersonal*/
-    @XmlElementWrapper(name="listaDePersonal")
     public ArrayList<Personal> getListaDePersonal(){
         return this.listaDePersonal;
     }
@@ -78,7 +80,7 @@ public class Delegacion {
 
     /**Setter
      * @param telefono*/
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     
@@ -88,19 +90,4 @@ public class Delegacion {
         this.listaDePersonal = listaDePersonal;
     }
     
-      /*creo delegacion para testeo*/
-    public static Delegacion addDelegacion1(){
-        Delegacion delegacion1 = new Delegacion("Entreculturas España", "Calle Ok", 555555);
-        return(delegacion1);
-     } 
-    
-    public static Delegacion addDelegacion2(){
-        Delegacion delegacion2 = new Delegacion("Entreculturas Francia", "Calle Calle", 444444);
-        return(delegacion2);
-    }
-    
-    public static Delegacion addDelegacion3(){
-         Delegacion delegacion3 = new Delegacion("Entreculturas Portugal", "Calle Bien", 777777); 
-         return(delegacion3);
-    }
 }

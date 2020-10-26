@@ -8,9 +8,7 @@ package MadBBDD.producto2;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -18,15 +16,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Sandra
  */
 @XmlRootElement(name="personal")
-@XmlAccessorType (XmlAccessType.FIELD)
+@XmlAccessorType (XmlAccessType.NONE)
 
 public class Personal {
+    @XmlElement (name="tipoDePersonal")
     private String tipoDePersonal;
+    @XmlElement (name="nombre")
     private String nombre; 
+    @XmlElement (name="apellido")
     private String apellido; 
     private ArrayList<Proyecto> listadoProyectos;  
+    @XmlElement (name="usuario")
     private String usuario; 
+    @XmlElement (name="contraseña")
     private String contraseña; 
+    @XmlElement (name="delegacion")
     private String delegacion;
 
     
@@ -153,9 +157,4 @@ public class Personal {
         this.delegacion = delegacion; 
     }  
     
-    /*creo personal para testeo*/
-    public static Personal addPersonal(){
-        Personal persona1 = new Personal("Voluntario", "Paco", "Pérez", "pacoPerez", "12345", "Entreculturas España");
-        return(persona1);
-     }    
 }

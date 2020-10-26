@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<personalList>
+    <personal>
+        <tipoDePersonal>Voluntario</tipoDePersonal>
+        <nombre>Paco</nombre>
+        <apellido>Pérez</apellido>
+        <usuario>pacoPerez</usuario>
+        <contraseña>12345</contraseña>
+        <delegacion>Entreculturas España</delegacion>
+    </personal>
+    <personal>
+        <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
+        <nombre>John</nombre>
+        <apellido>Dow</apellido>
+        <usuario>johnDow</usuario>
+        <contraseña>2563</contraseña>
+        <delegacion>Entreculturas Francia</delegacion>
+    </personal>
+    <personal>
+        <tipoDePersonal>Contratado</tipoDePersonal>
+        <nombre>Megan</nombre>
+        <apellido>Fox</apellido>
+        <usuario>meganFox</usuario>
+        <contraseña>88984263</contraseña>
+        <delegacion>Entreculturas Portugal</delegacion>
+    </personal>
+    <personal>
+        <tipoDePersonal>Contratado</tipoDePersonal>
+        <nombre>sdfs</nombre>
+        <apellido>dfs</apellido>
+        <usuario>dfs</usuario>
+        <contraseña>sdf</contraseña>
+        <delegacion>Entreculturas España</delegacion>
+    </personal>
+</personalList>
