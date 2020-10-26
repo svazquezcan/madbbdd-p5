@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<voluntarios>
+    <voluntario>
+        <tipoDePersonal>Voluntario</tipoDePersonal>
+        <nombre>Paco</nombre>
+        <apellido>Pérez</apellido>
+        <usuario>pacoPerez</usuario>
+        <contraseña>12345</contraseña>
+        <delegacion>Entreculturas España</delegacion>
+        <dni>5555555P</dni>
+        <codigodevoluntario>5</codigodevoluntario>
+    </voluntario>
+</voluntarios>

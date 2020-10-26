@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contratados>
+    <contratado>
+        <tipoDePersonal>Contratado</tipoDePersonal>
+        <nombre>Megan</nombre>
+        <apellido>Fox</apellido>
+        <usuario>meganFox</usuario>
+        <contraseña>88984263</contraseña>
+        <delegacion>Entreculturas Portugal</delegacion>
+        <dni>885966Y</dni>
+        <nºcontrato>7</nºcontrato>
+        <costeSalario>1999.35</costeSalario>
+        <funcion>hacer fotocopias</funcion>
+    </contratado>
+</contratados>

@@ -9,9 +9,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  *
@@ -25,8 +24,10 @@ public class Proyecto {
     private String pais; 
     private String localizacion; 
     private String lineaDeAccion; 
-    private String sublineaDeAccion; 
+    private String sublineaDeAccion;
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate fechaDeInicio; 
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate fechaDeFinalizacion;
     private String socioLocal; 
     private String financiador; 
@@ -147,6 +148,78 @@ public class Proyecto {
         return this.personalAsignado;
     }
     
+      /**Setter
+     * @param pais, para añadir/modificar el pais de Proyecto*/
+    public void setPais(String pais){
+        this.pais = pais; 
+    }  
+    
+     /**Setter
+     * @param localizacion, para añadir/modificar la localización de Proyecto*/
+    public void setLocalizacion(String localizacion){
+        this.localizacion = localizacion; 
+    } 
+    
+     /**Setter
+     * @param lineaDeAccion, para añadir/modificar la lineaDeAccion de Proyecto*/
+    public void setLineaDeAccion(String lineaDeAccion){
+        this.lineaDeAccion = lineaDeAccion; 
+    } 
+    
+     /**Setter
+     * @param sublineaDeAccion, para añadir/modificar la sublineaDeAccion de Proyecto*/
+    public void setSublineaDeAccion(String sublineaDeAccion){
+        this.sublineaDeAccion = sublineaDeAccion; 
+    } 
+    
+     /**Setter
+     * @param fechaDeInicio, para añadir/modificar la fechaDeInicio de Proyecto*/
+    public void setFechaDeInicio(LocalDate fechaDeInicio){
+        this.fechaDeInicio = fechaDeInicio; 
+    } 
+    
+     /**Setter
+     * @param fechaDeFinalizacion, para añadir/modificar la FechaDeFinalizacion de Proyecto*/
+    public void setFechaDeFinalizacion(LocalDate fechaDeFinalizacion){
+        this.fechaDeFinalizacion = fechaDeFinalizacion; 
+    } 
+    
+     /**Setter
+     * @param socioLocal, para añadir/modificar el socioLocal de Proyecto*/
+    public void setSocioLocal(String socioLocal){
+        this.socioLocal = socioLocal; 
+    } 
+    
+     /**Setter
+     * @param financiador, para añadir/modificar el financiador de Proyecto*/
+    public void setFinanciador(String financiador){
+        this.financiador = financiador; 
+    } 
+    
+     /**Setter
+     * @param financiacionAportada, para añadir/modificar la financiacionAportada de Proyecto*/
+    public void setFinanciacionAportada(float financiacionAportada){
+        this.financiacionAportada = financiacionAportada; 
+    } 
+    
+     /**Setter
+     * @param costeProyecto, para añadir/modificar el costeProyecto de Proyecto*/
+    public void setCosteProyecto(float costeProyecto){
+        this.costeProyecto = costeProyecto; 
+    } 
+    
+     /**Setter
+     * @param codigoDeProyecto, para añadir/modificar el codigoDeProyecto de Proyecto*/
+    public void setCodigoDeProyecto(int codigoDeProyecto){
+        this.codigoDeProyecto = codigoDeProyecto; 
+    } 
+    
+     /**Setter
+     * @param accionesARealizar, para añadir/modificar las accionesARealizar de Proyecto*/
+    public void setAccionesARealizar(String accionesARealizar){
+        this.accionesARealizar = accionesARealizar; 
+    } 
+    
     /**Funcion para comprobar proyectos sin asignar
      * @return boolean*/
     
@@ -166,13 +239,6 @@ public class Proyecto {
           
         return isAssigned;
             
-    }    
-    /*creo proyecto para testeo*/
-    public static Proyecto addProyecto(){
-            Proyecto proyecto1 = new Proyecto("España", "Madrid", "Acceso al agua potable", "Fuentes", LocalDate.parse("2020-12-12"), LocalDate.parse("2021-12-12"), "Carrefour", "Carrefour", 1000000, 200000, 01, "Potabilización");
-            return(proyecto1);
-        }    
+    }      
   
-    
-    
 }

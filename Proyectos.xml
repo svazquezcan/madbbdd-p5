@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<proyectos>
+    <proyecto>
+        <pais>España</pais>
+        <localizacion>Madrid</localizacion>
+        <lineaDeAccion>Acceso al agua potable</lineaDeAccion>
+        <sublineaDeAccion>Fuentes</sublineaDeAccion>
+        <fechaDeInicio>2020-12-12</fechaDeInicio>
+        <fechaDeFinalizacion>2021-12-12</fechaDeFinalizacion>
+        <socioLocal>Carrefour</socioLocal>
+        <financiador>Carrefour</financiador>
+        <financiacionAportada>1000000.0</financiacionAportada>
+        <costeProyecto>0.0</costeProyecto>
+        <codigoDeProyecto>1</codigoDeProyecto>
+        <accionesARealizar>Potabilización</accionesARealizar>
+    </proyecto>
+</proyectos>

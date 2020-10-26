@@ -30,7 +30,10 @@ public class Menu {
     "Numero 4. XML de la clase ONG.\n " +
     "Numero 5. XML de la clase Delegación.\n " +
     "Numero 6. XML de la clase Proyecto.\n " +
-    "Numero 7. XML de la clase Personal.\n");
+    "Numero 7. XML de la clase Personal.\n" +
+    "Número 8. XML de la clase Voluntario.\n" +
+    "Número 9. XML de la clase VoluntarioInternacional.\n" +
+    "Numero 10. XML de la clase Contratado.\n");
     try {
         
         opcionLeida = leerOpcion.nextInt();

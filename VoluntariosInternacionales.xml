@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<voluntariosInternacionales>
+    <voluntarioInternacional>
+        <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
+        <nombre>John</nombre>
+        <apellido>Dow</apellido>
+        <usuario>johnDow</usuario>
+        <contraseña>2563</contraseña>
+        <delegacion>Entreculturas Francia</delegacion>
+        <nie>58fs65</nie>
+        <codigodevoluntario>7</codigodevoluntario>
+    </voluntarioInternacional>
+</voluntariosInternacionales>
