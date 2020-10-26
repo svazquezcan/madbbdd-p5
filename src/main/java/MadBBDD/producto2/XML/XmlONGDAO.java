@@ -1,0 +1,57 @@
+
+package MadBBDD.producto2.XML;
+
+import MadBBDD.producto2.DAO.ONGDAO;
+import MadBBDD.producto2.ONG;
+import MadBBDD.producto2.ONGs;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.PropertyException;
+
+public class XmlONGDAO implements ONGDAO{
+    
+    private JAXBContext context;
+    private String nombreFichero;
+    
+    public XmlONGDAO() throws JAXBException{
+    
+        this.context = JAXBContext.newInstance(ONGs.class);
+	this.nombreFichero = "ONGs.xml";
+}
+
+    @Override
+    public void insertar(ONG a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar(ONG a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void eliminar(ONG a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void obtenerTodos(ONGs ONGs) throws PropertyException, JAXBException, IOException {
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.marshal(ONGs, new FileWriter("ONGs.xml"));
+        System.out.println("El archivo ONGs.xml ha sido creado correctamente ");
+
+    }
+
+    @Override
+    public ONG obtener(String String) {
+         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+}
+    
+    
+
