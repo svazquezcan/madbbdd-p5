@@ -7,6 +7,7 @@ package MadBBDD.producto2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -20,7 +21,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType (XmlAccessType.FIELD)
 
 public class Proyecto {
-    
+    private static AtomicInteger codigoDeProyectoCount = new AtomicInteger(1);
+    private int codigoDeProyecto; 
     private String pais; 
     private String localizacion; 
     private String lineaDeAccion; 
@@ -33,7 +35,6 @@ public class Proyecto {
     private String financiador; 
     private float financiacionAportada;
     private float costeProyecto;
-    private int codigoDeProyecto; 
     private String accionesARealizar; 
     private ArrayList<Personal> personalAsignado; 
     
@@ -47,12 +48,12 @@ public class Proyecto {
      * @param socioLocal
      * @param financiador
      * @param financiacionAportada
-     * @param codigoDeProyecto
      * @param accionesARealizar
      * @param costeProyecto
      */
     
-    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, int codigoDeProyecto, String accionesARealizar){
+    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, String accionesARealizar){
+        this.codigoDeProyecto = codigoDeProyectoCount.getAndIncrement(); 
         this.pais = pais; 
         this.localizacion = localizacion; 
         this.lineaDeAccion = lineaDeAccion; 
@@ -62,7 +63,6 @@ public class Proyecto {
         this.socioLocal = socioLocal; 
         this.financiador = financiador; 
         this.financiacionAportada = financiacionAportada; 
-        this.codigoDeProyecto = codigoDeProyecto; 
         this.accionesARealizar = accionesARealizar; 
     }
     

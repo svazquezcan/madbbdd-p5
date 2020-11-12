@@ -6,6 +6,7 @@
 package MadBBDD.producto2;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,6 +20,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType (XmlAccessType.NONE)
 
 public class Personal {
+    private static AtomicInteger codigoDePersonalCount = new AtomicInteger(1);
+    @XmlElement (name="codigoDePersonal")
+    private int codigoDePersonal;
     @XmlElement (name="tipoDePersonal")
     private String tipoDePersonal;
     @XmlElement (name="nombre")
@@ -33,8 +37,6 @@ public class Personal {
     @XmlElement (name="delegacion")
     private String delegacion;
 
-    
-    
     /**Constructor
      * @param tipoDePersonal
      * @param nombre
@@ -45,6 +47,7 @@ public class Personal {
      * @param delegacion*/
     
     public Personal (String tipoDePersonal, String nombre, String apellido,  ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion){
+        this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
         this.tipoDePersonal = tipoDePersonal; 
         this.nombre = nombre; 
         this.apellido = apellido; 

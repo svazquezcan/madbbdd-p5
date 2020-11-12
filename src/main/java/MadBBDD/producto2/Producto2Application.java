@@ -20,17 +20,17 @@ public class Producto2Application {
     
 	public static void main(String[] args) throws JAXBException, IOException{
 		SpringApplication.run(Producto2Application.class, args);
-                ONG miONG = new ONG("B858585P","Calle Palomas", 66666666); //creo objeto ONG para tener datos en XML además de los que se introduzcan por consola
+                ONG miONG = new ONG("B858585P","Calle Palomas", "66666666"); //creo objeto ONG para tener datos en XML además de los que se introduzcan por consola
                 Delegacion delegacion1 = new Delegacion("Entreculturas España", "Calle Ok", "555555"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Delegacion delegacion2 = new Delegacion("Entreculturas Francia", "Calle Calle", "444444"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Delegacion delegacion3 = new Delegacion("Entreculturas Portugal", "Calle Bien", "777777"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
-                Proyecto proyecto1 = new Proyecto("España", "Madrid", "Acceso al agua potable", "Fuentes", LocalDate.parse("2020-12-12"), LocalDate.parse("2021-12-12"), "Carrefour", "Carrefour", 1000000, 200000, 1, "Potabilización"); //creo objeto proyecto para testing (tener datos en el XML además de los que se introduzcan por consola)
+                Proyecto proyecto1 = new Proyecto("España", "Madrid", "Acceso al agua potable", "Fuentes", LocalDate.parse("2020-12-12"), LocalDate.parse("2021-12-12"), "Carrefour", "Carrefour", 1000000, 200000, "Potabilización"); //creo objeto proyecto para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Personal persona11 = new Personal("Voluntario", "Paco", "Pérez", "pacoPerez", "12345", "Entreculturas España"); //creo objeto personal para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Personal personal2 = new Personal("VoluntarioInternacional", "John", "Dow", "johnDow", "2563", "Entreculturas Francia");//creo objeto personal para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Personal personal3 = new Personal("Contratado", "Megan", "Fox", "meganFox", "88984263", "Entreculturas Portugal");//creo objeto personal para testing (tener datos en el XML además de los que se introduzcan por consola)
-                Voluntario voluntario1 = new Voluntario("Voluntario", "Paco", "Pérez", "pacoPerez", "12345", "Entreculturas España","5555555P", 5);//creo objeto voluntario para testing (tener datos en el XML además de los que se introduzcan por consola)
-                VoluntarioInternacional voluntarioInternacional1 = new VoluntarioInternacional("VoluntarioInternacional", "John", "Dow", "johnDow", "2563", "Entreculturas Francia","58fs65", 7);//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
-                Contratado contratado1 = new Contratado("Contratado", "Megan", "Fox", "meganFox", "88984263", "Entreculturas Portugal", "885966Y", 7, 1999.35f, "hacer fotocopias"); //creo objeto contratado para testing (tener datos en el XML además de los que se introduzcan por consola)
+                Voluntario voluntario1 = new Voluntario("Voluntario", "Paco", "Pérez", "pacoPerez", "12345", "Entreculturas España","5555555P");//creo objeto voluntario para testing (tener datos en el XML además de los que se introduzcan por consola)
+                VoluntarioInternacional voluntarioInternacional1 = new VoluntarioInternacional("VoluntarioInternacional", "John", "Dow", "johnDow", "2563", "Entreculturas Francia","58fs65");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
+                Contratado contratado1 = new Contratado("Contratado", "Megan", "Fox", "meganFox", "88984263", "Entreculturas Portugal", "885966Y", 1999.35f, "hacer fotocopias"); //creo objeto contratado para testing (tener datos en el XML además de los que se introduzcan por consola)
                 ArrayList<Personal> totalPersonal = miONG.getListaPersonal();
                 ArrayList<Proyecto> totalProyectos = miONG.getProyectos();
                 ArrayList<Delegacion> totalDelegaciones = miONG.getDelegaciones();

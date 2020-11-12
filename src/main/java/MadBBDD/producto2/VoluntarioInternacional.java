@@ -21,21 +21,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class VoluntarioInternacional extends Personal {
     @XmlElement(name="nie")
     private String NIE; 
-    @XmlElement(name="codigodevoluntario")
-    private int codigoDeVoluntario; 
     
     /*Constructor para asignar proyectos al crear VoluntarioInternacional*/
-    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String NIE, int codigoDeVoluntario) {
+    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String NIE) {
         super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.NIE = NIE; 
-        this.codigoDeVoluntario = codigoDeVoluntario;        
     }
     
      /*Constructor para crear VoluntarioInternacional sin asignar proyecto*/
-     public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion, String NIE, int codigoDeVoluntario) {
+     public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion, String NIE) {
         super(tipoDePersonal, nombre, apellido, usuario, contraseña, delegacion);
         this.NIE = NIE; 
-        this.codigoDeVoluntario = codigoDeVoluntario;        
     }
      
     /*Constructor sin args para JABX*/
@@ -49,23 +45,11 @@ public class VoluntarioInternacional extends Personal {
         return this.NIE;
     }
     
-     /**Getter
-     * @return codigoDeVoluntario*/
-    public int getCodigoDeVoluntario(){
-        return this.codigoDeVoluntario;
-    }
-    
        /**Setter
      * @param NIE, para añadir/modificar el NIE de VoluntarioInternacional*/
     public void setNIE (String NIE){
         this.NIE = NIE; 
     } 
-    
-        /**Setter
-     * @param codigoDeVoluntario, para añadir/modificar el codigoDeVoluntario de VoluntarioInternacional*/
-    public void setCodigoDeVoluntario (int codigoDeVoluntario){
-        this.codigoDeVoluntario = codigoDeVoluntario; 
-    }  
    
     
 }

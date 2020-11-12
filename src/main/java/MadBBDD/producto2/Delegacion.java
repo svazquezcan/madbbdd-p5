@@ -6,6 +6,7 @@
 package MadBBDD.producto2;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -18,7 +19,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="delegacion")
 @XmlAccessorType (XmlAccessType.NONE)
 public class Delegacion {
-   
+    private static AtomicInteger idDelegacionCount = new AtomicInteger(1);
+    @XmlElement(name="id")
+    private int id;
     @XmlElement(name="nombre")
     private String nombre; 
     @XmlElement(name="direccion")
@@ -34,6 +37,7 @@ public class Delegacion {
     
     /*Recordar que si creamos delegaciones hay que modificar método EntrarDatosPersonal() en clase ONG para que permita entrar personal en la nueva delegación*/
     public Delegacion(String nombre, String direccion, String telefono){
+    this.id = idDelegacionCount.getAndIncrement();
     this.nombre = nombre; 
     this.direccion = direccion; 
     this.telefono = telefono; 

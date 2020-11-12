@@ -21,21 +21,18 @@ public class Voluntario extends Personal {
     
     @XmlElement(name="dni")
     private String DNI; 
-    @XmlElement(name="codigodevoluntario")
-    private int codigoDeVoluntario; 
+
     
     /*Constructor para crear voluntario y asignarle un proyecto a la vez*/
-    public Voluntario(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI, int codigoDeVoluntario) {
+    public Voluntario(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI) {
         super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.DNI = DNI; 
-        this.codigoDeVoluntario = codigoDeVoluntario; 
     }
     
     /*Constructor para crear voluntario sin asignar proyecto*/
-    public Voluntario(String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion, String DNI, int codigoDeVoluntario) {
+    public Voluntario(String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion, String DNI) {
         super(tipoDePersonal, nombre, apellido, usuario, contraseña, delegacion);
         this.DNI = DNI; 
-        this.codigoDeVoluntario = codigoDeVoluntario; 
     }
     
     /*Constructor sin args para JAXB*/
@@ -48,23 +45,11 @@ public class Voluntario extends Personal {
     public String getDNI(){
         return this.DNI;
     }
-    
-    /**Getter
-     * @return codigoDeVoluntario*/
-    public int getcodigoDeVoluntario(){
-        return this.codigoDeVoluntario;
-    }
    
        /**Setter
      * @param DNI, para añadir/modificar el DNI de Voluntario*/
     public void setDNI (String DNI){
         this.DNI = DNI; 
     } 
-    
-        /**Setter
-     * @param codigoDeVoluntario, para añadir/modificar el codigoDeVoluntario de Voluntario*/
-    public void setCodigoDeVoluntario (int codigoDeVoluntario){
-        this.codigoDeVoluntario = codigoDeVoluntario; 
-    }  
    
 }

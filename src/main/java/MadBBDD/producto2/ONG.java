@@ -28,7 +28,7 @@ public class ONG {
     @XmlElement (name="direccion")
     private String direccion; 
     @XmlElement (name="telefono")
-    private int telefono; 
+    private String telefono; 
     private ArrayList<Delegacion> delegaciones;
     private ArrayList<Proyecto> proyectos;
     private ArrayList<Personal> listaPersonal; 
@@ -44,7 +44,7 @@ public class ONG {
      * @param direccion
      * @param telefono*/
     
-    public ONG(String CIF, String direccion, int telefono){
+    public ONG(String CIF, String direccion, String telefono){
         this.CIF = CIF;
         this.direccion = direccion; 
         this.telefono = telefono;     
@@ -75,7 +75,7 @@ public class ONG {
     
      /**Getter
      * @return telefono*/
-    public int getTelefono(){
+    public String getTelefono(){
         return this.telefono;
     }
     
@@ -129,7 +129,7 @@ public class ONG {
     
       /**Setter
      * @param telefono, para añadir/modificar el telefono de la ONG*/
-    public void setTelefono (int telefono){
+    public void setTelefono (String telefono){
         this.telefono = telefono; 
     }
     
@@ -352,7 +352,6 @@ public class ONG {
              if ("Voluntario".equals(tipoDePersonalDelNuevo)){
 
                 String nuevoDNI; 
-                int nuevoCodigoDeVoluntario; 
 
                 System.out.print("Como el nuevo miembro de personal es un voluntario, guardaremos un par de datos más. Introduce el DNI del nuevo voluntario: ");
                 nuevoDNI = leerDatos.nextLine();
@@ -365,28 +364,15 @@ public class ONG {
 
                 }
 
-                System.out.print("Introduce el nuevo código de voluntario; ");
-                nuevoCodigoDeVoluntario = leerDatos.nextInt();
-                leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
-
-                 /**Comprobacion para que campo nuevoCodigoDeVoluntario no esté vacío*/
-                while (nuevoCodigoDeVoluntario == 0){
-
-                   System.out.print("El codigo de voluntario del nuevo voluntario no puede ser un campo vacío. Introduce código de voluntario: ");
-                   nuevoCodigoDeVoluntario = leerDatos.nextInt();
-                   leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
-
-                }
-
-                Voluntario voluntario = new Voluntario (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoCodigoDeVoluntario);
+                Voluntario voluntario = new Voluntario (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI);
                 ArrayList<Voluntario> listadoVoluntarios = this.getListaVoluntarios();
                 listadoVoluntarios.add(voluntario);
+                
              }
 
              else if ("VoluntarioInternacional".equals(tipoDePersonalDelNuevo)){
 
                 String nuevoNIE; 
-                int nuevoCodigoDeVoluntario; 
 
                 System.out.print("Como el nuevo miembro de personal es un voluntario internacional, guardaremos un par de datos más. Introduce el NIE del nuevo voluntario: ");
                 nuevoNIE = leerDatos.nextLine();
@@ -399,27 +385,15 @@ public class ONG {
 
                 }
 
-                System.out.print("Introduce el nuevo código de voluntario internacional: ");
-                nuevoCodigoDeVoluntario = leerDatos.nextInt();
-                leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
-
-                 /**Comprobacion para que campo nuevoNIE no esté vacío*/
-                while (nuevoCodigoDeVoluntario == 0){
-
-                   System.out.print("El código de voluntario del nuevo voluntario internacional no puede ser un campo vacío. Introduce código de voluntario: ");
-                   nuevoCodigoDeVoluntario = leerDatos.nextInt();
-                   leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
-
-                }
-
-                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoNIE, nuevoCodigoDeVoluntario);
-
+                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoNIE);
+                ArrayList<VoluntarioInternacional> listadoVoluntariosInternacionales = this.getListaVoluntariosInternacionales();
+                listadoVoluntariosInternacionales.add(voluntarioInternacional);
+                
              }
 
              else {
 
                 String nuevoDNI; 
-                int nuevoNºContrato;
                 float nuevoCosteSalario;
                 String nuevaFuncion;
 
@@ -434,19 +408,6 @@ public class ONG {
 
                 }
 
-                System.out.print("Introduce el nuevo número de contrato: ");
-                nuevoNºContrato = leerDatos.nextInt();
-                leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
-
-                /**Comprobacion para que campo nuevoNºContrato no esté vacío*/
-                while (nuevoNºContrato == 0){
-
-                   System.out.print("El nº de contrato del nuevo personal contratado no puede ser un campo vacío. Introduce nº de contrato: ");
-                   nuevoNºContrato = leerDatos.nextInt();
-                   leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
-
-                }
-
                 System.out.print("Introduce el nuevo coste de salario: ");
                 nuevoCosteSalario = leerDatos.nextFloat();  
 
@@ -458,6 +419,7 @@ public class ONG {
                    leerDatos.nextLine();/*Consume salto de línea no leido por nextInt*/
 
                 }
+                
                 System.out.print("Introduce la nueva función: ");
                 nuevaFuncion = leerDatos.nextLine();
 
@@ -469,8 +431,9 @@ public class ONG {
 
                 }
 
-                Contratado contratado = new Contratado (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoNºContrato, nuevoCosteSalario, nuevaFuncion);
-
+                Contratado contratado = new Contratado (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoCosteSalario, nuevaFuncion);
+                ArrayList<Contratado> listadoContratados = this.getListaContratados();
+                listadoContratados.add(contratado);
              }
 
              System.out.println("Nuevo miembro de personal guardado correctamente "); 
@@ -573,7 +536,6 @@ public class ONG {
         String nuevoFinanciador; 
         float nuevaFinanciacionAportada;
         float nuevoCosteProyecto;
-        int nuevoCodigoDeProyecto; 
         String nuevasAccionesARealizar; 
         
         
@@ -678,7 +640,7 @@ public class ONG {
            }
 
             /**Solicitud por consola de la financiación aportada y lectura por teclado de nuevaFinanciacionAportada*/
-           System.out.print("Introduce la financiación�n: ");
+           System.out.print("Introduce la financiación: ");
            nuevaFinanciacionAportada = leerDatos.nextFloat();
 
            /**Comprobacion para que campo financiación aportada no está vacía*/
@@ -698,18 +660,7 @@ public class ONG {
 
                System.out.print("El coste del proyecto no puede quedar vacío. Introduce un importe: ");
                nuevoCosteProyecto = leerDatos.nextFloat();
-
-           }  
-
-            /**Solicitud por consola del código del proyecto y lectura por teclado de nuevoCodigoDeProyecto*/
-           System.out.print("Introduce el código del proyecto: ");
-           nuevoCodigoDeProyecto = leerDatos.nextInt();
-
-           /**Comprobacion para que campo código de proyecto no está vacío*/
-            while (nuevoCodigoDeProyecto == 0){
-
-               System.out.print("El código del proyecto no puede quedar vacío. Introduce un código: ");
-               nuevoCodigoDeProyecto = leerDatos.nextInt();
+               leerDatos.nextLine();/*Consume salto de línea no leido por nextFloat*/
 
            }  
 
@@ -724,7 +675,7 @@ public class ONG {
                nuevasAccionesARealizar = leerDatos.nextLine();
            }
 
-            Proyecto nuevoProyecto = new Proyecto (nuevoPais, nuevaLocalizacion, nuevaLineaDeAccion, nuevaSublineaDeAccion, nuevaFechaDeInicio, nuevaFechaDeFinalizacion, nuevoSocioLocal, nuevoFinanciador, nuevaFinanciacionAportada, nuevoCosteProyecto, nuevoCodigoDeProyecto, nuevasAccionesARealizar);
+            Proyecto nuevoProyecto = new Proyecto (nuevoPais, nuevaLocalizacion, nuevaLineaDeAccion, nuevaSublineaDeAccion, nuevaFechaDeInicio, nuevaFechaDeFinalizacion, nuevoSocioLocal, nuevoFinanciador, nuevaFinanciacionAportada, nuevoCosteProyecto, nuevasAccionesARealizar);
             nuevoProyecto.setPais(nuevoPais);
             nuevoProyecto.setLineaDeAccion(nuevaLineaDeAccion);
             nuevoProyecto.setSublineaDeAccion(nuevaLineaDeAccion);
@@ -734,7 +685,6 @@ public class ONG {
             nuevoProyecto.setFinanciador(nuevoFinanciador);
             nuevoProyecto.setFinanciacionAportada(nuevaFinanciacionAportada);
             nuevoProyecto.setCosteProyecto(nuevoCosteProyecto);
-            nuevoProyecto.setCodigoDeProyecto(nuevoCodigoDeProyecto);
             nuevoProyecto.setAccionesARealizar(nuevasAccionesARealizar);
             ArrayList<Proyecto>nuevoListadoProyectos = this.getProyectos();
             nuevoListadoProyectos.add(nuevoProyecto);
