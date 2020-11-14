@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -18,23 +19,33 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author Sandra
  */
 @XmlRootElement(name="proyecto")
-@XmlAccessorType (XmlAccessType.FIELD)
+@XmlAccessorType (XmlAccessType.NONE)
 
 public class Proyecto {
     private static AtomicInteger codigoDeProyectoCount = new AtomicInteger(1);
+    @XmlElement (name="codigoDeProyecto")
     private int codigoDeProyecto; 
+    @XmlElement (name="pais")
     private String pais; 
+    @XmlElement (name="localizacion")
     private String localizacion; 
+    @XmlElement (name="lineaDeAccion")
     private String lineaDeAccion; 
+    @XmlElement (name="sublineaDeAccion")
     private String sublineaDeAccion;
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate fechaDeInicio; 
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate fechaDeFinalizacion;
+    @XmlElement (name="socioLocal")
     private String socioLocal; 
+    @XmlElement (name="financiador")
     private String financiador; 
+    @XmlElement (name="financiacionAportada")
     private float financiacionAportada;
+    @XmlElement (name="costeProyecto")
     private float costeProyecto;
+    @XmlElement (name="accionesARealizar")
     private String accionesARealizar; 
     private ArrayList<Personal> personalAsignado; 
     

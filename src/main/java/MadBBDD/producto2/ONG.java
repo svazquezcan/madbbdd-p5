@@ -199,6 +199,7 @@ public class ONG {
     
     public void entrarDatosPersonal(){
         /**Declaracion variables para guardar datos de personal nuevo*/
+        int nuevoCodigo = 0;
         String tipoDePersonalDelNuevo;
         String nuevoNombre; 
         String nuevoApellido; 
@@ -339,7 +340,7 @@ public class ONG {
                 System.out.println("Hay proyectos que todavía no tienen personal. El nuevo miembro de personal se asigna al proyecto código " + proyectoAsignado.getCodigoDeProyecto());
 
             }  /*guardamos miembro de personal nuevo*/
-
+            
              nuevoPersonal.setNombre(nuevoNombre);
              nuevoPersonal.setApellido(nuevoApellido);
              nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
@@ -364,7 +365,7 @@ public class ONG {
 
                 }
 
-                Voluntario voluntario = new Voluntario (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI);
+                Voluntario voluntario = new Voluntario (nuevoCodigo, nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI);
                 ArrayList<Voluntario> listadoVoluntarios = this.getListaVoluntarios();
                 listadoVoluntarios.add(voluntario);
                 
@@ -385,7 +386,7 @@ public class ONG {
 
                 }
 
-                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoNIE);
+                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional (nuevoCodigo, nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoNIE);
                 ArrayList<VoluntarioInternacional> listadoVoluntariosInternacionales = this.getListaVoluntariosInternacionales();
                 listadoVoluntariosInternacionales.add(voluntarioInternacional);
                 
@@ -431,7 +432,7 @@ public class ONG {
 
                 }
 
-                Contratado contratado = new Contratado (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoCosteSalario, nuevaFuncion);
+                Contratado contratado = new Contratado (nuevoCodigo, nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoCosteSalario, nuevaFuncion);
                 ArrayList<Contratado> listadoContratados = this.getListaContratados();
                 listadoContratados.add(contratado);
              }

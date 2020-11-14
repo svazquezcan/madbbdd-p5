@@ -38,8 +38,8 @@ public class Contratado extends Personal {
      * @param delegacion*/
     
     /*Constructor para crear contratado y asignarle un proyecto a la vez*/
-    public Contratado(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI, float costeSalario, String funcion) {
-        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
+    public Contratado(int codigoDePersonal, String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI, float costeSalario, String funcion) {
+        super(codigoDePersonal, tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.DNI = DNI;
         this.costeSalario = costeSalario; 
         this.funcion = funcion; 

@@ -38,6 +38,7 @@ public class Personal {
     private String delegacion;
 
     /**Constructor
+     * @param codigoDePersonal
      * @param tipoDePersonal
      * @param nombre
      * @param apellido
@@ -46,7 +47,7 @@ public class Personal {
      * @param contraseña
      * @param delegacion*/
     
-    public Personal (String tipoDePersonal, String nombre, String apellido,  ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion){
+    public Personal (int codigoDePersonal, String tipoDePersonal, String nombre, String apellido,  ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion){
         this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
         this.tipoDePersonal = tipoDePersonal; 
         this.nombre = nombre; 
@@ -67,8 +68,20 @@ public class Personal {
         this.delegacion = delegacion; 
     }
     
+      /*constructor para testeo*/
+    public Personal (int codigoDePersonal){
+       this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
+    }
+    
     /*constructor sin argumentos para JAXB*/
     public Personal (){
+    }
+    
+    
+    /**Getter
+     * @return codigoDePersonal*/
+    public int getCodigoDePersonal(){
+        return this.codigoDePersonal;
     }
     
      /**Getter
@@ -116,6 +129,12 @@ public class Personal {
      * @return delegacion*/
     public String getDelegacion(){
         return this.delegacion;
+    }  
+    
+      /**Setter
+     * @param codigoDePersonal, para añadir/modificar el codigoDePersonal de Personal*/
+    public void setCodigoDePersonal(int codigoDePersonal){
+        this.codigoDePersonal = codigoDePersonal; 
     }  
 
       /**Setter

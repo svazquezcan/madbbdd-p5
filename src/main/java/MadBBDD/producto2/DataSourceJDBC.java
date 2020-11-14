@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class DataSourceJDBC {
     
     private DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    private final String url = "jdbc:mysql://127.0.0.1:3306/product3?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private final String url = "jdbc:mysql://127.0.0.1:3306/producto3?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private final String dbUsername = "root";
     private final String dbPassword = "arkarianKirtash4";
  

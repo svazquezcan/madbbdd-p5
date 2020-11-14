@@ -23,14 +23,20 @@ public class VoluntarioInternacional extends Personal {
     private String NIE; 
     
     /*Constructor para asignar proyectos al crear VoluntarioInternacional*/
-    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String NIE) {
-        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
+    public VoluntarioInternacional(int codigoDePersonal, String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String NIE) {
+        super(codigoDePersonal, tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.NIE = NIE; 
     }
     
      /*Constructor para crear VoluntarioInternacional sin asignar proyecto*/
      public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion, String NIE) {
         super(tipoDePersonal, nombre, apellido, usuario, contraseña, delegacion);
+        this.NIE = NIE; 
+    }
+     
+     /*Constructor para crear VoluntarioInternacional para BBDD*/
+     public VoluntarioInternacional(int codigoDePersonal, String NIE) {
+        super(codigoDePersonal);
         this.NIE = NIE; 
     }
      

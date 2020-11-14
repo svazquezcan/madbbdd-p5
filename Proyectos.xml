@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <proyectos>
     <proyecto>
+        <codigoDeProyecto>1</codigoDeProyecto>
         <pais>España</pais>
         <localizacion>Madrid</localizacion>
         <lineaDeAccion>Acceso al agua potable</lineaDeAccion>
@@ -11,7 +12,20 @@
         <financiador>Carrefour</financiador>
         <financiacionAportada>1000000.0</financiacionAportada>
         <costeProyecto>0.0</costeProyecto>
-        <codigoDeProyecto>1</codigoDeProyecto>
         <accionesARealizar>Potabilización</accionesARealizar>
+    </proyecto>
+    <proyecto>
+        <codigoDeProyecto>2</codigoDeProyecto>
+        <pais>España</pais>
+        <localizacion>Barcelona</localizacion>
+        <lineaDeAccion>OK</lineaDeAccion>
+        <sublineaDeAccion>OK</sublineaDeAccion>
+        <fechaDeInicio>2020-11-11</fechaDeInicio>
+        <fechaDeFinalizacion>2020-11-11</fechaDeFinalizacion>
+        <socioLocal>lolo</socioLocal>
+        <financiador>lolo</financiador>
+        <financiacionAportada>555555.0</financiacionAportada>
+        <costeProyecto>55555.0</costeProyecto>
+        <accionesARealizar>lolol</accionesARealizar>
     </proyecto>
 </proyectos>

@@ -1,6 +1,7 @@
 package MadBBDD.producto2;
 
 import MadBBDD.producto2.DAO.DAOFactory;
+import MadBBDD.producto2.SQL.SQLVoluntarioInternacionalDAO;
 import MadBBDD.producto2.XML.XmlContratadoDAO;
 import MadBBDD.producto2.XML.XmlDelegacionDAO;
 import MadBBDD.producto2.XML.XmlONGDAO;
@@ -9,6 +10,7 @@ import MadBBDD.producto2.XML.XmlProyectoDAO;
 import MadBBDD.producto2.XML.XmlVoluntarioDAO;
 import MadBBDD.producto2.XML.XmlVoluntarioInternacionalDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +20,7 @@ import javax.xml.bind.JAXBException;
 @SpringBootApplication
 public class Producto2Application {
     
-	public static void main(String[] args) throws JAXBException, IOException{
+	public static void main(String[] args) throws JAXBException, IOException, SQLException{
 		SpringApplication.run(Producto2Application.class, args);
                 ONG miONG = new ONG("B858585P","Calle Palomas", "66666666"); //creo objeto ONG para tener datos en XML además de los que se introduzcan por consola
                 Delegacion delegacion1 = new Delegacion("Entreculturas España", "Calle Ok", "555555"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
@@ -29,7 +31,8 @@ public class Producto2Application {
                 Personal personal2 = new Personal("VoluntarioInternacional", "John", "Dow", "johnDow", "2563", "Entreculturas Francia");//creo objeto personal para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Personal personal3 = new Personal("Contratado", "Megan", "Fox", "meganFox", "88984263", "Entreculturas Portugal");//creo objeto personal para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Voluntario voluntario1 = new Voluntario("Voluntario", "Paco", "Pérez", "pacoPerez", "12345", "Entreculturas España","5555555P");//creo objeto voluntario para testing (tener datos en el XML además de los que se introduzcan por consola)
-                VoluntarioInternacional voluntarioInternacional1 = new VoluntarioInternacional("VoluntarioInternacional", "John", "Dow", "johnDow", "2563", "Entreculturas Francia","58fs65");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
+                VoluntarioInternacional voluntarioInternacional1 = new VoluntarioInternacional( 1, "5555552");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
+                VoluntarioInternacional voluntarioInternacional2 = new VoluntarioInternacional(2, "5555554");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
                 Contratado contratado1 = new Contratado("Contratado", "Megan", "Fox", "meganFox", "88984263", "Entreculturas Portugal", "885966Y", 1999.35f, "hacer fotocopias"); //creo objeto contratado para testing (tener datos en el XML además de los que se introduzcan por consola)
                 ArrayList<Personal> totalPersonal = miONG.getListaPersonal();
                 ArrayList<Proyecto> totalProyectos = miONG.getProyectos();
@@ -46,6 +49,7 @@ public class Producto2Application {
                 totalDelegaciones.add(delegacion3); //guardo objeto delegacion para testing
                 totalVoluntarios.add(voluntario1); // guardo objeto voluntario para testing
                 totalVoluntariosInternacionales.add(voluntarioInternacional1); //guardo objeto voluntarioInternacional para testing
+                totalVoluntariosInternacionales.add(voluntarioInternacional2); //guardo objeto voluntarioInternacional para testing
                 totalContratados.add(contratado1); //guardo objeto contratado para testing
                 PersonalList miPersonalList = new PersonalList(); //creo objeto que pasaremos al marshaller
                 miPersonalList.setPersonal(totalPersonal); //relleno objeto con la info de miONG
@@ -66,11 +70,11 @@ public class Producto2Application {
                 misONGs.add(miONG);
                 ONGs ONGs = new ONGs(); 
                 ONGs.setONGs(misONGs);
-                                
-                DAOFactory XmlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
+                            
+                DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
                 int opcion = 0; 
                 opcion = Menu.OpcionMenu(); 
-                while(opcion >= 1 && opcion <= 10){
+                while(opcion >= 1 && opcion <= 11){
             
             switch (opcion) {
                 case 1:   
@@ -83,33 +87,36 @@ public class Producto2Application {
                     miONG.entrarDatosProyecto();
                     break;
                 case 4: 
-                    XmlONGDAO ONGDAO = XmlDAOFactory.getONGsDAO();
+                    XmlONGDAO ONGDAO = DAOFactoryImpl.getONGsDAO();
                     ONGDAO.obtenerTodos(ONGs);
                     break; 
                 case 5: 
-                    XmlDelegacionDAO DelegacionDAO = XmlDAOFactory.getDelegacionesDAO();                    
+                    XmlDelegacionDAO DelegacionDAO = DAOFactoryImpl.getDelegacionesDAO();                    
                     DelegacionDAO.obtenerTodos(listadoDelegaciones);
                     break;
                 case 6: 
-                    XmlProyectoDAO ProyectoDAO = XmlDAOFactory.getProyectosDAO();                    
+                    XmlProyectoDAO ProyectoDAO = DAOFactoryImpl.getProyectosDAO();                    
                     ProyectoDAO.obtenerTodos(listadoProyectos);
                     break; 
                 case 7: 
-                    XmlPersonalDAO PersonalDAO = XmlDAOFactory.getPersonalDAO();                    
+                    XmlPersonalDAO PersonalDAO = DAOFactoryImpl.getPersonalDAO();                    
                     PersonalDAO.obtenerTodos(miPersonalList);
                     break; 
                 case 8: 
-                    XmlVoluntarioDAO VoluntarioDAO = XmlDAOFactory.getVoluntariosDAO();
+                    XmlVoluntarioDAO VoluntarioDAO = DAOFactoryImpl.getVoluntariosDAO();
                     VoluntarioDAO.obtenerTodos(listadoVoluntarios);
                     break;
                 case 9: 
-                    XmlVoluntarioInternacionalDAO VoluntarioInternacionalDAO = XmlDAOFactory.getVoluntariosInternacionalesDAO();
+                    XmlVoluntarioInternacionalDAO VoluntarioInternacionalDAO = DAOFactoryImpl.getVoluntariosInternacionalesDAO();
                     VoluntarioInternacionalDAO.obtenerTodos(listadoVoluntariosInternacionales);
                     break;
                 case 10: 
-                    XmlContratadoDAO ContratadoDAO = XmlDAOFactory.getContratadosDAO();
+                    XmlContratadoDAO ContratadoDAO = DAOFactoryImpl.getContratadosDAO();
                     ContratadoDAO.obtenerTodos(listadoContratados);
                     break;
+                case 11:
+                    SQLVoluntarioInternacionalDAO SQLVoluntarioInternacionalDAO = DAOFactoryImpl.getVoluntariosInternacionalesDAOSQL();
+                    SQLVoluntarioInternacionalDAO.insertar(voluntarioInternacional1);
                 default:
                     System.out.print("Opción no válida. Vuelve a intentarlo e introduce una de las opciones indicadas. ");
                     break;
