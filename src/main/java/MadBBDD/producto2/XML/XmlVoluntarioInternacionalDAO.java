@@ -31,7 +31,7 @@ public class XmlVoluntarioInternacionalDAO implements VoluntarioInternacionalDAO
     }
 
     @Override
-    public void insertar(VoluntarioInternacional a) {
+    public void insertar(VoluntariosInternacionales a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

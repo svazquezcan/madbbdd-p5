@@ -23,7 +23,7 @@ public class XmlONGDAO implements ONGDAO{
 }
 
     @Override
-    public void insertar(ONG a) {
+    public void insertar(ONGs a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

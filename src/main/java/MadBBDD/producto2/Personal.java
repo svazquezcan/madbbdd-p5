@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType (XmlAccessType.NONE)
 
 public class Personal {
-    private static AtomicInteger codigoDePersonalCount = new AtomicInteger(1);
+    private static AtomicInteger codigoDePersonalCount;
     @XmlElement (name="codigoDePersonal")
     private int codigoDePersonal;
     @XmlElement (name="tipoDePersonal")
@@ -34,11 +34,9 @@ public class Personal {
     private String usuario; 
     @XmlElement (name="contraseña")
     private String contraseña; 
-    @XmlElement (name="delegacion")
     private String delegacion;
 
     /**Constructor
-     * @param codigoDePersonal
      * @param tipoDePersonal
      * @param nombre
      * @param apellido
@@ -47,7 +45,7 @@ public class Personal {
      * @param contraseña
      * @param delegacion*/
     
-    public Personal (int codigoDePersonal, String tipoDePersonal, String nombre, String apellido,  ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion){
+    public Personal (String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion){
         this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
         this.tipoDePersonal = tipoDePersonal; 
         this.nombre = nombre; 
@@ -60,6 +58,7 @@ public class Personal {
     
     /*constructor para testeo*/
     public Personal (String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion){
+        this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
         this.tipoDePersonal = tipoDePersonal; 
         this.nombre = nombre; 
         this.apellido = apellido; 
@@ -75,6 +74,7 @@ public class Personal {
     
     /*constructor sin argumentos para JAXB*/
     public Personal (){
+        this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
     }
     
     
@@ -117,7 +117,6 @@ public class Personal {
     public String getUsuario(){
         return this.usuario;
     }
-    
     
      /**Getter
      * @return contraseña*/
@@ -178,5 +177,29 @@ public class Personal {
     public void setDelegacion(String delegacion){
         this.delegacion = delegacion; 
     }  
+    
+    public int obtenerIdDelegacion(String delegacion){
+        
+        int idDelegacion = 0;
+   
+        if (delegacion.equals("Entreculturas Portugal")){
+            idDelegacion = 1;
+        }
+        
+        else if(delegacion.equals("Entreculturas España")){
+            idDelegacion = 2;
+        }
+        
+        else if(delegacion.equals("Entreculturas Francia")){
+            idDelegacion =3;       
+        }
+    
+    return idDelegacion;   
+    
+    }
+    
+    public static void inicializarAutoincrement(int num){
+        codigoDePersonalCount = new AtomicInteger(num);
+    }
     
 }

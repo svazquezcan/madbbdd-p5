@@ -24,8 +24,8 @@ public class Voluntario extends Personal {
 
     
     /*Constructor para crear voluntario y asignarle un proyecto a la vez*/
-    public Voluntario(int codigoDePersonal, String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI) {
-        super(codigoDePersonal, tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
+    public Voluntario(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.DNI = DNI; 
     }
     

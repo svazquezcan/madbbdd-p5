@@ -23,8 +23,8 @@ public class VoluntarioInternacional extends Personal {
     private String NIE; 
     
     /*Constructor para asignar proyectos al crear VoluntarioInternacional*/
-    public VoluntarioInternacional(int codigoDePersonal, String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String NIE) {
-        super(codigoDePersonal, tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
+    public VoluntarioInternacional(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String NIE) {
+        super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.NIE = NIE; 
     }
     

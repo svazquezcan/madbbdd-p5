@@ -18,7 +18,7 @@ import javax.xml.bind.JAXBException;
 public class SQLProyectoDAO implements ProyectoDAO {
 
     @Override
-    public void insertar(Proyecto a) {
+    public void insertar(Proyectos a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

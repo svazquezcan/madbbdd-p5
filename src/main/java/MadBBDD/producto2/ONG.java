@@ -199,7 +199,6 @@ public class ONG {
     
     public void entrarDatosPersonal(){
         /**Declaracion variables para guardar datos de personal nuevo*/
-        int nuevoCodigo = 0;
         String tipoDePersonalDelNuevo;
         String nuevoNombre; 
         String nuevoApellido; 
@@ -365,7 +364,7 @@ public class ONG {
 
                 }
 
-                Voluntario voluntario = new Voluntario (nuevoCodigo, nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI);
+                Voluntario voluntario = new Voluntario (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI);
                 ArrayList<Voluntario> listadoVoluntarios = this.getListaVoluntarios();
                 listadoVoluntarios.add(voluntario);
                 
@@ -386,10 +385,10 @@ public class ONG {
 
                 }
 
-                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional (nuevoCodigo, nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoNIE);
+                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoNIE);
                 ArrayList<VoluntarioInternacional> listadoVoluntariosInternacionales = this.getListaVoluntariosInternacionales();
                 listadoVoluntariosInternacionales.add(voluntarioInternacional);
-                
+
              }
 
              else {
@@ -432,7 +431,7 @@ public class ONG {
 
                 }
 
-                Contratado contratado = new Contratado (nuevoCodigo, nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoCosteSalario, nuevaFuncion);
+                Contratado contratado = new Contratado (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoCosteSalario, nuevaFuncion);
                 ArrayList<Contratado> listadoContratados = this.getListaContratados();
                 listadoContratados.add(contratado);
              }
@@ -451,11 +450,10 @@ public class ONG {
         
     }  
     
-    
      public void entrarDatosDelegacion(){
         /**Declaracion variables**/
-        String  newName_Delegacion; 
-        String  newName_Direccion; 
+        String newName_Delegacion; 
+        String newName_Direccion; 
         String newName_Telefono;
         boolean newDelegacion = true;
    
@@ -508,12 +506,10 @@ public class ONG {
               System.out.println("Esta Delegación ya existe. No se puede crear un con el mismo nombre. Por favor, vuelve formular la nueva Delegacion correctamente");
               newDelegacion = false;
            }
-            else{
-              
-            }
        }
        
        if (newDelegacion) {
+ 
         Delegacion nuevaDelegacion = new Delegacion (newName_Delegacion, newName_Direccion, newName_Telefono); 
         nuevaDelegacion.setNombre(newName_Delegacion);
         nuevaDelegacion.setDireccion(newName_Direccion);
@@ -522,8 +518,8 @@ public class ONG {
         System.out.print("Nueva Delegacion guardada correctamente ");  
         
        }
-       
     }
+     
      
     public void entrarDatosProyecto(){
         /**Declaracion variables para guardar datos de proyecto nuevo*/

@@ -13,9 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.lang.Object;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
@@ -39,36 +36,40 @@ public class SQLVoluntarioInternacionalDAO implements VoluntarioInternacionalDAO
     }
     
     @Override
-    public void insertar(VoluntarioInternacional a) {
-        
+    public void insertar(VoluntariosInternacionales a) {
         try {
             
-            File fileVoluntariosInternacionales = new File("VoluntariosInternacionales.xml");
+            File fileVoluntariosInternacionales = new File("VoluntariosInternacionales.xml", "ISO-8859-1");
             JAXBContext context = JAXBContext.newInstance(VoluntariosInternacionales.class);   
             Unmarshaller unmarshaller = context.createUnmarshaller(); 
             
-            VoluntariosInternacionales datosVoluntariosInternacionales = (VoluntariosInternacionales) unmarshaller.unmarshal(fileVoluntariosInternacionales);
-            ArrayList<VoluntarioInternacional> listaVoluntariosInternacionales = datosVoluntariosInternacionales.getVoluntariosInternacionales();
-            /**/
-            for(VoluntarioInternacional voluntarioInternacional: listaVoluntariosInternacionales){
-                int codigoDePersonal = jdbcTemplate.queryForObject("SELECT codigoDePersonal FROM voluntariointernacional", int.class);
-                if(a.getCodigoDePersonal()== voluntarioInternacional.getCodigoDePersonal()){
-                    jdbcTemplate.update(
-                    "INSERT INTO voluntariointernacional(codigoDePersonal, nie) VALUES (?,?)", a.getCodigoDePersonal(),a.getNIE());               
+            VoluntariosInternacionales datosVoluntariosInternacionalesXML = (VoluntariosInternacionales) unmarshaller.unmarshal(fileVoluntariosInternacionales);
+            ArrayList<VoluntarioInternacional> listaVoluntariosInternacionales = a.getVoluntariosInternacionales();
+            ArrayList<VoluntarioInternacional> listaVoluntariosInternacionalesXML = datosVoluntariosInternacionalesXML.getVoluntariosInternacionales();
+            int i= 0;
+            /*Recorremos arraylist de voluntariosInternacionales e insertamos los que sean nuevos*/
+            for(VoluntarioInternacional volInt: listaVoluntariosInternacionales){
+                if(volInt.getCodigoDePersonal()==listaVoluntariosInternacionalesXML.get(i).getCodigoDePersonal()){
+                     System.out.println("El voluntario internacional de id " + listaVoluntariosInternacionales.get(i).getCodigoDePersonal()+ " ya existe.");
                 }
-            
+               
+                else{
+                    jdbcTemplate.update(
+                    "INSERT INTO voluntariointernacional( nie) VALUES (?)", listaVoluntariosInternacionales.get(i).getNIE());
+                    System.out.println("El voluntario internacional de id " + listaVoluntariosInternacionales.get(i).getCodigoDePersonal()+ "ha sido creado.");
+        
+                }
             }
-            
-            System.out.println("El voluntario internacional de id " + a.getCodigoDePersonal()+ "ha sido creado.");
         
         }
         
         catch(DataIntegrityViolationException e){
-            System.out.println("El voluntario internacional de id " + a.getCodigoDePersonal()+ " ya existe.");
+            System.out.println("DataIntegrityViolationException");
             
         } catch (JAXBException ex) {
             Logger.getLogger(SQLVoluntarioInternacionalDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     @Override

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Sandra
  */
 @XmlRootElement(name="voluntariosInternacionales")
-@XmlAccessorType (XmlAccessType.FIELD)
+@XmlAccessorType (XmlAccessType.NONE)
 
 public class VoluntariosInternacionales {
     @XmlElement(name="voluntarioInternacional")

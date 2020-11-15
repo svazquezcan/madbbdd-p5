@@ -16,7 +16,7 @@ import javax.xml.bind.JAXBException;
  * @param <K>
  */
 public interface CRUD<T,U,K> { /*T = clase que guardamos en el sistema ¡, U = otra clase que guardamos en el sistema y K = tipo de datos de la clave primaria*/
-    void insertar(T a);
+    void insertar(U a);
     void modificar(T a);
     void eliminar(T a); 
     void obtenerTodos(U a) throws JAXBException, IOException; 

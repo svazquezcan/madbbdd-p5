@@ -30,7 +30,7 @@ public class XmlContratadoDAO implements ContratadoDAO {
         
     }
     @Override
-    public void insertar(Contratado a) {
+    public void insertar(Contratados a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

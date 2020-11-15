@@ -31,7 +31,7 @@ public class XmlDelegacionDAO implements DelegacionDAO{
 }
 
     @Override
-    public void insertar(Delegacion a) {
+    public void insertar(Delegaciones a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

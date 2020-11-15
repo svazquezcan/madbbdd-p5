@@ -18,7 +18,7 @@ import javax.xml.bind.JAXBException;
 public class SQLVoluntarioDAO implements VoluntarioDAO {
 
     @Override
-    public void insertar(Voluntario a) {
+    public void insertar(Voluntarios a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

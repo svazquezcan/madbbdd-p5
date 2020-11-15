@@ -32,7 +32,7 @@ public class XmlPersonalDAO implements PersonalDAO{
     }
     
     @Override
-    public void insertar(Personal a) {
+    public void insertar(PersonalList a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
