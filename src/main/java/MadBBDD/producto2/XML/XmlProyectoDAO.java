@@ -37,12 +37,12 @@ public class XmlProyectoDAO implements ProyectoDAO{
         }
 
         @Override
-        public void modificar(Proyecto a) {
+        public void modificar(String a, String b, Integer c) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
         @Override
-        public void eliminar(Proyecto a) {
+        public void eliminar(Integer a) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
@@ -56,7 +56,7 @@ public class XmlProyectoDAO implements ProyectoDAO{
         }
 
         @Override
-        public Proyecto obtener(String String) {
+        public Proyecto obtener(Integer String) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     

@@ -12,6 +12,6 @@ import MadBBDD.producto2.ONGs;
  *
  * @author Sandra
  */
-public interface ONGDAO extends CRUD<ONG, ONGs, String>{
+public interface ONGDAO extends CRUD<ONG, ONGs, Integer, String>{
     
 }

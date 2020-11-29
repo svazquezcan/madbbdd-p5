@@ -12,6 +12,6 @@ import MadBBDD.producto2.VoluntariosInternacionales;
  *
  * @author Sandra
  */
-public interface VoluntarioInternacionalDAO extends CRUD<VoluntarioInternacional, VoluntariosInternacionales, String>{
+public interface VoluntarioInternacionalDAO extends CRUD<VoluntarioInternacional, VoluntariosInternacionales, Integer, String>{
     
 }

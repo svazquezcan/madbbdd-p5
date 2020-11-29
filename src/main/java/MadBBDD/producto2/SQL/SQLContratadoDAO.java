@@ -23,12 +23,12 @@ public class SQLContratadoDAO implements ContratadoDAO{
     }
 
     @Override
-    public void modificar(Contratado a) {
+    public void modificar(String a, String b, Integer c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Contratado a) {
+    public void eliminar(Integer a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -38,7 +38,7 @@ public class SQLContratadoDAO implements ContratadoDAO{
     }
 
     @Override
-    public Contratado obtener(String String) {
+    public Contratado obtener(Integer String) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

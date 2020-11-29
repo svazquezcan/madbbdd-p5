@@ -12,7 +12,7 @@ import MadBBDD.producto2.Delegaciones;
  *
  * @author Sandra
  */
-public interface DelegacionDAO extends CRUD<Delegacion, Delegaciones, String>{
+public interface DelegacionDAO extends CRUD<Delegacion, Delegaciones, Integer, String>{
     
     
 }

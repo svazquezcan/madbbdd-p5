@@ -36,12 +36,12 @@ public class XmlVoluntarioInternacionalDAO implements VoluntarioInternacionalDAO
     }
 
     @Override
-    public void modificar(VoluntarioInternacional a) {
+    public void modificar(String a, String b, Integer c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(VoluntarioInternacional a) {
+    public void eliminar(Integer a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -55,7 +55,7 @@ public class XmlVoluntarioInternacionalDAO implements VoluntarioInternacionalDAO
     }
 
     @Override
-    public VoluntarioInternacional obtener(String String) {
+    public VoluntarioInternacional obtener(Integer String) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -6,6 +6,7 @@
 package MadBBDD.producto2.XML;
 
 import MadBBDD.producto2.DAO.PersonalDAO;
+import MadBBDD.producto2.DataSourceJDBC;
 import MadBBDD.producto2.Personal;
 import MadBBDD.producto2.PersonalList;
 import java.io.FileWriter;
@@ -14,6 +15,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 
 /**
  *
@@ -23,12 +26,17 @@ public class XmlPersonalDAO implements PersonalDAO{
     
     private JAXBContext context;
     private String nombreFichero;
+    private JdbcTemplate jdbcTemplate;
+    private DataSourceJDBC mySqlDataSource = new DataSourceJDBC();
+
+
 
     public XmlPersonalDAO() throws JAXBException{
         
         this.context = JAXBContext.newInstance(PersonalList.class);
 	this.nombreFichero = "Personal.xml";
-        
+        this.jdbcTemplate = new JdbcTemplate(mySqlDataSource.getDataSource());
+
     }
     
     @Override
@@ -37,12 +45,12 @@ public class XmlPersonalDAO implements PersonalDAO{
     }
 
     @Override
-    public void modificar(Personal a) {
+    public void modificar(String a, String b, Integer c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Personal a) {
+    public void eliminar(Integer a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -56,8 +64,12 @@ public class XmlPersonalDAO implements PersonalDAO{
     }
 
     @Override
-    public Personal obtener(String String) {
+    public Personal obtener(Integer String) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public int lastCodigoDePersonal(){
+        int lastCodigoDePersonal = jdbcTemplate.queryForObject("SELECT codigoDePersonal FROM personal ORDER BY idDelegacion DESC LIMIT 1", Integer.class);
+        return lastCodigoDePersonal;
+    }
 }

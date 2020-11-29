@@ -287,14 +287,14 @@ public class ONG {
 
            else if (newUser){  /*como el usuario es nuevo, ahora pedimos que se guarden el resto de los datos de miembro de personal*/
 
-               /**Solicitud por consola de contraseña y lectura por teclado de contraseña*/
-               System.out.print("Introduce la contraseña del usuario del nuevo miembro del personal: ");
+               /**Solicitud por consola de password y lectura por teclado de password*/
+               System.out.print("Introduce la password del usuario del nuevo miembro del personal: ");
                nuevaContraseña = leerDatos.nextLine();
 
-               /**Comprobacion para que campo contraseña no esté vacío*/
+               /**Comprobacion para que campo password no esté vacío*/
                 while (nuevaContraseña.isEmpty()){
 
-                   System.out.print("La contraseña del nuevo usuario no puede ser un campo vacio. Introduce la contraseña del nuevo miembro del personal y usuario: ");
+                   System.out.print("La password del nuevo usuario no puede ser un campo vacio. Introduce la password del nuevo miembro del personal y usuario: ");
                    nuevaContraseña = leerDatos.nextLine();
 
             }
@@ -344,7 +344,7 @@ public class ONG {
              nuevoPersonal.setApellido(nuevoApellido);
              nuevoPersonal.setTipoDePersonal(tipoDePersonalDelNuevo);
              nuevoPersonal.setUsuario(nuevoUsuario);
-             nuevoPersonal.setContraseña(nuevaContraseña);
+             nuevoPersonal.setPassword(nuevaContraseña);
              nuevoPersonal.setDelegacion(nuevaDelegacion);
              nuevoPersonal.setListadoProyectos(proyectosDelNuevo);
              nuevaListaPersonal.add(nuevoPersonal);
@@ -700,5 +700,33 @@ public class ONG {
           System.out.print("No se ha introducido un número correcto. Por favor, vuelve a guardar los datos del proyecto desde el principio.\n ");
           
       }
-    }   
+    } 
+    
+    /*Función para recoger por teclado el código de Personal del personal que se desea eliminar en la BBDD*/
+    
+    int codigoDePersonalAEliminar(){
+        System.out.println("Escribe el código de personal del personal que deseas modificar o eliminar");
+        int codigoDePersonalAEliminar = leerDatos.nextInt(); 
+        leerDatos.nextLine();
+        return codigoDePersonalAEliminar;
+    }
+    
+    /*Función para recoger por teclado el String que corresponderá a uno de los atributos String del personal que se desea modificar en la BBDD*/
+    
+    String atributoDePersonalAModificar(){
+        System.out.println("Escribe el nombre del atributo del personal que deseas modificar: nombre, apellido, usuario o password.");
+        String atributoViejo = leerDatos.nextLine();       
+        while (!"nombre".equals(atributoViejo) && !"apellido".equals(atributoViejo) && !"usuario".equals(atributoViejo) && !"password".equals(atributoViejo)){ /*comprobacion de campo para que solo se puedan introducir los abributos que existen*/
+            System.out.println("El nombre del atributo que deseas modificar es incorrecto. Vuelve a introducirlo");
+            atributoViejo = leerDatos.nextLine();       
+        }
+        return atributoViejo;
+    }
+    
+    String atributoModicado(String atributoViejo){
+         System.out.println("¿Cuál es el nuevo " + atributoViejo + " que quieres poner? Por favor, indícalo entre comillas simples('')");
+         String atributoModificado = leerDatos.nextLine();
+        return atributoModificado;
+    }
+    
 }

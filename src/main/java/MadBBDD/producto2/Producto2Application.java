@@ -20,65 +20,65 @@ import javax.xml.bind.JAXBException;
 @SpringBootApplication
 public class Producto2Application {
     
-	public static void main(String[] args) throws JAXBException, IOException, SQLException{
-                
-                MadBBDD.producto2.SQL.SQLPersonalDAO personalDAO = new MadBBDD.producto2.SQL.SQLPersonalDAO();
-                int num = personalDAO.lastCodigoDePersonal();
-                Personal.inicializarAutoincrement(num++ );
-                
-		SpringApplication.run(Producto2Application.class, args);
-                ONG miONG = new ONG("B858585P","Calle Palomas", "66666666"); //creo objeto ONG para tener datos en XML además de los que se introduzcan por consola
-                Delegacion delegacion1 = new Delegacion("Entreculturas España", "Calle Ok", "555555"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
-                Delegacion delegacion2 = new Delegacion("Entreculturas Francia", "Calle Calle", "444444"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
-                Delegacion delegacion3 = new Delegacion("Entreculturas Portugal", "Calle Bien", "777777"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
-                Proyecto proyecto1 = new Proyecto("España", "Madrid", "Acceso al agua potable", "Fuentes", LocalDate.parse("2020-12-12"), LocalDate.parse("2021-12-12"), "Carrefour", "Carrefour", 1000000, 200000, "Potabilización"); //creo objeto proyecto para testing (tener datos en el XML además de los que se introduzcan por consola
-                Voluntario voluntario1 = new Voluntario("Voluntario", "Paco", "Perez", "pacoPerez", "12345", "Entreculturas España","5555555P");//creo objeto voluntario para testing (tener datos en el XML además de los que se introduzcan por consola)
-                VoluntarioInternacional voluntarioInternacional1 = new VoluntarioInternacional("VoluntarioInternacional","John","Dow","johndow","john","Entreculturas Francia", "5555552");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
-                VoluntarioInternacional voluntarioInternacional2 = new VoluntarioInternacional("Voluntario Internacional", "Madeline", "Miau", "miau", "miau", "Entreculturas Portugal", "5555554");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
-                Contratado contratado1 = new Contratado("Contratado", "Megan", "Fox", "meganFox", "88984263", "Entreculturas Portugal", "885966Y", 1999.35f, "hacer fotocopias"); //creo objeto contratado para testing (tener datos en el XML además de los que se introduzcan por consola)
-                ArrayList<Personal> totalPersonal = miONG.getListaPersonal();
-                ArrayList<Proyecto> totalProyectos = miONG.getProyectos();
-                ArrayList<Delegacion> totalDelegaciones = miONG.getDelegaciones();
-                ArrayList<Voluntario> totalVoluntarios = miONG.getListaVoluntarios();
-                ArrayList<VoluntarioInternacional> totalVoluntariosInternacionales = miONG.getListaVoluntariosInternacionales();
-                ArrayList<Contratado> totalContratados = miONG.getListaContratados();
-                totalProyectos.add(proyecto1); //guardo objeto proyecto para testing
-                totalDelegaciones.add(delegacion1); //guardo objeto delegacion para testing
-                totalDelegaciones.add(delegacion2); //guardo objeto delegacion para testing
-                totalDelegaciones.add(delegacion3); //guardo objeto delegacion para testing
-                totalPersonal.add(voluntario1);
-                totalVoluntarios.add(voluntario1); // guardo objeto voluntario para testing
-                totalVoluntariosInternacionales.add(voluntarioInternacional1); //guardo objeto voluntarioInternacional para testing
-                totalVoluntariosInternacionales.add(voluntarioInternacional2); //guardo objeto voluntarioInternacional para testing
-                totalPersonal.add(voluntarioInternacional1);
-                totalPersonal.add(voluntarioInternacional2);
-                totalPersonal.add(contratado1);
-                totalContratados.add(contratado1); //guardo objeto contratado para testing
-                PersonalList miPersonalList = new PersonalList(); //creo objeto que pasaremos al marshaller
-                miPersonalList.setPersonal(totalPersonal); //relleno objeto con la info de miONG
-                Proyectos listadoProyectos = new Proyectos(); //creo objeto que pasaremos al marshaller
-                listadoProyectos.setProyectos(totalProyectos); //relleno objeto con la info de miONG
-                Delegaciones listadoDelegaciones = new Delegaciones(); //creo objeto que pasaremos al marshaller
-                listadoDelegaciones.setDelegaciones(totalDelegaciones); //relleno objeto con la info de miONG
-                ArrayList<Voluntario> voluntarios = miONG.getListaVoluntarios(); //relleno arraylist con la info de miONG
-                Voluntarios listadoVoluntarios = new Voluntarios(); //creo objeto que pasaremos al marshaller
-                listadoVoluntarios.setVoluntarios(voluntarios); //relleno objeto con la info de miONG
-                ArrayList<VoluntarioInternacional> voluntariosInternacionales = miONG.getListaVoluntariosInternacionales(); //relleno arraylist con la info de miONG
-                VoluntariosInternacionales listadoVoluntariosInternacionales = new VoluntariosInternacionales(); //creo objeto que pasaremos al marshaller
-                listadoVoluntariosInternacionales.setVoluntarios(voluntariosInternacionales); //relleno objeto con la info de miONG
-                ArrayList<Contratado> contratados = miONG.getListaContratados();//relleno arraylist con la info de miONG
-                Contratados listadoContratados = new Contratados(); //creo objeto que pasaremos al marshaller
-                listadoContratados.setContratados(contratados);//relleno objeto con la info de miONG
-                ArrayList<ONG> misONGs = new ArrayList<ONG>(); 
-                misONGs.add(miONG);
-                ONGs ONGs = new ONGs(); 
-                ONGs.setONGs(misONGs);
-                            
-                DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
-                int opcion = 0; 
-                opcion = Menu.OpcionMenu(); 
-                while(opcion >= 1 && opcion <= 11){
-            
+    public static void main(String[] args) throws JAXBException, IOException, SQLException{
+
+        MadBBDD.producto2.SQL.SQLPersonalDAO personalDAO = new MadBBDD.producto2.SQL.SQLPersonalDAO();
+        int num = personalDAO.lastCodigoDePersonal();
+        Personal.inicializarAutoincrement(num++ );
+
+        SpringApplication.run(Producto2Application.class, args);
+        ONG miONG = new ONG("B858585P","Calle Palomas", "66666666"); //creo objeto ONG para tener datos en XML además de los que se introduzcan por consola
+        Delegacion delegacion1 = new Delegacion("Entreculturas España", "Calle Ok", "555555"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
+        Delegacion delegacion2 = new Delegacion("Entreculturas Francia", "Calle Calle", "444444"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
+        Delegacion delegacion3 = new Delegacion("Entreculturas Portugal", "Calle Bien", "777777"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
+        Proyecto proyecto1 = new Proyecto("España", "Madrid", "Acceso al agua potable", "Fuentes", LocalDate.parse("2020-12-12"), LocalDate.parse("2021-12-12"), "Carrefour", "Carrefour", 1000000, 200000, "Potabilización"); //creo objeto proyecto para testing (tener datos en el XML además de los que se introduzcan por consola
+        Voluntario voluntario1 = new Voluntario("Voluntario", "Paco", "Perez", "pacoPerez", "12345", "Entreculturas España","5555555P");//creo objeto voluntario para testing (tener datos en el XML además de los que se introduzcan por consola)
+        VoluntarioInternacional voluntarioInternacional1 = new VoluntarioInternacional("VoluntarioInternacional","John","Dow","johndow","john","Entreculturas Francia", "5555552");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
+        VoluntarioInternacional voluntarioInternacional2 = new VoluntarioInternacional("Voluntario Internacional", "Madeline", "Miau", "miau", "miau", "Entreculturas Portugal", "5555554");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
+        Contratado contratado1 = new Contratado("Contratado", "Megan", "Fox", "meganFox", "88984263", "Entreculturas Portugal", "885966Y", 1999.35f, "hacer fotocopias"); //creo objeto contratado para testing (tener datos en el XML además de los que se introduzcan por consola)
+        ArrayList<Personal> totalPersonal = miONG.getListaPersonal();
+        ArrayList<Proyecto> totalProyectos = miONG.getProyectos();
+        ArrayList<Delegacion> totalDelegaciones = miONG.getDelegaciones();
+        ArrayList<Voluntario> totalVoluntarios = miONG.getListaVoluntarios();
+        ArrayList<VoluntarioInternacional> totalVoluntariosInternacionales = miONG.getListaVoluntariosInternacionales();
+        ArrayList<Contratado> totalContratados = miONG.getListaContratados();
+        totalProyectos.add(proyecto1); //guardo objeto proyecto para testing
+        totalDelegaciones.add(delegacion1); //guardo objeto delegacion para testing
+        totalDelegaciones.add(delegacion2); //guardo objeto delegacion para testing
+        totalDelegaciones.add(delegacion3); //guardo objeto delegacion para testing
+        totalPersonal.add(voluntario1);
+        totalVoluntarios.add(voluntario1); // guardo objeto voluntario para testing
+        totalVoluntariosInternacionales.add(voluntarioInternacional1); //guardo objeto voluntarioInternacional para testing
+        totalVoluntariosInternacionales.add(voluntarioInternacional2); //guardo objeto voluntarioInternacional para testing
+        totalPersonal.add(voluntarioInternacional1);
+        totalPersonal.add(voluntarioInternacional2);
+        totalPersonal.add(contratado1);
+        totalContratados.add(contratado1); //guardo objeto contratado para testing
+        PersonalList miPersonalList = new PersonalList(); //creo objeto que pasaremos al marshaller
+        miPersonalList.setPersonal(totalPersonal); //relleno objeto con la info de miONG
+        Proyectos listadoProyectos = new Proyectos(); //creo objeto que pasaremos al marshaller
+        listadoProyectos.setProyectos(totalProyectos); //relleno objeto con la info de miONG
+        Delegaciones listadoDelegaciones = new Delegaciones(); //creo objeto que pasaremos al marshaller
+        listadoDelegaciones.setDelegaciones(totalDelegaciones); //relleno objeto con la info de miONG
+        ArrayList<Voluntario> voluntarios = miONG.getListaVoluntarios(); //relleno arraylist con la info de miONG
+        Voluntarios listadoVoluntarios = new Voluntarios(); //creo objeto que pasaremos al marshaller
+        listadoVoluntarios.setVoluntarios(voluntarios); //relleno objeto con la info de miONG
+        ArrayList<VoluntarioInternacional> voluntariosInternacionales = miONG.getListaVoluntariosInternacionales(); //relleno arraylist con la info de miONG
+        VoluntariosInternacionales listadoVoluntariosInternacionales = new VoluntariosInternacionales(); //creo objeto que pasaremos al marshaller
+        listadoVoluntariosInternacionales.setVoluntarios(voluntariosInternacionales); //relleno objeto con la info de miONG
+        ArrayList<Contratado> contratados = miONG.getListaContratados();//relleno arraylist con la info de miONG
+        Contratados listadoContratados = new Contratados(); //creo objeto que pasaremos al marshaller
+        listadoContratados.setContratados(contratados);//relleno objeto con la info de miONG
+        ArrayList<ONG> misONGs = new ArrayList<>(); 
+        misONGs.add(miONG);
+        ONGs ONGs = new ONGs(); 
+        ONGs.setONGs(misONGs);
+
+        DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
+        int opcion = 0; 
+        opcion = Menu.OpcionMenu(); 
+        while(opcion >= 1 && opcion <= 15){
+
             switch (opcion) {
                 case 1:   
                     miONG.entrarDatosPersonal();
@@ -117,16 +117,37 @@ public class Producto2Application {
                     XmlContratadoDAO ContratadoDAO = DAOFactoryImpl.getContratadosDAO();
                     ContratadoDAO.obtenerTodos(listadoContratados);
                     break;
-                case 11:
+                case 11: //producto 3. Opción para guardar el personal que se introduce por consola en BBDD
                     SQLPersonalDAO SQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
                     SQLPersonalDAO.insertar(miPersonalList);
+                    break;
+                case 12: //producto 3. Opción para volcar los datos del XML de Personal en la BBDD
+                    SQLPersonalDAO SQLPersonalDAOXML = DAOFactoryImpl.getPersonalDAOSQL();
+                    SQLPersonalDAOXML.volcarDatosXML(miPersonalList);
+                    break;
+                case 13: // producto 3. Opción para eliminar personal de la BBDD
+                    int codigoDePersonalAEliminar = miONG.codigoDePersonalAEliminar();
+                    SQLPersonalDAO SQLPersonalDAOSQLAEliminar = DAOFactoryImpl.getPersonalDAOSQL();
+                    SQLPersonalDAOSQLAEliminar.eliminar(codigoDePersonalAEliminar);
+                    break;   
+                case 14: //producto 3. Opción para obtener todo el personal de la BBDD
+                    SQLPersonalDAO totalSQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
+                    totalSQLPersonalDAO.obtenerTodos(miPersonalList);
+                    break;
+                case 15: //producto 3. Opción para modificar personal en la BBDD
+                    int codigoDePersonalAModificar = miONG.codigoDePersonalAEliminar();
+                    SQLPersonalDAO SQLPersonalDAOSQLAModificar = DAOFactoryImpl.getPersonalDAOSQL();
+                    String atributoAModificar = miONG.atributoDePersonalAModificar(); 
+                    String atributoNuevo = miONG.atributoModicado(atributoAModificar);
+                    SQLPersonalDAOSQLAModificar.modificar(atributoAModificar, atributoNuevo, codigoDePersonalAModificar);
+                    break;
                 default:
                     System.out.print("Opción no válida. Vuelve a intentarlo e introduce una de las opciones indicadas. ");
                     break;
             }
-        
+
             opcion = Menu.OpcionMenu();    
-            
+
         }
 
     }

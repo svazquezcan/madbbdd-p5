@@ -28,12 +28,12 @@ public class XmlONGDAO implements ONGDAO{
     }
 
     @Override
-    public void modificar(ONG a) {
+    public void modificar(String a, String b, Integer c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(ONG a) {
+    public void eliminar(Integer a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -47,7 +47,7 @@ public class XmlONGDAO implements ONGDAO{
     }
 
     @Override
-    public ONG obtener(String String) {
+    public ONG obtener(Integer String) {
          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

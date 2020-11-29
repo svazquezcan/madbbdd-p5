@@ -12,6 +12,6 @@ import MadBBDD.producto2.Proyectos;
  *
  * @author Sandra
  */
-public interface ProyectoDAO extends CRUD<Proyecto, Proyectos, String>{
+public interface ProyectoDAO extends CRUD<Proyecto, Proyectos, Integer, String>{
     
 }

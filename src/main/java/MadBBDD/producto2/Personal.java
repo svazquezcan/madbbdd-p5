@@ -32,8 +32,9 @@ public class Personal {
     private ArrayList<Proyecto> listadoProyectos;  
     @XmlElement (name="usuario")
     private String usuario; 
-    @XmlElement (name="contraseña")
-    private String contraseña; 
+    @XmlElement (name="password")
+    private String password; 
+    @XmlElement (name="delegacion")
     private String delegacion;
 
     /**Constructor
@@ -42,28 +43,28 @@ public class Personal {
      * @param apellido
      * @param listadoProyectos
      * @param usuario
-     * @param contraseña
+     * @param password
      * @param delegacion*/
     
-    public Personal (String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion){
+    public Personal (String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String password, String delegacion){
         this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
         this.tipoDePersonal = tipoDePersonal; 
         this.nombre = nombre; 
         this.apellido = apellido; 
         this.listadoProyectos = listadoProyectos;
         this.usuario = usuario; 
-        this.contraseña = contraseña; 
+        this.password = password; 
         this.delegacion = delegacion;
     }
     
     /*constructor para testeo*/
-    public Personal (String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion){
+    public Personal (String tipoDePersonal, String nombre, String apellido, String usuario, String password, String delegacion){
         this.codigoDePersonal = codigoDePersonalCount.getAndIncrement();
         this.tipoDePersonal = tipoDePersonal; 
         this.nombre = nombre; 
         this.apellido = apellido; 
         this.usuario = usuario;
-        this.contraseña = contraseña; 
+        this.password = password; 
         this.delegacion = delegacion; 
     }
     
@@ -119,9 +120,9 @@ public class Personal {
     }
     
      /**Getter
-     * @return contraseña*/
-    public String getContraseña(){
-        return this.contraseña;
+     * @return password*/
+    public String getPassword(){
+        return this.password;
     }  
     
      /**Getter
@@ -167,9 +168,9 @@ public class Personal {
     }  
     
         /**Setter
-     * @param contraseña, para añadir/modificar la contraseña de Personal*/
-    public void setContraseña(String contraseña){
-        this.contraseña = contraseña; 
+     * @param password, para añadir/modificar la password de Personal*/
+    public void setPassword(String password){
+        this.password = password; 
     }  
     
        /**Setter
@@ -177,6 +178,10 @@ public class Personal {
     public void setDelegacion(String delegacion){
         this.delegacion = delegacion; 
     }  
+    
+    /**Método de Personal para obtener el idDelegacion para poder insertarlo en la BD en la tabla personal, ya que en la clase nosotros tenemos un String
+     * @param delegacion
+     * @return */
     
     public int obtenerIdDelegacion(String delegacion){
         
@@ -197,6 +202,10 @@ public class Personal {
     return idDelegacion;   
     
     }
+    
+    /**Método de Personal para inicializar el AI de la PK codigoDePersonalCount siguiendo la numeración del AI de la BBDD, ya que al testear hemos creado y borrado muchos registros y la numeración difiera de la del código java
+     * @param num*/
+
     
     public static void inicializarAutoincrement(int num){
         codigoDePersonalCount = new AtomicInteger(num);

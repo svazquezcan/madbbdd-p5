@@ -5,6 +5,7 @@
  */
 package MadBBDD.producto2.DAO;
 
+
 import MadBBDD.producto2.Personal;
 import MadBBDD.producto2.PersonalList;
 
@@ -13,7 +14,7 @@ import MadBBDD.producto2.PersonalList;
  *
  * @author Sandra
  */
-public interface PersonalDAO extends CRUD<Personal, PersonalList, String> {
+public interface PersonalDAO extends CRUD<Personal, PersonalList, Integer, String> {
     
     
 }

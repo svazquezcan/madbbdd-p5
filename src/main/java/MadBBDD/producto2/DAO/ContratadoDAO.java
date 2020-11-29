@@ -12,6 +12,6 @@ import MadBBDD.producto2.Contratados;
  *
  * @author Sandra
  */
-public interface ContratadoDAO extends CRUD<Contratado, Contratados, String>{
+public interface ContratadoDAO extends CRUD<Contratado, Contratados, Integer, String>{
     
 }

@@ -36,12 +36,12 @@ public class XmlDelegacionDAO implements DelegacionDAO{
     }
 
     @Override
-    public void modificar(Delegacion a) {
+    public void modificar(String a, String b, Integer c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Delegacion a) {
+    public void eliminar(Integer a) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -55,7 +55,7 @@ public class XmlDelegacionDAO implements DelegacionDAO{
     }
 
     @Override
-    public Delegacion obtener(String String) {
+    public Delegacion obtener(Integer String) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

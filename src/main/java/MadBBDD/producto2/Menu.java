@@ -27,6 +27,7 @@ public class Menu {
     "Numero 1. Introducir nuevo miembro del personal de la ONG.\n " +
     "Numero 2. Introducir nueva delegación.\n " +  
     "Numero 3. Introducir nuevo proyecto.\n " +
+     /*Opciones producto 2: persistencia XML*/
     "Numero 4. XML de la clase ONG.\n " +
     "Numero 5. XML de la clase Delegación.\n " +
     "Numero 6. XML de la clase Proyecto.\n " +
@@ -34,7 +35,13 @@ public class Menu {
     "Número 8. XML de la clase Voluntario.\n" +
     "Número 9. XML de la clase VoluntarioInternacional.\n" +
     "Numero 10. XML de la clase Contratado.\n" +
-    "Numero 11. Testeo insertar clase VoluntarioInternacional.\n");
+     /*Opciones producto 3: persistencia BBDD*/
+    "Numero 11. Guardar el personal que se introduce por consola en BBDD.\n" +
+    "Numero 12. Volcar los datos del XML de Personal en la BBDD.\n" +
+    "Numero 13. Eliminar personal de la BBDD.\n" +
+    "Numero 14. Obtener todo el personal de la BBDD.\n" +
+    "Numero 15. Modificar personal en la BBDD.\n") ;
+
     try {
         
         opcionLeida = leerOpcion.nextInt();

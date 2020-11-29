@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <personalList>
     <personal>
-        <codigoDePersonal>1</codigoDePersonal>
+        <codigoDePersonal>36</codigoDePersonal>
         <tipoDePersonal>Voluntario</tipoDePersonal>
         <nombre>Paco</nombre>
         <apellido>Perez</apellido>
         <usuario>pacoPerez</usuario>
-        <contraseña>12345</contraseña>
+        <password>12345</password>
+        <delegacion>Entreculturas Francia</delegacion>
     </personal>
     <personal>
-        <codigoDePersonal>2</codigoDePersonal>
+        <codigoDePersonal>37</codigoDePersonal>
         <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
         <nombre>John</nombre>
         <apellido>Dow</apellido>
         <usuario>johndow</usuario>
-        <contraseña>john</contraseña>
+        <password>john</password>
+        <delegacion>Entreculturas Francia</delegacion>
     </personal>
     <personal>
-        <codigoDePersonal>3</codigoDePersonal>
+        <codigoDePersonal>38</codigoDePersonal>
         <tipoDePersonal>Voluntario Internacional</tipoDePersonal>
         <nombre>Madeline</nombre>
         <apellido>Miau</apellido>
         <usuario>miau</usuario>
-        <contraseña>miau</contraseña>
+        <password>miau</password>
+        <delegacion>Entreculturas Portugal</delegacion>
     </personal>
     <personal>
-        <codigoDePersonal>4</codigoDePersonal>
+        <codigoDePersonal>39</codigoDePersonal>
         <tipoDePersonal>Contratado</tipoDePersonal>
         <nombre>Megan</nombre>
         <apellido>Fox</apellido>
         <usuario>meganFox</usuario>
-        <contraseña>88984263</contraseña>
+        <password>88984263</password>
+        <delegacion>Entreculturas Portugal</delegacion>
     </personal>
 </personalList>
