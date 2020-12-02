@@ -45,11 +45,6 @@ public class XmlONGDAO implements ONGDAO{
         System.out.println("El archivo ONGs.xml ha sido creado correctamente ");
 
     }
-
-    @Override
-    public ONG obtener(Integer String) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }
     

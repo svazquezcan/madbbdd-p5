@@ -45,7 +45,7 @@ public class ONG {
      * @param telefono*/
     
     public ONG(String CIF, String direccion, String telefono){
-        this.CIF = CIF;
+        this.CIF = "A12345678"; //lo asignamos directamente, ya que solo va a haber un objeto ONG
         this.direccion = direccion; 
         this.telefono = telefono;     
         this.delegaciones = new ArrayList<Delegacion>(); 
@@ -510,10 +510,11 @@ public class ONG {
        
        if (newDelegacion) {
  
-        Delegacion nuevaDelegacion = new Delegacion (newName_Delegacion, newName_Direccion, newName_Telefono); 
+        Delegacion nuevaDelegacion = new Delegacion (); 
         nuevaDelegacion.setNombre(newName_Delegacion);
         nuevaDelegacion.setDireccion(newName_Direccion);
         nuevaDelegacion.setTelefono(newName_Telefono);
+        nuevaDelegacion.setCifOng(CIF);
         nuevaListaDelegaciones.add(nuevaDelegacion);
         System.out.print("Nueva Delegacion guardada correctamente ");  
         

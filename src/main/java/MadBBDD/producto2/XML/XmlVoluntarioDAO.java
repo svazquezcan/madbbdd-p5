@@ -53,9 +53,4 @@ public class XmlVoluntarioDAO implements VoluntarioDAO {
         System.out.println("El archivo Voluntarios.xml ha sido creado correctamente ");
     }
 
-    @Override
-    public Voluntario obtener(Integer String) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

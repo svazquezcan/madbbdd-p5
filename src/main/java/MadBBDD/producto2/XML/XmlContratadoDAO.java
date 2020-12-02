@@ -52,10 +52,5 @@ public class XmlContratadoDAO implements ContratadoDAO {
         System.out.println("El archivo Contratados.xml ha sido creado correctamente ");
 
     }
-
-    @Override
-    public Contratado obtener(Integer String) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

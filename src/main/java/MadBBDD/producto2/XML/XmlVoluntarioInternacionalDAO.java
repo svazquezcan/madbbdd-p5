@@ -54,9 +54,4 @@ public class XmlVoluntarioInternacionalDAO implements VoluntarioInternacionalDAO
 
     }
 
-    @Override
-    public VoluntarioInternacional obtener(Integer String) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

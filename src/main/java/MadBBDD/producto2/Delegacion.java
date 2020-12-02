@@ -19,31 +19,49 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="delegacion")
 @XmlAccessorType (XmlAccessType.NONE)
 public class Delegacion {
-    private static AtomicInteger idDelegacionCount = new AtomicInteger(1);
-    @XmlElement(name="id")
-    private int id;
+    private static AtomicInteger idDelegacionCount;
+    @XmlElement(name="idDelegacion")
+    private int idDelegacion;
     @XmlElement(name="nombre")
     private String nombre; 
     @XmlElement(name="direccion")
     private String direccion; 
     @XmlElement(name="telefono")
     private String telefono; 
+    @XmlElement(name="cifOng")
+    private String cifOng;
     private ArrayList<Personal> listaDePersonal;
     
     /**Constructor
      * @param nombre
      * @param direccion
-     * @param telefono*/
+     * @param telefono
+     * @param cifOng*/
     
     /*Recordar que si creamos delegaciones hay que modificar método EntrarDatosPersonal() en clase ONG para que permita entrar personal en la nueva delegación*/
-    public Delegacion(String nombre, String direccion, String telefono){
-    this.id = idDelegacionCount.getAndIncrement();
+    public Delegacion(String nombre, String direccion, String telefono, String cifOng){
+    this.idDelegacion = idDelegacionCount.getAndIncrement();
     this.nombre = nombre; 
     this.direccion = direccion; 
     this.telefono = telefono; 
-}
+    this.cifOng = cifOng;
+    
+    }
+    
+    /*Constructor sin argumentos para JAXB*/
+    public Delegacion(int idDelegacion){
+        this.idDelegacion = idDelegacionCount.getAndIncrement();
+    }
+    
     /*Constructor sin argumentos para JAXB*/
     public Delegacion(){
+        this.idDelegacion = idDelegacionCount.getAndIncrement();
+    }
+    
+    /**Getter
+     * @return idDelegacion*/
+    public int getIdDelegacion(){
+        return this.idDelegacion;
     }
     
      /**Getter
@@ -70,6 +88,19 @@ public class Delegacion {
         return this.listaDePersonal;
     }
     
+     /**Getter
+     * @return cifOng*/
+    public String getCifOng(){
+        return this.cifOng;
+    }
+    
+     /**Setter
+     * @param idDelegacion*/
+    public void setIdDelegacion(int idDelegacion) {
+        this.idDelegacion = idDelegacion;
+    }
+    
+    
     /**Setter
      * @param nombre*/
     public void setNombre(String nombre) {
@@ -92,6 +123,16 @@ public class Delegacion {
      * @param listaDePersonal*/
     public void setListaDePersonal(ArrayList<Personal> listaDePersonal) {
         this.listaDePersonal = listaDePersonal;
+    }
+    
+    /**Setter
+     * @param cifOng*/
+    public void setCifOng(String cifOng) {
+        this.cifOng = cifOng;
+    }
+    
+    public static void inicializarAutoincrement(int num){
+        idDelegacionCount = new AtomicInteger(num);
     }
     
 }

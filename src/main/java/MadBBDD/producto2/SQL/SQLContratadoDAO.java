@@ -5,7 +5,6 @@
  */
 package MadBBDD.producto2.SQL;
 
-import MadBBDD.producto2.Contratado;
 import MadBBDD.producto2.Contratados;
 import MadBBDD.producto2.DAO.ContratadoDAO;
 import java.io.IOException;
@@ -34,11 +33,6 @@ public class SQLContratadoDAO implements ContratadoDAO{
 
     @Override
     public void obtenerTodos(Contratados a) throws JAXBException, IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Contratado obtener(Integer String) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

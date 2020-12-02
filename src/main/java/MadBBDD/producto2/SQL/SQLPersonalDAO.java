@@ -85,12 +85,6 @@ public class SQLPersonalDAO implements PersonalDAO {
         rows.forEach(System.out::println);
     }
     
-
-    @Override
-    public Personal obtener(Integer String) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     public int lastCodigoDePersonal(){
         int lastCodigoDePersonal = jdbcTemplate.queryForObject("SELECT codigoDePersonal FROM personal ORDER BY idDelegacion DESC LIMIT 1", Integer.class);
         return lastCodigoDePersonal;
@@ -103,7 +97,7 @@ public class SQLPersonalDAO implements PersonalDAO {
 
         PersonalList datosPersonalListXML = (PersonalList) unmarshaller.unmarshal(inStream);
         ArrayList<Personal> listaPersonalXML = datosPersonalListXML.getPersonalList();
-        /*Recorremos arraylist de voluntariosInternacionales de unmarshaller y volcamos los de la primera BBDD en XML*/
+        /*Recorremos arraylist de personnal de unmarshaller y volcamos los de la primera BBDD en XML*/
         for(int i = 0; i<listaPersonalXML.size(); i++){
             String delegacion = listaPersonalXML.get(i).getDelegacion();
             int idDelegacion = listaPersonalXML.get(i).obtenerIdDelegacion(delegacion);

@@ -6,6 +6,7 @@
 package MadBBDD.producto2.XML;
 
 import MadBBDD.producto2.DAO.DelegacionDAO;
+import MadBBDD.producto2.DataSourceJDBC;
 import MadBBDD.producto2.Delegacion;
 import MadBBDD.producto2.Delegaciones;
 import java.io.FileWriter;
@@ -14,6 +15,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
@@ -23,11 +25,15 @@ public class XmlDelegacionDAO implements DelegacionDAO{
     
     private JAXBContext context;
     private String nombreFichero;
+    private DataSourceJDBC mySqlDataSource = new DataSourceJDBC();
+    private JdbcTemplate jdbcTemplate = new JdbcTemplate(mySqlDataSource.getDataSource());
     
     public XmlDelegacionDAO() throws JAXBException{
     
         this.context = JAXBContext.newInstance(Delegaciones.class);
 	this.nombreFichero = "Delegaciones.xml";
+        this.jdbcTemplate = new JdbcTemplate(mySqlDataSource.getDataSource());
+
 }
 
     @Override
@@ -53,10 +59,9 @@ public class XmlDelegacionDAO implements DelegacionDAO{
         System.out.println("El archivo Delegaciones.xml ha sido creado correctamente ");
 
     }
-
-    @Override
-    public Delegacion obtener(Integer String) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
+    public int lastIdDelegacion(){
+    int lastIdDelegacion = jdbcTemplate.queryForObject("SELECT idDelegacion FROM delegacion ORDER BY idDelegacion DESC LIMIT 1", Integer.class);
+    return lastIdDelegacion;
+    }
 }

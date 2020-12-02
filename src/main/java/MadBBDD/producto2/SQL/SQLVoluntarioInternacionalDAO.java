@@ -86,12 +86,7 @@ public class SQLVoluntarioInternacionalDAO implements VoluntarioInternacionalDAO
     @Override
     public void obtenerTodos(VoluntariosInternacionales a) throws JAXBException, IOException {
     }
-
-    @Override
-    public VoluntarioInternacional obtener(Integer String) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-                
+     
 }
     
 

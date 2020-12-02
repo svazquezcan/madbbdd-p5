@@ -1,6 +1,7 @@
 package MadBBDD.producto2;
 
 import MadBBDD.producto2.DAO.DAOFactory;
+import MadBBDD.producto2.SQL.SQLDelegacionDAO;
 import MadBBDD.producto2.SQL.SQLPersonalDAO;
 import MadBBDD.producto2.XML.XmlContratadoDAO;
 import MadBBDD.producto2.XML.XmlDelegacionDAO;
@@ -24,14 +25,18 @@ public class Producto2Application {
 
         MadBBDD.producto2.SQL.SQLPersonalDAO personalDAO = new MadBBDD.producto2.SQL.SQLPersonalDAO();
         int num = personalDAO.lastCodigoDePersonal();
-        Personal.inicializarAutoincrement(num++ );
-
+        Personal.inicializarAutoincrement(num++);
+        
+        MadBBDD.producto2.SQL.SQLDelegacionDAO delegacionDAO = new MadBBDD.producto2.SQL.SQLDelegacionDAO();
+        int id = delegacionDAO.lastIdDelegacion(); 
+        Delegacion.inicializarAutoincrement(id++);
+        
         SpringApplication.run(Producto2Application.class, args);
-        ONG miONG = new ONG("B858585P","Calle Palomas", "66666666"); //creo objeto ONG para tener datos en XML además de los que se introduzcan por consola
-        Delegacion delegacion1 = new Delegacion("Entreculturas España", "Calle Ok", "555555"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
-        Delegacion delegacion2 = new Delegacion("Entreculturas Francia", "Calle Calle", "444444"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
-        Delegacion delegacion3 = new Delegacion("Entreculturas Portugal", "Calle Bien", "777777"); //creo objeto delegeacion para testing (tener datos en el XML además de los que se introduzcan por consola)
+        ONG miONG = new ONG("A12345678","Calle Palomas", "66666666"); //creo objeto ONG para tener datos en XML además de los que se introduzcan por consola
         Proyecto proyecto1 = new Proyecto("España", "Madrid", "Acceso al agua potable", "Fuentes", LocalDate.parse("2020-12-12"), LocalDate.parse("2021-12-12"), "Carrefour", "Carrefour", 1000000, 200000, "Potabilización"); //creo objeto proyecto para testing (tener datos en el XML además de los que se introduzcan por consola
+        Delegacion delegacion1 = new Delegacion("Entreculturas Portugal", "Calle ok", "78787777", "A12345678");
+        Delegacion delegacion2 = new Delegacion("Entreculturas España", "Calle lol", "89852632", "A12345678");
+        Delegacion delegacion3 = new Delegacion("Entreculturas Francia", "Calle bien", "85916486", "A12345678");
         Voluntario voluntario1 = new Voluntario("Voluntario", "Paco", "Perez", "pacoPerez", "12345", "Entreculturas España","5555555P");//creo objeto voluntario para testing (tener datos en el XML además de los que se introduzcan por consola)
         VoluntarioInternacional voluntarioInternacional1 = new VoluntarioInternacional("VoluntarioInternacional","John","Dow","johndow","john","Entreculturas Francia", "5555552");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
         VoluntarioInternacional voluntarioInternacional2 = new VoluntarioInternacional("Voluntario Internacional", "Madeline", "Miau", "miau", "miau", "Entreculturas Portugal", "5555554");//creo objeto voluntarioInternacional para testing (tener datos en el XML además de los que se introduzcan por consola)
@@ -43,9 +48,9 @@ public class Producto2Application {
         ArrayList<VoluntarioInternacional> totalVoluntariosInternacionales = miONG.getListaVoluntariosInternacionales();
         ArrayList<Contratado> totalContratados = miONG.getListaContratados();
         totalProyectos.add(proyecto1); //guardo objeto proyecto para testing
-        totalDelegaciones.add(delegacion1); //guardo objeto delegacion para testing
-        totalDelegaciones.add(delegacion2); //guardo objeto delegacion para testing
-        totalDelegaciones.add(delegacion3); //guardo objeto delegacion para testing
+        totalDelegaciones.add(delegacion1);
+        totalDelegaciones.add(delegacion2);
+        totalDelegaciones.add(delegacion3);
         totalPersonal.add(voluntario1);
         totalVoluntarios.add(voluntario1); // guardo objeto voluntario para testing
         totalVoluntariosInternacionales.add(voluntarioInternacional1); //guardo objeto voluntarioInternacional para testing
@@ -59,7 +64,7 @@ public class Producto2Application {
         Proyectos listadoProyectos = new Proyectos(); //creo objeto que pasaremos al marshaller
         listadoProyectos.setProyectos(totalProyectos); //relleno objeto con la info de miONG
         Delegaciones listadoDelegaciones = new Delegaciones(); //creo objeto que pasaremos al marshaller
-        listadoDelegaciones.setDelegaciones(totalDelegaciones); //relleno objeto con la info de miONG
+        listadoDelegaciones.setDelegaciones(totalDelegaciones);//relleno objeto con la info de miONG
         ArrayList<Voluntario> voluntarios = miONG.getListaVoluntarios(); //relleno arraylist con la info de miONG
         Voluntarios listadoVoluntarios = new Voluntarios(); //creo objeto que pasaremos al marshaller
         listadoVoluntarios.setVoluntarios(voluntarios); //relleno objeto con la info de miONG
@@ -77,7 +82,7 @@ public class Producto2Application {
         DAOFactory DAOFactoryImpl = DAOFactory.getDAOFactory();
         int opcion = 0; 
         opcion = Menu.OpcionMenu(); 
-        while(opcion >= 1 && opcion <= 15){
+        while(opcion >= 0 && opcion <= 17){
 
             switch (opcion) {
                 case 1:   
@@ -141,8 +146,15 @@ public class Producto2Application {
                     String atributoNuevo = miONG.atributoModicado(atributoAModificar);
                     SQLPersonalDAOSQLAModificar.modificar(atributoAModificar, atributoNuevo, codigoDePersonalAModificar);
                     break;
+                case 16: //producto 3. Opción para guardar las delegaciones que se introduzcan por consola en la BBDD
+                    SQLDelegacionDAO SQLDelegacionDAO = DAOFactoryImpl.getDelegacionesDAOSQL();
+                    SQLDelegacionDAO.insertar(listadoDelegaciones);
+                    break;
+                case 17:  //producto 3. Opción para volcar los datos del XML de Delegacion en la BBDD
+                    SQLDelegacionDAO SQLDelegacionDAOXML = DAOFactoryImpl.getDelegacionesDAOSQL();
+                    SQLDelegacionDAOXML.volcarDatosXML(listadoDelegaciones);
+                    break;
                 default:
-                    System.out.print("Opción no válida. Vuelve a intentarlo e introduce una de las opciones indicadas. ");
                     break;
             }
 
