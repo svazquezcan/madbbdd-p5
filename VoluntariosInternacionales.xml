@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <voluntariosInternacionales>
     <voluntarioInternacional>
-        <codigoDePersonal>1</codigoDePersonal>
+        <codigoDePersonal>73</codigoDePersonal>
+        <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
+        <nombre>John</nombre>
+        <apellido>Dow</apellido>
+        <usuario>johndow</usuario>
+        <password>john</password>
+        <delegacion>Entreculturas Francia</delegacion>
         <nie>5555552</nie>
     </voluntarioInternacional>
     <voluntarioInternacional>
-        <codigoDePersonal>2</codigoDePersonal>
+        <codigoDePersonal>74</codigoDePersonal>
+        <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
+        <nombre>Madeline</nombre>
+        <apellido>Miau</apellido>
+        <usuario>miau</usuario>
+        <password>miau</password>
+        <delegacion>Entreculturas Portugal</delegacion>
         <nie>5555554</nie>
     </voluntarioInternacional>
 </voluntariosInternacionales>

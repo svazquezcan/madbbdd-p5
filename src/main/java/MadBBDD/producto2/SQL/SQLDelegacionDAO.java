@@ -45,7 +45,7 @@ public class SQLDelegacionDAO implements DelegacionDAO {
                 /*Recorremos arraylist de delegacion e insertamos uno a uno en BBDD*/
                 for(int i = 0; i<listadoDelegacion.size(); i++){
                     jdbcTemplate.update(
-                    "INSERT INTO personal(idDelegacion,cifOng,nombre,direccion,telefono) VALUES (?,?,?,?,?)", listadoDelegacion.get(i).getIdDelegacion(),listadoDelegacion.get(i).getCifOng(),listadoDelegacion.get(i).getNombre(),listadoDelegacion.get(i).getDireccion(),listadoDelegacion.get(i).getTelefono());
+                    "INSERT INTO delegacion(nombre,direccion,telefono,cifOng) VALUES (?,?,?,?)", listadoDelegacion.get(i).getNombre(),listadoDelegacion.get(i).getDireccion(),listadoDelegacion.get(i).getTelefono(), listadoDelegacion.get(i).getCifOng());
                     System.out.println("La delegación de id " + listadoDelegacion.get(i).getIdDelegacion()+ " ha sido creada.");
                }
         
@@ -98,9 +98,11 @@ public class SQLDelegacionDAO implements DelegacionDAO {
         for(int i = 0; i<listaDelegacionesXML.size(); i++){
 
         jdbcTemplate.update(
-        "INSERT INTO delegacion(idDelegacion,cifOng,nombre,direccion,telefono) VALUES (?,?,?,?,?)", listaDelegacionesXML.get(i).getIdDelegacion(),listaDelegacionesXML.get(i).getCifOng(),listaDelegacionesXML.get(i).getNombre(),listaDelegacionesXML.get(i).getDireccion(),listaDelegacionesXML.get(i).getTelefono());
+        "INSERT INTO delegacion(cifOng,nombre,direccion,telefono) VALUES (?,?,?,?)", listaDelegacionesXML.get(i).getCifOng(),listaDelegacionesXML.get(i).getNombre(),listaDelegacionesXML.get(i).getDireccion(),listaDelegacionesXML.get(i).getTelefono());
         }
-    
+        
+        System.out.println("El xml de delegaciones ha sido volcado con éxito");
+
      }
     
 }

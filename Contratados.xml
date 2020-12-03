@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contratados>
     <contratado>
-        <codigoDePersonal>0</codigoDePersonal>
+        <codigoDePersonal>75</codigoDePersonal>
         <tipoDePersonal>Contratado</tipoDePersonal>
         <nombre>Megan</nombre>
         <apellido>Fox</apellido>
         <usuario>meganFox</usuario>
-        <contraseña>88984263</contraseña>
+        <password>88984263</password>
         <delegacion>Entreculturas Portugal</delegacion>
         <dni>885966Y</dni>
-        <nºcontrato>0</nºcontrato>
         <costeSalario>1999.35</costeSalario>
         <funcion>hacer fotocopias</funcion>
-    </contratado>
-    <contratado>
-        <codigoDePersonal>0</codigoDePersonal>
-        <tipoDePersonal>pdfasdfa</tipoDePersonal>
-        <nombre>dfasfa</nombre>
-        <apellido>Contratado</apellido>
-        <usuario>dfasdfas</usuario>
-        <contraseña>dfasdfa</contraseña>
-        <delegacion>Entreculturas España</delegacion>
-        <dni>898989</dni>
-        <nºcontrato>1</nºcontrato>
-        <costeSalario>8989.0</costeSalario>
-        <funcion>dfasdfa</funcion>
     </contratado>
 </contratados>

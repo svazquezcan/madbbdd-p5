@@ -6,8 +6,6 @@
 package MadBBDD.producto2.XML;
 
 import MadBBDD.producto2.DAO.PersonalDAO;
-import MadBBDD.producto2.DataSourceJDBC;
-import MadBBDD.producto2.Personal;
 import MadBBDD.producto2.PersonalList;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,28 +13,21 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 
 /**
  *
  * @author Sandra
  */
-public class XmlPersonalDAO implements PersonalDAO{
+public class XmlPersonalDAO implements PersonalDAO {
     
     private JAXBContext context;
     private String nombreFichero;
-    private JdbcTemplate jdbcTemplate;
-    private DataSourceJDBC mySqlDataSource = new DataSourceJDBC();
-
-
 
     public XmlPersonalDAO() throws JAXBException{
         
         this.context = JAXBContext.newInstance(PersonalList.class);
 	this.nombreFichero = "Personal.xml";
-        this.jdbcTemplate = new JdbcTemplate(mySqlDataSource.getDataSource());
-
     }
     
     @Override
@@ -63,8 +54,4 @@ public class XmlPersonalDAO implements PersonalDAO{
 
     }
     
-    public int lastCodigoDePersonal(){
-        int lastCodigoDePersonal = jdbcTemplate.queryForObject("SELECT codigoDePersonal FROM personal ORDER BY idDelegacion DESC LIMIT 1", Integer.class);
-        return lastCodigoDePersonal;
-    }
 }

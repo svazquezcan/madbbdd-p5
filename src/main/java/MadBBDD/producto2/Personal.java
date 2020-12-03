@@ -82,7 +82,7 @@ public class Personal {
     /**Getter
      * @return codigoDePersonal*/
     public int getCodigoDePersonal(){
-        return this.codigoDePersonal;
+        return this.codigoDePersonal; 
     }
     
      /**Getter
@@ -191,7 +191,7 @@ public class Personal {
             idDelegacion = 1;
         }
         
-        else if(delegacion.equals("Entreculturas España")){
+        else if(delegacion.equals("Entreculturas Polonia")){
             idDelegacion = 2;
         }
         

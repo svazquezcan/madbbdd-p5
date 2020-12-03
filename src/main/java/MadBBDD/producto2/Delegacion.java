@@ -132,7 +132,7 @@ public class Delegacion {
     }
     
     public static void inicializarAutoincrement(int num){
-        idDelegacionCount = new AtomicInteger(num);
+        idDelegacionCount = new AtomicInteger(num++);
     }
     
 }

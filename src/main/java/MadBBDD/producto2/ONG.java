@@ -725,9 +725,31 @@ public class ONG {
     }
     
     String atributoModicado(String atributoViejo){
-         System.out.println("¿Cuál es el nuevo " + atributoViejo + " que quieres poner? Por favor, indícalo entre comillas simples('')");
+         System.out.println("¿Cuál es el nuevo " + atributoViejo + " que quieres poner?");
          String atributoModificado = leerDatos.nextLine();
         return atributoModificado;
     }
+    
+      /*Función para recoger por teclado el id de Delegación de la delegación que se desea eliminar o modificar en la BBDD*/
+    
+    int idDeDelegacionAEliminar(){
+        System.out.println("Escribe el id de la delegación que deseas modificar o eliminar");
+        int idDeDelegacionAEliminar = leerDatos.nextInt(); 
+        leerDatos.nextLine();
+        return idDeDelegacionAEliminar;
+    }
+    
+    /*Función para recoger por teclado el String que corresponderá a uno de los atributos String del personal que se desea modificar en la BBDD*/
+    
+    String atributoDeDelegacionAModificar(){
+        System.out.println("Escribe el nombre del atributo de la delegación que deseas modificar: nombre, direccion o telefono.");
+        String atributoViejo = leerDatos.nextLine();       
+        while (!"nombre".equals(atributoViejo) && !"direccion".equals(atributoViejo) && !"telefono".equals(atributoViejo)){ /*comprobacion de campo para que solo se puedan introducir los abributos que existen*/
+            System.out.println("El nombre del atributo que deseas modificar es incorrecto. Vuelve a introducirlo");
+            atributoViejo = leerDatos.nextLine();       
+        }
+        return atributoViejo;
+    }
+   
     
 }

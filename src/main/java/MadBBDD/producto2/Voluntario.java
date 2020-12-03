@@ -36,7 +36,7 @@ public class Voluntario extends Personal {
     }
     
       /*Constructor para crear VoluntarioInternacional para BBDD*/
-     public Voluntario (int codigoDePersonal, String DNI) {
+     public Voluntario (int codigoDePersonal,String DNI) {
         super(codigoDePersonal);
         this.DNI = DNI; 
     }

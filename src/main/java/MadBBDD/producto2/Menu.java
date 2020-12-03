@@ -37,10 +37,15 @@ public class Menu {
     "Numero 10. XML de la clase Contratado.\n" +
      /*Opciones producto 3: persistencia BBDD*/
     "Numero 11. Guardar el personal que se introduce por consola en BBDD.\n" +
-    "Numero 12. Volcar los datos del XML de Personal en la BBDD.\n" +
+    "Numero 12. Volcar los datos del XML de Personal en la BBDD y las subclases de Personal. Imprescindible bajarse todos los XML a la vez(opciones de la 7 a la 10 .\n" +
     "Numero 13. Eliminar personal de la BBDD.\n" +
     "Numero 14. Obtener todo el personal de la BBDD.\n" +
-    "Numero 15. Modificar personal en la BBDD.\n") ;
+    "Numero 15. Modificar personal en la BBDD.\n" +
+    "Numero 16. Guardar las delegaciones que se introduzcan por consola en la BBDD\n" +
+    "Numero 17. Volcar los datos del XML de Delegacion en la BBDD.\n" +
+    "Numero 18. Eliminar delegaciones de la BBDD.\n" +
+    "Numero 19. Modificar delegaciones en la BBDD.\n" +
+    "Numero 20. Obtener todas las delegaciones de la BBDD.\n");
 
     try {
         

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <personalList>
     <personal>
-        <codigoDePersonal>36</codigoDePersonal>
+        <codigoDePersonal>72</codigoDePersonal>
         <tipoDePersonal>Voluntario</tipoDePersonal>
         <nombre>Paco</nombre>
         <apellido>Perez</apellido>
         <usuario>pacoPerez</usuario>
         <password>12345</password>
-        <delegacion>Entreculturas Francia</delegacion>
+        <delegacion>Entreculturas Polonia</delegacion>
     </personal>
     <personal>
-        <codigoDePersonal>37</codigoDePersonal>
+        <codigoDePersonal>73</codigoDePersonal>
         <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
         <nombre>John</nombre>
         <apellido>Dow</apellido>
@@ -19,8 +19,8 @@
         <delegacion>Entreculturas Francia</delegacion>
     </personal>
     <personal>
-        <codigoDePersonal>38</codigoDePersonal>
-        <tipoDePersonal>Voluntario Internacional</tipoDePersonal>
+        <codigoDePersonal>74</codigoDePersonal>
+        <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
         <nombre>Madeline</nombre>
         <apellido>Miau</apellido>
         <usuario>miau</usuario>
@@ -28,7 +28,7 @@
         <delegacion>Entreculturas Portugal</delegacion>
     </personal>
     <personal>
-        <codigoDePersonal>39</codigoDePersonal>
+        <codigoDePersonal>75</codigoDePersonal>
         <tipoDePersonal>Contratado</tipoDePersonal>
         <nombre>Megan</nombre>
         <apellido>Fox</apellido>
