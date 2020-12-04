@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <voluntarios>
     <voluntario>
-        <codigoDePersonal>72</codigoDePersonal>
+        <codigoDePersonal>76</codigoDePersonal>
         <tipoDePersonal>Voluntario</tipoDePersonal>
         <nombre>Paco</nombre>
         <apellido>Perez</apellido>

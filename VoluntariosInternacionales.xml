@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <voluntariosInternacionales>
     <voluntarioInternacional>
-        <codigoDePersonal>73</codigoDePersonal>
+        <codigoDePersonal>77</codigoDePersonal>
         <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
         <nombre>John</nombre>
         <apellido>Dow</apellido>
@@ -11,7 +11,7 @@
         <nie>5555552</nie>
     </voluntarioInternacional>
     <voluntarioInternacional>
-        <codigoDePersonal>74</codigoDePersonal>
+        <codigoDePersonal>78</codigoDePersonal>
         <tipoDePersonal>VoluntarioInternacional</tipoDePersonal>
         <nombre>Madeline</nombre>
         <apellido>Miau</apellido>

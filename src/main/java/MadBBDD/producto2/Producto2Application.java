@@ -125,8 +125,11 @@ public class Producto2Application {
                 case 11: //producto 3. Opción para guardar el personal que se introduce por consola en BBDD
                     SQLPersonalDAO SQLPersonalDAO = DAOFactoryImpl.getPersonalDAOSQL();
                     SQLPersonalDAO.insertar(miPersonalList);
+                    SQLPersonalDAO.insertarVoluntario(totalVoluntarios);
+                    SQLPersonalDAO.insertarVoluntarioInternacional(totalVoluntariosInternacionales);
+                    SQLPersonalDAO.insertarContratado(totalContratados);
                     break;
-                case 12: //producto 3. Opción para volcar los datos del XML de Personal en la BBDD
+                case 12: //producto 3. Opción para volcar los datos del XML de Personal y sus subclases en la BBDD
                     SQLPersonalDAO SQLPersonalDAOXML = DAOFactoryImpl.getPersonalDAOSQL();
                     SQLPersonalDAOXML.volcarDatosXML(miPersonalList);
                     break;

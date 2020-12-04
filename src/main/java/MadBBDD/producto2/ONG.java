@@ -712,16 +712,31 @@ public class ONG {
         return codigoDePersonalAEliminar;
     }
     
-    /*Función para recoger por teclado el String que corresponderá a uno de los atributos String del personal que se desea modificar en la BBDD*/
+    /*Función para recoger por teclado el String que corresponderá a uno de los atributos String del personal(o personal contratado) que se desea modificar en la BBDD*/
     
     String atributoDePersonalAModificar(){
-        System.out.println("Escribe el nombre del atributo del personal que deseas modificar: nombre, apellido, usuario o password.");
-        String atributoViejo = leerDatos.nextLine();       
-        while (!"nombre".equals(atributoViejo) && !"apellido".equals(atributoViejo) && !"usuario".equals(atributoViejo) && !"password".equals(atributoViejo)){ /*comprobacion de campo para que solo se puedan introducir los abributos que existen*/
-            System.out.println("El nombre del atributo que deseas modificar es incorrecto. Vuelve a introducirlo");
+        System.out.println("¿Qué clase quieres modificar: Personal o Contratado?");
+        String clase = leerDatos.nextLine();
+        String atributoViejo= "";
+        if (!"Contratado".equals(clase)){
+            System.out.println("Escribe el nombre del atributo del personal que deseas modificar: nombre, apellido, usuario o password.");
             atributoViejo = leerDatos.nextLine();       
+            while (!"nombre".equals(atributoViejo) && !"apellido".equals(atributoViejo) && !"usuario".equals(atributoViejo) && !"password".equals(atributoViejo)){ /*comprobacion de campo para que solo se puedan introducir los abributos que existen*/
+                System.out.println("El nombre del atributo que deseas modificar es incorrecto. Vuelve a introducirlo");
+                atributoViejo = leerDatos.nextLine();       
+            }
+        }
+        else{
+            System.out.println("Escribe el nombre del atributo del personal contratado que deseas modificar: funcion, costeSalario.");
+            atributoViejo = leerDatos.nextLine();       
+            while (!"funcion".equals(atributoViejo) && !"costeSalario".equals(atributoViejo)){ /*comprobacion de campo para que solo se puedan introducir los abributos que existen*/
+                System.out.println("El nombre del atributo que deseas modificar es incorrecto. Vuelve a introducirlo");
+                atributoViejo = leerDatos.nextLine();       
+            }
+            
         }
         return atributoViejo;
+       
     }
     
     String atributoModicado(String atributoViejo){
@@ -750,6 +765,6 @@ public class ONG {
         }
         return atributoViejo;
     }
-   
     
+ 
 }

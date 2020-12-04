@@ -36,11 +36,11 @@ public class Menu {
     "Número 9. XML de la clase VoluntarioInternacional.\n" +
     "Numero 10. XML de la clase Contratado.\n" +
      /*Opciones producto 3: persistencia BBDD*/
-    "Numero 11. Guardar el personal que se introduce por consola en BBDD.\n" +
-    "Numero 12. Volcar los datos del XML de Personal en la BBDD y las subclases de Personal. Imprescindible bajarse todos los XML a la vez(opciones de la 7 a la 10 .\n" +
-    "Numero 13. Eliminar personal de la BBDD.\n" +
-    "Numero 14. Obtener todo el personal de la BBDD.\n" +
-    "Numero 15. Modificar personal en la BBDD.\n" +
+    "Numero 11. Guardar el personal y sus subclases que se introduce por consola en BBDD.\n" +
+    "Numero 12. Volcar los datos del XML de Personal y sus subclases en la BBDD.\n" +
+    "Numero 13. Eliminar personal y sus subclases de la BBDD.\n" + /*no hay método para las subclases ya que por integridad referencial (cascade) se borran las clases hijas al borrarse el padre*/
+    "Numero 14. Obtener todo el personal y sus subclases de la BBDD.\n" +
+    "Numero 15. Modificar personal y subclase contratado en la BBDD.\n" + /*El resto de las subclases no se pueden modificar porque solo se componen de PK y FK y se modifican al modificarse la clase padre*/
     "Numero 16. Guardar las delegaciones que se introduzcan por consola en la BBDD\n" +
     "Numero 17. Volcar los datos del XML de Delegacion en la BBDD.\n" +
     "Numero 18. Eliminar delegaciones de la BBDD.\n" +

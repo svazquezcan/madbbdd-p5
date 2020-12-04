@@ -6,13 +6,10 @@
 package MadBBDD.producto2.XML;
 
 import MadBBDD.producto2.DAO.DAOFactory;
-import MadBBDD.producto2.SQL.SQLContratadoDAO;
 import MadBBDD.producto2.SQL.SQLDelegacionDAO;
 import MadBBDD.producto2.SQL.SQLONGDAO;
 import MadBBDD.producto2.SQL.SQLPersonalDAO;
 import MadBBDD.producto2.SQL.SQLProyectoDAO;
-import MadBBDD.producto2.SQL.SQLVoluntarioDAO;
-import MadBBDD.producto2.SQL.SQLVoluntarioInternacionalDAO;
 import java.sql.SQLException;
 import javax.xml.bind.JAXBException;
 
@@ -71,21 +68,6 @@ public class DAOFactoryImpl extends DAOFactory {
     @Override
     public SQLDelegacionDAO getDelegacionesDAOSQL() throws SQLException {
         return new SQLDelegacionDAO(); 
-    }
-
-    @Override
-    public SQLVoluntarioDAO getVoluntariosDAOSQL() throws SQLException {
-        return new SQLVoluntarioDAO(); 
-    }
-
-    @Override
-    public SQLVoluntarioInternacionalDAO getVoluntariosInternacionalesDAOSQL() throws SQLException {
-        return new SQLVoluntarioInternacionalDAO(); 
-    }
-
-    @Override
-    public SQLContratadoDAO getContratadosDAOSQL() throws SQLException {
-        return new SQLContratadoDAO(); 
     }
 
     @Override

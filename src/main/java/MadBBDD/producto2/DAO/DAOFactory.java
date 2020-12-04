@@ -5,13 +5,10 @@
  */
 package MadBBDD.producto2.DAO;
 
-import MadBBDD.producto2.SQL.SQLContratadoDAO;
 import MadBBDD.producto2.SQL.SQLDelegacionDAO;
 import MadBBDD.producto2.SQL.SQLONGDAO;
 import MadBBDD.producto2.SQL.SQLPersonalDAO;
 import MadBBDD.producto2.SQL.SQLProyectoDAO;
-import MadBBDD.producto2.SQL.SQLVoluntarioDAO;
-import MadBBDD.producto2.SQL.SQLVoluntarioInternacionalDAO;
 import MadBBDD.producto2.XML.XmlContratadoDAO;
 import MadBBDD.producto2.XML.DAOFactoryImpl;
 import MadBBDD.producto2.XML.XmlDelegacionDAO;
@@ -40,9 +37,6 @@ import javax.xml.bind.JAXBException;
         public abstract SQLPersonalDAO getPersonalDAOSQL() throws SQLException; 
         public abstract SQLProyectoDAO getProyectosDAOSQL() throws SQLException; 
         public abstract SQLDelegacionDAO getDelegacionesDAOSQL() throws SQLException;
-        public abstract SQLVoluntarioDAO getVoluntariosDAOSQL() throws SQLException;
-        public abstract SQLVoluntarioInternacionalDAO getVoluntariosInternacionalesDAOSQL() throws SQLException;
-        public abstract SQLContratadoDAO getContratadosDAOSQL() throws SQLException;
         public abstract SQLONGDAO getONGsDAOSQL() throws SQLException;
 
 	public static DAOFactory getDAOFactory() {
