@@ -3,13 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MadBBDD.producto2.XML;
+package MadBBDD.producto2.Factory;
 
 import MadBBDD.producto2.DAO.DAOFactory;
 import MadBBDD.producto2.SQL.SQLDelegacionDAO;
 import MadBBDD.producto2.SQL.SQLONGDAO;
 import MadBBDD.producto2.SQL.SQLPersonalDAO;
 import MadBBDD.producto2.SQL.SQLProyectoDAO;
+import MadBBDD.producto2.XML.XmlContratadoDAO;
+import MadBBDD.producto2.XML.XmlDelegacionDAO;
+import MadBBDD.producto2.XML.XmlONGDAO;
+import MadBBDD.producto2.XML.XmlPersonalDAO;
+import MadBBDD.producto2.XML.XmlProyectoDAO;
+import MadBBDD.producto2.XML.XmlVoluntarioDAO;
+import MadBBDD.producto2.XML.XmlVoluntarioInternacionalDAO;
 import java.sql.SQLException;
 import javax.xml.bind.JAXBException;
 

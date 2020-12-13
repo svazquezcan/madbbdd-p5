@@ -22,9 +22,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType (XmlAccessType.NONE)
 
 public class Proyecto {
-    private static AtomicInteger codigoDeProyectoCount = new AtomicInteger(1);
+    private static AtomicInteger codigoDeProyectoCount;
     @XmlElement (name="codigoDeProyecto")
     private int codigoDeProyecto; 
+    @XmlElement (name="cifOng")
+    private String cifOng;
     @XmlElement (name="pais")
     private String pais; 
     @XmlElement (name="localizacion")
@@ -61,9 +63,10 @@ public class Proyecto {
      * @param financiacionAportada
      * @param accionesARealizar
      * @param costeProyecto
+     * @param cifOng
      */
     
-    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, String accionesARealizar){
+    public Proyecto(String pais, String localizacion, String lineaDeAccion, String sublineaDeAccion, LocalDate fechaDeInicio, LocalDate fechaDeFinalizacion, String socioLocal, String financiador, float financiacionAportada, float costeProyecto, String accionesARealizar, String cifOng){
         this.codigoDeProyecto = codigoDeProyectoCount.getAndIncrement(); 
         this.pais = pais; 
         this.localizacion = localizacion; 
@@ -75,6 +78,7 @@ public class Proyecto {
         this.financiador = financiador; 
         this.financiacionAportada = financiacionAportada; 
         this.accionesARealizar = accionesARealizar; 
+        this.cifOng = cifOng;
     }
     
     /*constructor sin argumentos*/
@@ -159,6 +163,14 @@ public class Proyecto {
         return this.personalAsignado;
     }
     
+       /**Getter
+     * @return cifOng*/
+    public String getCifOng(){
+        return this.cifOng;
+    }
+    
+    
+    
       /**Setter
      * @param pais, para añadir/modificar el pais de Proyecto*/
     public void setPais(String pais){
@@ -231,6 +243,12 @@ public class Proyecto {
         this.accionesARealizar = accionesARealizar; 
     } 
     
+     /**Setter
+     * @param cifOng, para añadir/modificar cifOng de Proyecto*/
+    public void setCifOng(String cifOng){
+        this.cifOng = cifOng; 
+    } 
+    
     /**Funcion para comprobar proyectos sin asignar
      * @return boolean*/
     
@@ -250,6 +268,10 @@ public class Proyecto {
           
         return isAssigned;
             
-    }      
+    } 
+    
+        public static void inicializarAutoincrement(int num){
+        codigoDeProyectoCount = new AtomicInteger(num++);
+    }
   
 }

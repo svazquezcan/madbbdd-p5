@@ -10,7 +10,7 @@ import MadBBDD.producto2.SQL.SQLONGDAO;
 import MadBBDD.producto2.SQL.SQLPersonalDAO;
 import MadBBDD.producto2.SQL.SQLProyectoDAO;
 import MadBBDD.producto2.XML.XmlContratadoDAO;
-import MadBBDD.producto2.XML.DAOFactoryImpl;
+import MadBBDD.producto2.Factory.DAOFactoryImpl;
 import MadBBDD.producto2.XML.XmlDelegacionDAO;
 import MadBBDD.producto2.XML.XmlONGDAO;
 import MadBBDD.producto2.XML.XmlPersonalDAO;

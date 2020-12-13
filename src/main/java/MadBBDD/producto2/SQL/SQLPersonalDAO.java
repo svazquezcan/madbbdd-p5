@@ -8,9 +8,10 @@ package MadBBDD.producto2.SQL;
 import MadBBDD.producto2.Contratado;
 import MadBBDD.producto2.Contratados;
 import MadBBDD.producto2.DAO.PersonalDAO;
-import MadBBDD.producto2.DataSourceJDBC;
+import MadBBDD.producto2.Utilidad.DataSourceJDBC;
 import MadBBDD.producto2.Personal;
 import MadBBDD.producto2.PersonalList;
+import MadBBDD.producto2.Proyecto;
 import MadBBDD.producto2.Voluntario;
 import MadBBDD.producto2.VoluntarioInternacional;
 import MadBBDD.producto2.Voluntarios;
@@ -55,13 +56,24 @@ public class SQLPersonalDAO implements PersonalDAO {
                 jdbcTemplate.update(
                 "INSERT INTO personal(idDelegacion,nombre,apellido,usuario,contraseña,tipoDePersonal) VALUES (?,?,?,?,?,?)", idDelegacion,listadoPersonal.get(i).getNombre(),listadoPersonal.get(i).getApellido(),listadoPersonal.get(i).getUsuario(),listadoPersonal.get(i).getPassword(),listadoPersonal.get(i).getTipoDePersonal());
                 System.out.println("El personal de id " + listadoPersonal.get(i).getCodigoDePersonal()+ " ha sido creado.");
-      
+                
+                ArrayList<Proyecto> proyectosAsignados = listadoPersonal.get(i).getListadoProyectos();
+                
+                if(proyectosAsignados==null ||proyectosAsignados.isEmpty()){
+                } else {
+                    for (Proyecto proyecto : proyectosAsignados){
+                        
+                        jdbcTemplate.update(
+                                "INSERT INTO proyecto_personal(codigoDePersonal,codigoDeProyecto) VALUES (?,?)",listadoPersonal.get(i).getCodigoDePersonal(),proyecto.getCodigoDeProyecto());
+                        
+                    }
+                }
             }
         
         }
         
         catch(DataIntegrityViolationException e){
-            System.out.println("DataIntegrityViolationException");
+            System.out.println("Este personal ya existe. No se puede volver a crear.");
             
         }        
         

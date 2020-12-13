@@ -45,7 +45,12 @@ public class Menu {
     "Numero 17. Volcar los datos del XML de Delegacion en la BBDD.\n" +
     "Numero 18. Eliminar delegaciones de la BBDD.\n" +
     "Numero 19. Modificar delegaciones en la BBDD.\n" +
-    "Numero 20. Obtener todas las delegaciones de la BBDD.\n");
+    "Numero 20. Obtener todas las delegaciones de la BBDD.\n" +
+    "Numero 21. Guardar los proyectos que se introduzcan por consola en la BBDD.\n" +
+    "Numero 22. Volcar los datos del XML de Proyectos de la BBDD.\n" +
+    "Numero 23. Eliminar proyectos de la BBDD.\n" +
+    "Numero 24. Modificar proyectos de la BBDD.\n" +
+    "Numero 25. Obtener todos los proyectos de la BBDD.\n");
 
     try {
         

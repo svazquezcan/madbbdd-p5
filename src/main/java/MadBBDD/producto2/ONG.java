@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType (XmlAccessType.NONE)
 public class ONG {
     @XmlElement (name="CIF")
-    private String CIF; 
+    private static String CIF; 
     @XmlElement (name="direccion")
     private String direccion; 
     @XmlElement (name="telefono")
@@ -39,21 +39,21 @@ public class ONG {
     /**Creo objeto Scanner para poder leer input por teclado*/
     public static Scanner leerDatos = new Scanner(System.in);
 
-    /**Constructo
+    /**Constructor
      * @param CIF
      * @param direccion
      * @param telefono*/
     
-    public ONG(String CIF, String direccion, String telefono){
+    public ONG(String direccion, String telefono){
         this.CIF = "A12345678"; //lo asignamos directamente, ya que solo va a haber un objeto ONG
         this.direccion = direccion; 
         this.telefono = telefono;     
-        this.delegaciones = new ArrayList<Delegacion>(); 
-        this.proyectos = new ArrayList<Proyecto>();
-        this.listaPersonal = new ArrayList <Personal>(); 
-        this.listaVoluntarios = new ArrayList <Voluntario>();
-        this.listaVoluntariosInternacionales = new ArrayList <VoluntarioInternacional>(); 
-        this.listaContratados = new ArrayList <Contratado>();
+        this.delegaciones = new ArrayList<>(); 
+        this.proyectos = new ArrayList<>();
+        this.listaPersonal = new ArrayList <>(); 
+        this.listaVoluntarios = new ArrayList <>();
+        this.listaVoluntariosInternacionales = new ArrayList <>(); 
+        this.listaContratados = new ArrayList <>();
         
     }
     
@@ -61,10 +61,14 @@ public class ONG {
     public ONG(){
     }
     
+    /*Constructor sin argumentos para JABX*/
+    public ONG(String CIF){
+    }
+    
      /**Getter
      * @return CIF*/
-    public String getCIF(){
-        return this.CIF;
+    public static String getCIF(){
+        return CIF;
     }
     
      /**Getter
@@ -117,8 +121,8 @@ public class ONG {
     
      /**Setter
      * @param CIF, para añadir/modificar el CIF de la ONG*/
-    public void setCIF(String CIF){
-        this.CIF = CIF; 
+    public static void setCIF(String CIF){
+        ONG.CIF = CIF; 
     }
     
       /**Setter
@@ -300,7 +304,7 @@ public class ONG {
             }
 
             /**Solicitud por consola de la delegacion y lectura por teclado de la delegacion a la que pertenece el nuevo miembro*/
-            System.out.print("Introduce la delegación a la que pertenece el nuevo miembro del personal: 'Entreculturas España', 'Entreculturas Portugal' o 'Entreculturas Francia' ");
+            System.out.print("Introduce la delegación a la que pertenece el nuevo miembro del personal: 'Entreculturas Polonia', 'Entreculturas Portugal' o 'Entreculturas Francia' ");
             nuevaDelegacion = leerDatos.nextLine();
 
             /**Comprobacion para que campo delegación no esté vacío*/
@@ -313,7 +317,7 @@ public class ONG {
 
             /**Comprobacion para que campo delegación esté limitado a los tres tipos posibles y no se pueda introducir cualquier String. Si se crean nuevas delegaciones hay que cambiar esto*/
 
-            while (!"Entreculturas España".equals(nuevaDelegacion) && !"Entreculturas Francia".equals(nuevaDelegacion) && !"Entreculturas Portugal".equals(nuevaDelegacion)){ /*comprobacion de campo para que solo se puedan introducir las delegaciones que existen*/
+            while (!"Entreculturas Polonia".equals(nuevaDelegacion) && !"Entreculturas Francia".equals(nuevaDelegacion) && !"Entreculturas Portugal".equals(nuevaDelegacion)){ /*comprobacion de campo para que solo se puedan introducir las delegaciones que existen*/
 
                 System.out.print("La delegación indicada no es correcta. Por favor, vuelve a escribir el nombre:\n ");
                 nuevaDelegacion = leerDatos.nextLine(); 
@@ -363,8 +367,14 @@ public class ONG {
                    nuevoDNI = leerDatos.nextLine();
 
                 }
-
-                Voluntario voluntario = new Voluntario (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI);
+                
+                int nuevoCodigoDePersonal = nuevoPersonal.getCodigoDePersonal();
+                Voluntario voluntario = new Voluntario ();
+                voluntario.setCodigoDePersonal(nuevoCodigoDePersonal);
+                voluntario.setNombre(nuevoNombre); 
+                voluntario.setApellido(nuevoApellido);
+                voluntario.setDNI(nuevoDNI); 
+                
                 ArrayList<Voluntario> listadoVoluntarios = this.getListaVoluntarios();
                 listadoVoluntarios.add(voluntario);
                 
@@ -384,8 +394,13 @@ public class ONG {
                    nuevoNIE = leerDatos.nextLine();
 
                 }
-
-                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoNIE);
+                int nuevoCodigoDePersonal = nuevoPersonal.getCodigoDePersonal();
+                VoluntarioInternacional voluntarioInternacional = new VoluntarioInternacional ();
+                voluntarioInternacional.setNombre(nuevoNombre);
+                voluntarioInternacional.setApellido(nuevoApellido);
+                voluntarioInternacional.setNIE(nuevoNIE);
+                voluntarioInternacional.setCodigoDePersonal(nuevoCodigoDePersonal);
+                
                 ArrayList<VoluntarioInternacional> listadoVoluntariosInternacionales = this.getListaVoluntariosInternacionales();
                 listadoVoluntariosInternacionales.add(voluntarioInternacional);
 
@@ -430,8 +445,15 @@ public class ONG {
                    nuevaFuncion = leerDatos.nextLine();
 
                 }
-
-                Contratado contratado = new Contratado (nuevoNombre, nuevoApellido, tipoDePersonalDelNuevo, proyectosSinAsignar, nuevoUsuario, nuevaContraseña, nuevaDelegacion, nuevoDNI, nuevoCosteSalario, nuevaFuncion);
+                
+                int nuevoCodigoDePersonal = nuevoPersonal.getCodigoDePersonal();
+                Contratado contratado = new Contratado ();
+                contratado.setNombre(nuevoNombre);
+                contratado.setApellido(nuevoApellido);
+                contratado.setCosteSalario(nuevoCosteSalario);
+                contratado.setFuncion(nuevaFuncion);
+                contratado.setCodigoDePersonal(nuevoCodigoDePersonal);
+                
                 ArrayList<Contratado> listadoContratados = this.getListaContratados();
                 listadoContratados.add(contratado);
              }
@@ -672,8 +694,12 @@ public class ONG {
                System.out.print("Debe especificar las acciones a realizar. Por favor, escríbalas: ");
                nuevasAccionesARealizar = leerDatos.nextLine();
            }
+            
+            String nuevoCifOng = ONG.getCIF();
+            
 
-            Proyecto nuevoProyecto = new Proyecto (nuevoPais, nuevaLocalizacion, nuevaLineaDeAccion, nuevaSublineaDeAccion, nuevaFechaDeInicio, nuevaFechaDeFinalizacion, nuevoSocioLocal, nuevoFinanciador, nuevaFinanciacionAportada, nuevoCosteProyecto, nuevasAccionesARealizar);
+            Proyecto nuevoProyecto = new Proyecto (nuevoPais, nuevaLocalizacion, nuevaLineaDeAccion, nuevaSublineaDeAccion, nuevaFechaDeInicio, nuevaFechaDeFinalizacion, nuevoSocioLocal, nuevoFinanciador, nuevaFinanciacionAportada, nuevoCosteProyecto, nuevasAccionesARealizar, nuevoCifOng);
+            nuevoProyecto.setCifOng(nuevoCifOng);
             nuevoProyecto.setPais(nuevoPais);
             nuevoProyecto.setLineaDeAccion(nuevaLineaDeAccion);
             nuevoProyecto.setSublineaDeAccion(nuevaLineaDeAccion);
@@ -754,7 +780,7 @@ public class ONG {
         return idDeDelegacionAEliminar;
     }
     
-    /*Función para recoger por teclado el String que corresponderá a uno de los atributos String del personal que se desea modificar en la BBDD*/
+    /*Función para recoger por teclado el String que corresponderá a uno de los atributos String de la delegación que se desea modificar en la BBDD*/
     
     String atributoDeDelegacionAModificar(){
         System.out.println("Escribe el nombre del atributo de la delegación que deseas modificar: nombre, direccion o telefono.");
@@ -766,5 +792,25 @@ public class ONG {
         return atributoViejo;
     }
     
+       /*Función para recoger por teclado el codigoDeProyecto del proyecto que se desea eliminar o modificar en la BBDD*/
+    
+    int codigoDeProyectoAEliminar(){
+        System.out.println("Escribe el codigoDeProyecto del proyecto que desees modificar o eliminar");
+        int codigoDeProyectoAEliminar = leerDatos.nextInt(); 
+        leerDatos.nextLine();
+        return codigoDeProyectoAEliminar;
+    }
+    
+    /*Función para recoger por teclado el String que corresponderá a uno de los atributos String del proyecto que se desea modificar en la BBDD*/
+    
+    String atributoDeProyectoAModificar(){
+        System.out.println("Escribe el nombre del atributo del proyecto que deseas modificar: pais, localizacion, lineaDeAccion, sublineaDeAccion, socioLocal, financiador, accionesARealizar");
+        String atributoViejo = leerDatos.nextLine();       
+        while (!"pais".equals(atributoViejo) && !"localizacion".equals(atributoViejo) && !"lineaDeAccion".equals(atributoViejo) && !"sublineaDeAccion".equals(atributoViejo) && !"socioLocal".equals(atributoViejo) && !"financiador".equals(atributoViejo) && !"accionesARealizar".equals(atributoViejo)){ /*comprobacion de campo para que solo se puedan introducir los abributos que existen*/
+            System.out.println("El nombre del atributo que deseas modificar es incorrecto. Vuelve a introducirlo");
+            atributoViejo = leerDatos.nextLine();       
+        }
+        return atributoViejo;
+    }
  
 }

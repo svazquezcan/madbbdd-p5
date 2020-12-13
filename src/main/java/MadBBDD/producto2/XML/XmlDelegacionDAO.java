@@ -6,7 +6,7 @@
 package MadBBDD.producto2.XML;
 
 import MadBBDD.producto2.DAO.DelegacionDAO;
-import MadBBDD.producto2.DataSourceJDBC;
+import MadBBDD.producto2.Utilidad.DataSourceJDBC;
 import MadBBDD.producto2.Delegaciones;
 import java.io.FileWriter;
 import java.io.IOException;

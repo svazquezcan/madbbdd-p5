@@ -1,31 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <proyectos>
     <proyecto>
-        <codigoDeProyecto>1</codigoDeProyecto>
-        <pais>España</pais>
-        <localizacion>Madrid</localizacion>
-        <lineaDeAccion>Acceso al agua potable</lineaDeAccion>
-        <sublineaDeAccion>Fuentes</sublineaDeAccion>
+        <codigoDeProyecto>6</codigoDeProyecto>
+        <cifOng>A12345678</cifOng>
+        <pais>dsfsdfds</pais>
+        <localizacion>dfsdsfds</localizacion>
+        <lineaDeAccion>fdsfsd</lineaDeAccion>
+        <sublineaDeAccion>fdsfsd</sublineaDeAccion>
         <fechaDeInicio>2020-12-12</fechaDeInicio>
-        <fechaDeFinalizacion>2021-12-12</fechaDeFinalizacion>
-        <socioLocal>Carrefour</socioLocal>
-        <financiador>Carrefour</financiador>
-        <financiacionAportada>1000000.0</financiacionAportada>
-        <costeProyecto>0.0</costeProyecto>
-        <accionesARealizar>Potabilización</accionesARealizar>
-    </proyecto>
-    <proyecto>
-        <codigoDeProyecto>2</codigoDeProyecto>
-        <pais>España</pais>
-        <localizacion>Barcelona</localizacion>
-        <lineaDeAccion>OK</lineaDeAccion>
-        <sublineaDeAccion>OK</sublineaDeAccion>
-        <fechaDeInicio>2020-11-11</fechaDeInicio>
-        <fechaDeFinalizacion>2020-11-11</fechaDeFinalizacion>
-        <socioLocal>lolo</socioLocal>
-        <financiador>lolo</financiador>
-        <financiacionAportada>555555.0</financiacionAportada>
-        <costeProyecto>55555.0</costeProyecto>
-        <accionesARealizar>lolol</accionesARealizar>
+        <fechaDeFinalizacion>2020-12-12</fechaDeFinalizacion>
+        <socioLocal>dfs</socioLocal>
+        <financiador>dfs</financiador>
+        <financiacionAportada>56.0</financiacionAportada>
+        <costeProyecto>56.0</costeProyecto>
+        <accionesARealizar>dsf</accionesARealizar>
     </proyecto>
 </proyectos>

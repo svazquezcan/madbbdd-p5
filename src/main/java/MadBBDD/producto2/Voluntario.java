@@ -24,23 +24,17 @@ public class Voluntario extends Personal {
 
     
     /*Constructor para crear voluntario y asignarle un proyecto a la vez*/
-    public Voluntario(String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI) {
+    public Voluntario(int CodigoDePersonal, String tipoDePersonal, String nombre, String apellido, ArrayList<Proyecto> listadoProyectos, String usuario, String contraseña, String delegacion, String DNI) {
         super(tipoDePersonal, nombre, apellido, listadoProyectos, usuario, contraseña, delegacion);
         this.DNI = DNI; 
     }
     
     /*Constructor para crear voluntario sin asignar proyecto*/
-    public Voluntario(String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion, String DNI) {
+    public Voluntario(int CodigoDePersonal, String tipoDePersonal, String nombre, String apellido, String usuario, String contraseña, String delegacion, String DNI) {
         super(tipoDePersonal, nombre, apellido, usuario, contraseña, delegacion);
         this.DNI = DNI; 
     }
-    
-      /*Constructor para crear VoluntarioInternacional para BBDD*/
-     public Voluntario (int codigoDePersonal,String DNI) {
-        super(codigoDePersonal);
-        this.DNI = DNI; 
-    }
-    
+       
     /*Constructor sin args para JAXB*/
     public Voluntario(){
         

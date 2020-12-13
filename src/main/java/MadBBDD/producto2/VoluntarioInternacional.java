@@ -33,13 +33,7 @@ public class VoluntarioInternacional extends Personal {
         super(tipoDePersonal, nombre, apellido, usuario, contraseña, delegacion);
         this.NIE = NIE; 
     }
-     
-     /*Constructor para crear VoluntarioInternacional para BBDD*/
-     public VoluntarioInternacional(int codigoDePersonal, String NIE) {
-        super(codigoDePersonal);
-        this.NIE = NIE; 
-    }
-     
+         
     /*Constructor sin args para JABX*/
      public VoluntarioInternacional(){
          

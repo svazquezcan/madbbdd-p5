@@ -54,11 +54,6 @@ public class XmlProyectoDAO implements ProyectoDAO{
             System.out.println("El archivo Proyectos.xml ha sido creado correctamente ");
 
         }
-
-        @Override
-        public Proyecto obtener(Integer String) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
     
 }
     

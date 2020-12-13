@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <voluntarios>
     <voluntario>
-        <codigoDePersonal>76</codigoDePersonal>
-        <tipoDePersonal>Voluntario</tipoDePersonal>
-        <nombre>Paco</nombre>
-        <apellido>Perez</apellido>
-        <usuario>pacoPerez</usuario>
-        <password>12345</password>
-        <delegacion>Entreculturas Polonia</delegacion>
-        <dni>5555555P</dni>
+        <codigoDePersonal>105</codigoDePersonal>
+        <nombre>we</nombre>
+        <apellido>we</apellido>
+        <dni>we</dni>
     </voluntario>
 </voluntarios>
